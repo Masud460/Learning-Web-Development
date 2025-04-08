@@ -1,0 +1,38 @@
+1. What is the syntax of for of loop? and is it's needs any condition?
+
+2. What will happen if we loop a string with forof loop?
+
+3. What is Map in JS?
+
+4. What's the different between map and object?
+
+5. What's the syntax of Map?
+
+6. How to set Keys and Values in Map?
+
+7. Is the map loopable?
+
+8. Is the object Itretable?
+
+9. Is the following code works? 
+    const myObj = {
+      game1: 'NFC',
+      game2: 'COC',
+    };
+    for (const [key, value] of myObj) {
+      console.log(key, ':', value);
+    }
+
+10. As we know the forof loop isn't Works in object, so how we can loop an object?
+
+11. How to exicute an array with forin loop?
+
+12. Is the map Itretable?
+
+13. exicute an array using forEach loop;
+
+14. Can we use outside function for forEach callback function?
+
+15. How many things holds forEach loop in an array?
+
+16. Exicute many object those are in an array using forEach loop;

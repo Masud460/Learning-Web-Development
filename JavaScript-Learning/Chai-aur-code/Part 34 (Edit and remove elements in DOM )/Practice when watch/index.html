@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM | Chai aur code</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        background-color: #212121;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="languages">
+      <li>JavaScript</li>
+    </ul>
+  </body>
+  <script>
+    function addLanguage(langName) {
+      const ul = document.querySelector(".languages");
+      const li = document.createElement("li");
+      const nameOfLang = document.createTextNode(langName);
+      li.appendChild(nameOfLang);
+      ul.appendChild(li);
+    }
+    addLanguage("Python");
+    addLanguage("PHP");
+    addLanguage("C++");
+    addLanguage("Java");
+
+    // Edit
+    const fifthLang = document.querySelector("li:nth-child(5)");
+    // fifthLang.innerHTML = "C#";
+    const newLi = document.createElement("li");
+    newLi.textContent = "C#";
+    fifthLang.replaceWith(newLi);
+
+    // Edit two
+    const thirdLang = document.querySelector("li:nth-child(3)");
+    thirdLang.outerHTML = "<li>Laravel</li>";
+
+    // Remove
+    const lastLang = document.querySelector('li:last-child')
+    lastLang.remove()
+  </script>
+</html>

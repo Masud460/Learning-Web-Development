@@ -1,0 +1,74 @@
+1. There are some bad approch in event:
+    1st:
+        setting onclick attribute in html tag;
+
+    2nd:
+        const owl = document.getElementById("owl");
+        owl.onclick = function () {
+        alert('owl clicked')
+    };
+
+2. Here is the good approch of event:
+    1st:
+        .addEventListener()
+
+    2nd:
+        attachEvent()
+
+    3rd:
+        jQuery - on
+
+3. The third parameter of addEventListener method is a boolean value which is 'false', it is difault value;
+
+
+4. These thing we need to learn in event object:
+    type, timeStamp, defaultPrevented, target, toElement, srcElement, currentTarget, clientY, clientX, screenX, screenY, altkey, ctrlkey, shiftkey, keyCode;
+
+5. Event Propagation / bubbling had two side:
+    1st:
+        event public // this use as false, and it used most of the time
+    2nd:
+        event capturing // this use as true
+
+        for example you have an owl image inside a div named images,
+        and you seted the addEventListener event in both of them, in this case if you set the event public and click , than the owl image was firstly clicked and then the images div, or if you set the event capturing and click on that, than the images div will firstly clicked then the owl image;
+
+6. Like this:
+    owl.addEventListener("click", function (e) {
+      console.log('owl clicked');
+      e.stopPropagation()
+    }, false);
+
+7. Like this:
+    google.addEventListener('click', function(e){
+      console.log('Google clicked');
+      e.preventDefault()
+      e.stopPropagation()
+    },false)
+
+8. Like this:
+    const ul = document.querySelector('#images')
+    ul.addEventListener('click', function(e){
+      console.log(e.target.parentNode);
+      let removeIt = e.target.parentNode;
+      // removeIt.remove()
+      removeIt.parentNode.removeChild(removeIt)
+    }, false)
+
+9. With this way:
+    const ul = document.querySelector("#images");
+    ul.addEventListener(
+      "click",
+      function (e) {
+        console.log(e.target.tagName);
+        if (e.target.tagName === "IMG") {
+          console.log(e.target.id);
+          let removeIt = e.target.parentNode;
+          removeIt.remove();
+        }
+      },
+      false
+    );
+
+
+10. When we use the standerd function in event handler, it is holds only the element, and when we use the arrow function it holds whole window object.

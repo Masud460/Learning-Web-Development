@@ -1,0 +1,5 @@
+1. The important thing of PowerShell is : if you want to access something you need to write the 'cd' before every command.
+
+2. By writing 'ls' or 'dir'.
+
+3. The '~' tilde refers the home directory(C:\Users\Ataullah-Masud)

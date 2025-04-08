@@ -1,0 +1,15 @@
+1. Write a nested object?
+
+2. What is Optional chaining?
+
+3. Give an example of Optional chaining.
+
+4. How to combine many objects?
+
+5. How works the Object.assign method?
+
+6. When we use the Object.keys, then as which datatype it returns the value?
+
+7. What does the Object.entries property?
+
+8. How to check if an object has a specific property?

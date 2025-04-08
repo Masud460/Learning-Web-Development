@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM | Chai aur code</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        background-color: #212121;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>JavaScript</li>
+    </ul>
+  </body>
+  <script>
+    const ul = document.querySelector("ul");
+    const li = document.createElement("li");
+    // li.innerHTML = 'PHP'
+    ul.appendChild(li);
+
+    const addText = document.createTextNode("Python");
+    li.appendChild(addText);
+
+    // Edit
+    const secondLang = document.createElement("li");
+    secondLang.innerHTML = "PHP";
+    ul.appendChild(secondLang);
+
+    // Another Edit
+    const lastChild = document.querySelector('li:last-child')
+    const thirdLang = document.createElement('li');
+    thirdLang.textContent = 'Laravel'
+    lastChild.replaceWith(thirdLang)
+
+    // Another way
+    const secChild = document.querySelector('li:nth-child(2)')
+    secChild.outerHTML = '<li>Java</li>'
+
+    thirdLang.remove()
+  </script>
+</html>

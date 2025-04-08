@@ -1,0 +1,11 @@
+1. Create an li and append it in an ul in unoptimized way.
+
+2. Create an li and append it in an ul in optimized way.
+
+3. How to edit an element in unoptimized way?
+
+4. How to edit an element in optimized way?
+
+5. What is the another way to edit an element?
+
+6. How to remove an element?

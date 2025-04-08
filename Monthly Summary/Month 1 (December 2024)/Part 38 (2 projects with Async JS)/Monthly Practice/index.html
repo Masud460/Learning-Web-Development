@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Asynchoronous</title>
+    <style>
+        body{
+            background: #212121;
+            color: #fff;
+        }
+    </style>
+    <body>
+        <h1>Chai aur code</h1>
+        <button id="stop">Stop</button>
+    </body>
+    <script>
+        const h1 = document.querySelector('h1')
+        const button = document.querySelector('#stop')
+        // setTimeout(function(){
+        //     h1.innerText = 'Welcome to our website' 
+        // },2000)
+        let timeoutId = setTimeout(function(text){
+            h1.innerText = text
+        }, 3000, 'Best JS Series');
+        button.addEventListener('click', function(){
+            clearTimeout(timeoutId)
+        })
+    </script>
+</html>

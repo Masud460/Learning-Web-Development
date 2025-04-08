@@ -1,0 +1,107 @@
+1. Like this:
+    const promiseOne = new Promise()
+
+2. There has three things in promise:   
+    resolve, reject, pending;
+
+3. Like this:
+    const promiseOne = new Promise(function (resolve, reject) {
+    setTimeout(function () {
+        console.log('Async Completed');
+    }, 1000)
+    })
+    promiseOne.then(function () {
+    console.log('Promise consumed');
+    })
+
+4. Like this:
+    new Promise(function (resolve, reject) {
+    setTimeout(function () {
+        console.log('Async two completed');
+        resolve()
+    }, 1000)
+    }).then(function () {
+        console.log('Promise two consumed');
+    })
+
+5. Like this:
+    const promiseThree = new Promise(function (resolve, reject) {
+    setTimeout(function () {
+        resolve({username: 'Ataullah', email: 'ataullahmasud388@gmail.com'})
+    }, 1000)
+    })
+
+    promiseThree.then(function (user) {
+    console.log(user);
+    })
+
+6. Here is the solution:
+    
+const promiseFour = new Promise(function (resolve, reject) {
+    let error = CSSFontFeatureValuesRule;
+    setTimeout(function () {
+        if (!error) {
+            resolve({username: 'Masud', password: '123'})
+        } else {
+            reject("ERROR Something went wrong!")
+        }
+    },1000)
+    })
+
+    promiseFour.then(function (user) {
+    console.log(user);
+    return user.username
+    }).then(function (username) {
+    console.log(username);
+    }).catch(function (error) {
+    console.log(error);
+    )
+
+7. The 'finally' keyword is a default method, is always exicute either the promise resolved or rejected.
+
+8. Here is the solution:
+    const promiseFive = new Promise(function (resolve, reject) {
+    let error = false;
+    setTimeout(function () {
+        if (!error) {
+            resolve({username: 'Masud', password: '1234'})
+        } else {
+            reject("ERROR: Something went wrong")
+        }
+    }, 1000)
+    })
+
+    async function consumePromiseFive() {
+    const response = await promiseFive
+    console.log(response);
+    }
+    consumePromiseFive()
+
+9. Here is the solution:
+    async function consumePromiseFive() {
+    try {
+        const response = await promiseFive
+        console.log(response);
+    } catch (error) {
+        console.log(error);
+    }
+    }
+    consumePromiseFive()
+
+10. Here it is:
+    async function getAllUser() {
+    const response = await fetch('https://randomuser.me/api/');
+    const data = await response.json();
+    console.log(data);
+    }
+    getAllUser()
+
+11. Like this:
+    fetch('https://randomuser.me/api/')
+    .then(function (response) {
+        return response.json()
+    })
+    .then(function (data) {
+        console.log(data);
+    })
+.catch((error) => console.log(error))

@@ -1,0 +1,5 @@
+1. In old days how the react sends us some precreated variable, show an example.
+
+2. Create a method named 'handleClick' and log two things in the method a message and a the server variable.
+
+3. In the previous example we have seen a problem, that is when we click in button the message displays but the server variable is displays 'undefined', How to solve it?

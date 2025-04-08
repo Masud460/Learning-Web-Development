@@ -1,0 +1,67 @@
+1. Like this :
+    const headTitle = document.querySelector("h1");
+    headTitle.innerText = headTitle.innerText + ' Ataullah!';
+
+2. Like this: 
+    let boxes = document.querySelectorAll(".box");
+    let newNum = 1;
+
+    for (box of boxes) {
+     box.innerText = `Box No.${newNum}`;
+      newNum++;
+    }
+3. Like this:
+    let learnBtn = document.createElement("button");
+    learnBtn.innerText = "Learn More";
+
+4. Like this:
+    let heroArea = document.querySelector(".hero");
+    heroArea.append(learnBtn); // Last
+    heroArea.prepend(learnBtn); // First
+    heroArea.before(learnBtn); // Up to the element
+    heroArea.after(learnBtn); // Under the Element;
+
+5. Like this:
+    document.appendChild(What you want to inside)
+
+
+6. Like this:
+    function addFruits(name) {
+      const li = document.createElement('li');
+      li.innerHTML = `${name}`;
+      document.querySelector('ul').appendChild(li)
+    }
+    addFruits('Apple');
+    addFruits('Grape');
+    addFruits('Orange');
+
+7. Like this:
+    function addFruitsOP(name) {
+      const li = document.createElement('li');
+      li.appendChild(document.createTextNode(name))
+      document.querySelector('ul').appendChild(li)
+    }
+    addFruitsOP('Apple');
+    addFruitsOP('Grape');
+    addFruitsOP('Orange');
+
+8. There are four ways to edit an element:
+    1st:
+    let editFruits = document.querySelector("li:first-child");
+    editFruits.innerText = "Blueberry";
+
+    2nd:
+    editFruits.textContent = "Blueberrys";
+
+    3rd:
+    const newFruits = document.createElement('li');
+    newFruits.textContent = 'Strawberry';
+    editFruits.replaceWith(newFruits);
+
+    4th:
+    const editTag = document.querySelector('li:last-child');
+    editTag.outerHTML = '<p>Jack-fruit</p>'
+
+9. Like this:
+    let selLastFruit = document.querySelector("li:last-child");
+    selLastFruit.remove()

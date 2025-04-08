@@ -1,0 +1,85 @@
+1. We use 'getter' for securing something and we want to we will not give the access of a variable in class, not sharing the same value, and sharing the our edited value.
+
+2. The 'get' keyword is already defined as a method in the class object, we can use it like this:
+    get email() {
+        
+    }
+
+3. No, we cannot do this, when we set one there is needs the second one also. or we get an error.
+
+4. This is setter's syntax:
+    set password(value) {
+        this.password = value
+    }
+
+5. Yes, this is important, because we are setting something, that's why this is important.
+
+6. Because the constructor method is setting the value and the setter is also setting the value, so they together doing this and racing, that's why the problem is displaing.
+
+7. It's very simple, simply set a new variable name in the getter and setter, like this:
+    get password() {
+        return this._password.toUpperCase()
+    }
+    set password(value) {
+        this._password = value
+    }
+
+8. Here is it:
+    get email() {
+        return this._email.toUpperCase()
+    }
+    set email(value) {
+        this._email = value
+    }
+
+9. Like this:
+    function User(email, password) {
+        this._email = email;
+        this._password = password;
+
+        Object.defineProperty(this, 'email', {
+            get: function () {
+                return this._email.toUpperCase()
+            },
+            set: function (value) {
+                this._email = value;
+            }
+        })
+        Object.defineProperty(this, 'password', {
+            get: function () {
+                return this._password.toUpperCase()
+            },
+            set: function (value) {
+                this._password = value;
+            }
+        })
+
+        }
+
+    const mahfuj = new User('mahfuj@google.com', 'mahfuj')
+    console.log(mahfuj.email);
+    console.log(mahfuj.password);
+
+10. Like this:
+    const User = {
+        _email: 'masud@google.com',
+        _password: 'masud',
+
+        get email() {
+            return this._email.toUpperCase()
+        },
+        set email(value) {
+            this._email = value
+        },
+
+        get password() {
+            return this._password.toUpperCase()
+        },
+        set password(value) {
+            this._password = value
+        }
+    }
+
+    const masud = Object.create(User)
+    console.log(masud.email);
+    console.log(masud.password);

@@ -1,0 +1,36 @@
+1. Here is the example of lexical scoping:
+    function outer(){
+        let username = 'masud';
+        function inner(){
+            console.log(username);
+        }
+        inner()
+    }
+    outer()
+
+2. The outer function's objects also returns, because is this will not be happend the following code not be return the name value:
+    function makeFunc(){
+        const name = 'Masud';
+        function displayName(){
+            console.log(name);
+        }
+        return displayName;
+    }
+    const myFunc = makeFunc();
+    myFunc()
+
+3. For example we got hundreds of color to set by clicking hundreds buttons, in this time we cannot copy paste because this is our core principle 'Don't repeat your self', so in this time we use a function like this:
+    function clickHandler(color){
+        document.body.style.backgroundColor = color;
+    }
+    document.getElementById('orange').onclick = clickHandler("orange")
+    document.getElementById('green').onclick = clickHandler("green")
+
+    in this time also we are facing a problem because the function is exicuted before clicking the buttion and the backgroundColor is changed before we change, so the solution of this problem is : we need to change the clickHandler function like this:
+        function clickHandler(color){
+            return function(){
+                document.body.style.backgroundColor = `${color}`
+            }
+        }
+    
+    it's time to works the code.

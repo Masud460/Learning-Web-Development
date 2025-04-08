@@ -1,0 +1,33 @@
+1. Like this:
+    grid-template-columns: 100px 100px;
+
+2. Like this:
+    grid-template-rows: 300px 300px;
+
+3. Like this:
+    grid-template-columns: 250px auto 250px;
+
+4. Like this:
+    grid-row-gap: 2px;
+    grid-column-gap: 3px;
+
+5. Like this:
+    grid-gap: 4px;
+
+6. We can do this using fraction unit, like this:
+    grid-column-rows: 1fr 2fr;
+
+7. Here it is:
+    grid-template: rows / columns;
+
+8. Like this:
+    grid-template-columns: repeat(how much times to repeat, what size need to repeat)
+
+9. We can do this using these things:
+    grid-column-start: 2;
+    grid-column-end: 4;
+
+    Important thing to know that these things write in the child element not in the parent element;
+
+10. Here is the shorthand:
+    grid-column: start / end;

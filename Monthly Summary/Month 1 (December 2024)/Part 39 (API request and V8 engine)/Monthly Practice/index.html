@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HTTP Request</title>
+        <style>
+            body {
+                background-color: #212121;
+                color: #fff;
+            }
+        </style>
+    </head>
+    <body>
+    </body>
+    <script>
+        const apiURL = 'https://api.github.com/users/Masud460'
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', apiURL)
+        xhr.send()
+        console.log(xhr.readyState)
+        xhr.onreadystatechange = function(e){
+            // console.log(xhr.readyState)
+            if (xhr.readyState === 4){
+                let data = JSON.parse(this.response)
+                console.log(data)
+                console.log(data.id)
+                console.log(data.login)
+                console.log(data.name)
+            }
+        }
+    </script>
+</html>

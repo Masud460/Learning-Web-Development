@@ -1,0 +1,4 @@
+1. Here it is:
+    copyBtn.addEventListener('click', function() {
+    navigator.clipboard.writeText(output.value)
+  })

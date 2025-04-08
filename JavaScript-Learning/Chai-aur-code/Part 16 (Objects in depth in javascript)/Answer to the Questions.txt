@@ -1,0 +1,11 @@
+1. If we create an object using constructor, that time a singleton will be created, and if we create an object using literal way, that time the singleton won't be created.
+
+2. Like this: Object.create()
+
+3. Like this: const JsUser = {}
+
+4. Like this:
+    [myKey]: 'Hello',
+
+5. Like this:  
+    Object.freeze(object_name)

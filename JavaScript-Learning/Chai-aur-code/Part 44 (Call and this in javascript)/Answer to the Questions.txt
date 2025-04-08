@@ -1,0 +1,27 @@
+1. That time the context of the inner function is 'Global Execution Context'.
+
+2. The global execution context referes an empty object in node , and window object in browser.
+
+3. Yes, that function is be called, but the variables of that outer side function will be vanish beacuse of the Execution Context.
+
+4. There are many way to solve the problem, we just discuss one way in this tutorial, here it is:
+    use the 'call' method with the function invoking.
+
+5. This is very simple, just type 'this' in frist argument when invoking the outer side function in the main function.
+
+6. Here is the whole practice:
+
+    function setUsername(username) {
+    this.username = username;
+    
+}
+
+function createUser(username, email, password) {
+    setUsername.call(this, username)
+    this.email = email;
+    this.password = password;
+}
+
+const userOne = new createUser('Masud', 'masud@google.com', 1234);
+
+console.log(userOne);

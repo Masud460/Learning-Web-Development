@@ -1,0 +1,32 @@
+1. Like this:
+    let sayWelcome = function(){
+            console.log('Welcome to our website');
+        }
+        setTimeout(sayWelcome, 2000)
+
+2. Like this:   
+    let changeTitle = function(){
+            document.querySelector('h1').innerHTML = 'best JS series'
+        }
+        setTimeout(changeTitle, 2000)
+
+3. Like this:
+    const btn = document.getElementById('stop')
+        const changeMe = setTimeout(changeTitle, 3000);
+        btn.addEventListener('click', function(){
+            clearTimeout(changeMe)
+        }, false)
+
+4. This is value of a parameter, it works like argument;
+
+5. Here it is:
+    let sayHi = function(name){
+            console.log('Hi ' + name);
+        }
+
+        start.addEventListener('click', function(){
+            let passThis = setInterval(sayHi ,1000, 'Masud')
+            stop.addEventListener('click', function(){
+            clearInterval(passThis)
+        }, false)
+        }, false);

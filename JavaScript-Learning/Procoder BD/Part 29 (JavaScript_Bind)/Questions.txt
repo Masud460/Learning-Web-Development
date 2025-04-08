@@ -1,0 +1,35 @@
+1. How to use the bind method?
+
+2. In the above code line no 22, 23 works, but 25 doesn't work, but why the problem, and what is the solution? 
+    // code
+    const hanifTicket = bookTicket.bind(hanif) // line 22
+    hanifTicket('Masud', 'C1') // line 23
+
+    bookTicket.bind(hanif, 'Mahfuj', 'C2') // line 25
+
+3. When use the call method?
+
+4. When use the apply method?
+
+5. When use the bind method?
+
+6. What is the output of the following code?
+    const person = {
+        firstName: 'Ataullah',
+        lastName: 'Masud',
+        display() {
+            console.log(`${this.firstName} ${this.lastName}`)
+        }
+    }
+    const display = person.display;
+    display()
+
+7. What is the solution of this problem?
+
+8. As you metioned in very first of this topic 'If we are working with a function that we called but we will use it later, that time we use the bind method', give an example of this.
+
+9. What if we use the call or apply method instead of bind in your previous example?
+
+10. If we want to use the bind method in an object that doesn't have the 'this' keyword/(or we need to use a precreated blueprint), that time how can we use it?
+
+11. Why we used the null in the previous example?

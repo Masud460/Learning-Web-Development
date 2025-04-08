@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Practice</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        list-style: none;
+      }
+
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+      }
+
+      body {
+        background-color: #212121;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+    </style>
+  </head>
+  <body></body>
+  <script>
+    function studentId(
+      firstOfName = "MD",
+      nameOfStudent = "Ataullah Masud",
+      rollNo = 0,
+      emailID = "ataullahmasud388@gmail.com"
+    ) {
+      const container = document.createElement("div");
+      const names = document.createElement("h3");
+      const roll = document.createElement("h3");
+      const email = document.createElement("h4");
+      const textName = document.createTextNode(
+        `${firstOfName} : ${nameOfStudent}`
+      );
+      const textEmail = document.createTextNode(`Email : ${emailID}`);
+      const textRoll = document.createTextNode(`Roll : ${rollNo}`);
+
+      container.style.width = "350px";
+      container.style.textAlign = "center";
+      container.style.backgroundColor = "#fff";
+      container.style.borderRadius = "15px";
+      container.style.border = "5px solid gray";
+
+      names.style.padding = "10px 15px";
+      names.style.fontSize = "24px";
+      names.style.color = "#000";
+
+      roll.style.padding = "10px 15px";
+      roll.style.fontSize = "24px";
+      roll.style.color = "#000";
+
+      email.style.padding = "10px 15px";
+      email.style.fontSize = "24px";
+      email.style.color = "#000";
+
+      names.appendChild(textName);
+      roll.appendChild(textRoll);
+      email.appendChild(textEmail);
+
+      container.appendChild(names);
+      container.appendChild(roll);
+      container.appendChild(email);
+
+      document.body.appendChild(container);
+    }
+    studentId();
+    studentId("MD", "Jubaer Fahad", 1, "jobaerfahad@gmail.com");
+    studentId("MD", "Saifullah Mahfuj", 1, "saifullahmahfuj@gmail.com");
+    studentId("MD", "Abdullah Al Noman", 1, "abdullahalnoman@gmail.com");
+    studentId("Ms", "Marwa Alam Meem", 1, "marwaalammeem@gmail.com");
+  </script>
+</html>

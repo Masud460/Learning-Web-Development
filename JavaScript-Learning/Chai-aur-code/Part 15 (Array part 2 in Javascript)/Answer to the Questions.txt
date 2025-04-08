@@ -1,0 +1,22 @@
+1. There are two ways for doing this:
+    1st:
+        Use the concat method, like this:
+        const allKitab = hidayatunnahu.concat(nahvemeer);
+    2nd:
+        Use the spread operator, like this:
+        const all_new_kitab = [...hidayatunnahu, ...nahvemeer]
+
+2. We can use the flat method for doing this:
+    const nums_in_one = nums.flat(Infinity)
+
+3. By using the Array.isArray method, like this:
+    console.log(Array.isArray(nums))
+
+4. By using the Array.from method, like this:
+    console.log(Array.from(nums))
+
+5. It will return an empty array. []
+
+6. Here is it:
+    console.log(Array.of(score1, score2, score3))
+

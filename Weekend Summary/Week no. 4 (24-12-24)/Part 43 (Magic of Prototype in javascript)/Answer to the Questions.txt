@@ -1,0 +1,96 @@
+1. No, we cannot get the accese of the 'this' keyword in arrow function.
+
+2. like this:
+    function multiplyByFive(num) {
+    return num * 5;
+    }
+    multiplyByFive.power = 2;
+
+3. like this:
+    createUser.prototype.increment = function () {
+    this.score++;
+    }
+
+4. like this:
+    createUser.prototype.increment = function () {
+    this.score++;
+    }
+
+5. like this:
+    createUser.prototype.printMe = function () {
+    console.log(`score is : ${this.score}`);
+    }
+
+6. for solving the problem you can use the 'new' constructor keyword in the user's variable, like this:
+    const userOne = new createUser('Monir', 32)
+
+7. The meanning of 'this' in hindi is 'this matlab jis'.
+
+8. Here is the sheet:
+/*
+
+Here's what happens behind the scenes when the new keyword is used:
+
+A new object is created: The new keyword initiates the creation of a new JavaScript object.
+
+A prototype is linked: The newly created object gets linked to the prototype property of the constructor function. This means that it has access to properties and methods defined on the constructor's prototype.
+
+The constructor is called: The constructor function is called with the specified arguments and this is bound to the newly created object. If no explicit return value is specified from the constructor, JavaScript assumes this, the newly created object, to be the intended return value.
+
+The new object is returned: After the constructor function has been called, if it doesn't return a non-primitive value (object, array, function, etc.), the newly created object is returned.
+
+*/
+
+
+9. the way to create a method for all object is like this:
+    Object.prototype.masud = function () {
+    console.log(`masud is present in all object`);
+    }
+
+    Here is an example for clearing the concept:
+        let myHeros = ['Spiderman', 'thor']
+
+    const heroPower = {
+        thor: 'hammer',
+        spiderman: 'sling',
+
+        getSpiderPower: function () {
+            console.log(`spidy power is ${this.spiderman}`);
+        }
+    }
+
+    Object.prototype.masud = function () {
+        console.log(`masud is present in all object`);
+    }
+
+    heroPower.masud() // expected output: masud is present in all object
+    myHeros.masud() // expected output: masud is present in all object
+
+10. No, we cannot get accese of that from other datatypes.
+
+11. It's called prototypal inheritance, the example is this:
+        There are two ways for :
+        1st:
+            const teachingAssistent = {
+            isAvailable: false
+        }
+
+        const TASupport = {
+            makeAssignment: 'JS assignment',
+            fullTime: true,
+            __proto__: teachingAssistent
+        }
+
+        2nd:
+            const user = {
+                name: 'Masud',
+                email: 'masud@google.com'
+            }
+
+            const teacher = {
+                makeVideo: true
+            }
+            teacher.__proto__ = user;
+
+12. Here is the modern syntax of linking an object with another object:
+    Object.setPrototypeOf(whichObjectYouWantToAddWith, whichObjectYouWantToAdd)

@@ -1,0 +1,52 @@
+1. Like this:
+    const hanifTicket = bookTicket.bind(hanif) // line 22
+    hanifTicket('Masud', 'C1') // line 23   
+
+2. The line no. 22 works because it returning a new function and you're holding it in a variable, and when you're invoking it from line no. 23 , the new function are invoking, on the other hand side the line no. 25 is returning a new function and you aren't holding it on any variable, so it's not be called, to solve the problem you can use the parenthesis in the last of the line like an IIFE like this:
+    bookTicket.bind(hanif, 'Mahfuj', 'C2')() // line 25
+
+3. 
+    1st:
+        When you want only using the data that you collected from the object(this is not the js object), and you don't need to do another thing, that time use the call method. 
+    2nd:
+        If you're working with a function that exicute imediatly, that time use the call or apply method.
+
+
+4. 
+    1st:
+        When you work with array, that time use the apply method.
+    2nd:
+        If you're working with a function that exicute imediatly, that time use the apply or call method.
+
+5. 
+    1st:
+        If you're working with a function that you called but you will use it later, that time use the bind method.
+    2nd:
+        If you need to predifine something, like in this bus example you only want to sale a specific ticket, you can predefine it.
+
+6. The output is 'undefined undefined' in node and browser both, because you have used 'this' keyword in the object, and saved the reference in a variable which is in the global or window object, so this time the 'this' keyword refers the global/window object, and the global/window object doesn't have the firstName and lastName's access, but in the browser if you save the firstName and lastName in the window object using var keyword, that time it displays the var values.
+
+7. The solution of this problem is usage of the bind method to tell JS about the context of the this keyword, like this:
+    const display = person.display;
+    display.bind(person)()
+
+8. Here is it:
+    starline.busses = 120;
+    starline.addBus = function () {
+        this.busses++
+    }
+    document
+        .querySelector('.btn')
+        .addEventListener('click', starline.addBus.bind(starline))
+
+9. As we metioned it before the call and apply method use to immediatly invoking a function, so the starline.busses will increce by one only one without clicking the button, and you cannot able to increce it anymore.
+
+10. Like this:
+    const addTAX = (rate, value) => value + value * rate / 100;
+    const addVAT = addTAX.bind(null, 15)
+    console.log(addVAT(100))
+
+11. In our addTAX function it does not use this at all because it's an arrow function (and arrow functions don’t have their own this).
+
+So, this is irrelevant here!
+But, bind() requires the first argument as thisArg, even if you're not using this. So, developers pass null or undefined just to skip setting this

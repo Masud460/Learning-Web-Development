@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Asynchoronous JS</title>
+    <style>
+      body {
+        background-color: #212121;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Ataullah Masud</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+  </body>
+  <script>
+    const welcomeMsg = document.querySelector("h1");
+    const start = document.querySelector("#start");
+    const stop = document.querySelector("#stop");
+    function welMsg(name) {
+      welcomeMsg.innerHTML = "Hey " + name + " Welcome to our website";
+    }
+    // let timeoutId = setTimeout(welMsg, 2000, 'Masud')
+    // stop.addEventListener('click', function(){
+    //     clearTimeout(timeoutId)
+    // })
+    function showTimeWithName(name) {
+      let date = Date.now();
+      console.log(date);
+      console.log(name);
+    }
+    // let intervalId = setInterval(showTimeWithName, 1000, 'Masud')
+    // stop.addEventListener('click', function(e){
+    //     clearInterval(intervalId)
+    // }, false)
+
+    start.addEventListener("click", startShowingTime, false);
+    stop.addEventListener("click", stopShowingTime, false);
+    let intervalId;
+    function startShowingTime() {
+      if (!intervalId) {
+        intervalId = setInterval(showTime, 1000, "Masud");
+      }
+      function showTime(name) {
+        let date = Date.now();
+        console.log(date);
+        console.log(name);
+      }
+    }
+    function stopShowingTime() {
+      clearInterval(intervalId);
+      intervalId = null;
+    }
+  </script>
+</html>

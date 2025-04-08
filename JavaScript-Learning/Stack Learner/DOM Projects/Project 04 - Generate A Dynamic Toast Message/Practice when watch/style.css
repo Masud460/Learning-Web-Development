@@ -1,0 +1,113 @@
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#root {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1{
+    font-size: 35px;
+    text-align: center;
+    color: #000;
+    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+}
+
+input {
+    padding: 10px 0px;
+    text-align: center;
+    margin-top: 10px;
+    border-radius: 5px;
+    font-weight: 600;
+    background-color: #fff;
+    font-size: 18px;
+    width: 185px
+}
+
+#copy-btn {
+    padding: 10px 5px;
+    margin-top: 10px;
+    border-radius: 5px;
+    font-weight: 200;
+    background-color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+#change-btn {
+    font-size: 28px;
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 10px 35px;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-weight: 0;
+    cursor: pointer;
+}
+
+#change-btn:hover {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #fff;
+}
+
+.toast-message {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    background-color: rgb(19, 201, 110);
+    color: #000;
+    border: 1px solid #fff;
+    border-radius: 0.25rem;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    z-index: 999;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)
+}
+
+.toast-message-slide-in {
+    animation: toast-animation-in 500ms ease-in;
+}
+
+.toast-message-slide-out {
+    animation: toast-animation-out 500ms ease-in;
+}
+
+@keyframes toast-animation-in {
+    from {
+        transform: translateX(200px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes toast-animation-out {
+    from {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(200px);
+        opacity: 0;
+    }
+}

@@ -1,0 +1,5 @@
+1. What is the syntax of while loop?
+
+2. How to exicute an array with while loop?
+
+3. What is the syntax of do while loop? and how does it works?

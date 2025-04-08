@@ -1,0 +1,62 @@
+1. Like this:
+    const userData = {
+    email: 'masud@google.com',
+    name: {
+        fullName: {
+            userFullName: {
+                firstName: 'Ataullah',
+                lastName: 'Masud'
+            }
+        }
+    }
+}
+
+
+2. Optional Chaining (?.) is a feature in JavaScript that allows you to safely access deeply nested object properties without having to manually check if each level exists. If any part of the chain is null or undefined, the expression will return undefined instead of throwing an error.
+
+3. Here is an example of benifit of optional chaining:
+    const userOne = {
+    name: {
+        title: 'MD: ',
+        first: 'Ataullah ',
+        last: 'Masud '
+    },
+    address: {
+        city: 'Dhaka',
+        houseNo: '57/1'
+    }
+}
+
+console.log(userOne?.address?.city) // ✅ Returns 'Dhaka'
+console.log(userOne?.address?.street) // ✅ Returns undefined not throw error
+
+
+4. There are two ways for doing this:
+    1st:
+        const obj1 = {a: 1, b: 2}
+        const obj2 = {c: 3, d: 4}
+        const obj3 = Object.assign({}, obj1, obj2);
+
+    2nd:
+        const obj1 = {a: 1, b: 2}
+        const obj2 = {c: 3, d: 4}
+        const obj3 = {...obj1, ...obj2}
+
+
+5. It takes a target and one or more sources, the sources object are combined in the target and returns the target object.
+
+
+6. As an array, and the same thing happens with the 'console.log(Object.values(userOne))' like this:  
+    console.log(Object.keys(userOne)) // returns [ 'name', 'address' ]
+    console.log(Object.values(userOne)) // returns 
+    [
+  { title: 'MD: ', first: 'Ataullah ', last: 'Masud ' },
+  { city: 'Dhaka', houseNo: '57/1' }
+    ]
+
+
+7. It returns the key and value paired in array, like this:
+    Object.entries(obj3) // returns [ [ 'a', 1 ], [ 'b', 2 ], [ 'c', 3 ], [ 'd', 4 ] ]
+
+8. Like this: 
+    obj3.hasOwnProperty('a')

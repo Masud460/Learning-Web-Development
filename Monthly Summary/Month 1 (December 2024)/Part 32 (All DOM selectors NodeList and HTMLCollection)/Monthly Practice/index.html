@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+        body {
+            background-color: #212121;
+            color: #fff
+        }
+
+        h1 span {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="text">Hello <span>Who are you?</span></h1>
+    <ul id="ul">
+        <li>Main</li>
+        <li>Home</li>
+        <li>Services</li>
+        <li>Contact</li>
+    </ul>
+</body>
+<script>
+    const h1 = document.getElementById('text')
+    h1.setAttribute('class', 'name')
+    // console.log(h1.getAttribute('id'));
+    // console.log(h1.getAttribute('class'));
+    // h1.innerText = 'Hi Masud!'
+    // h1.textContent = 'Hi Masud! How are you?'
+    // console.log(h1.innerText);
+    // console.log(h1.textContent);
+    // console.log(h1.innerHTML);
+
+    const h1Class = document.getElementsByClassName('name')
+    // console.log(h1Class)
+    const ul = document.getElementById('ul')
+    const myLi = ul.querySelectorAll('li')
+    console.log(myLi);
+
+    // for(let i = 0; i < myLi.length; i++){
+    //     console.log(myLi[i]);
+    // }
+    const converted = Array.from(myLi)
+    console.log(converted);
+</script>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM | Chai aur code</title>
+    <style>
+      body {
+        background-color: #212121;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="language">
+      <li>JavaScript</li>
+    </ul>
+  </body>
+  <script>
+    function addLi(langName) {
+      const ul = document.querySelector(".language");
+      const li = document.createElement("li");
+      const text = document.createTextNode(`${langName}`);
+      // li.innerHTML = `${langName}`;
+      li.appendChild(text);
+      ul.appendChild(li);
+    }
+    addLi("Python");
+    addLi("Django");
+    addLi("MongoDB");
+
+    // Edit
+    const lastLi = document.querySelector("li:last-child");
+    // lastLi.appendChild(document.createTextNode('goLang'));
+    // lastLi.innerHTML = 'goLang';
+
+    // Another Edit
+    const editLi = document.createElement("li");
+    editLi.appendChild(document.createTextNode("TypeScript"));
+    lastLi.replaceWith(editLi);
+
+    const secondLang = document.querySelector("li:nth-child(2)");
+    secondLang.outerHTML = "<li>PHP</li>";
+
+    // Remove
+    const thirdLang = document.querySelector('li:nth-child(3)')
+    thirdLang.remove()
+  </script>
+</html>

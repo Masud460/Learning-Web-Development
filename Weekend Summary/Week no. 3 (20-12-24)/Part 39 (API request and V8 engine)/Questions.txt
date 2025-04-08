@@ -1,0 +1,17 @@
+1. What is github api url?
+
+2. How to create xhttp req?
+
+3. How to send XMLHttpRequest?
+
+4. How to check which state we are in?
+
+5. How to check continuesly which state we are in?
+
+6. How to get response text from XMLHttpRequest?
+
+7. How to convert requested api string to object?
+
+8. Do the task that got you from chai aur code. 22:30
+
+9. Learn more about console.

@@ -1,0 +1,46 @@
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+#menu ul{
+    text-align: center;
+}
+
+#menu li {
+    display: inline-block;
+    border: 2px solid #ddd;
+    width: 60px;
+    height: 100px;
+    margin: 25px 5px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #ddd;
+    cursor: pointer;
+}
+
+#menu li.red {
+    background-color: #ff7675;
+}
+
+#menu li.green {
+    background-color: #55e5c4;
+}
+
+#menu li.blue {
+    background-color: #74b9ff;
+}
+
+#menu li.pink {
+    background-color: #fd79a8;
+}
+
+#menu li.purple {
+    background-color: #a29dfe;
+}

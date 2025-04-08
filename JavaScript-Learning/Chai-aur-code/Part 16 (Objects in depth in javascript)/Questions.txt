@@ -1,0 +1,9 @@
+1. When creates the singleton?
+
+2. How to create an object using constructor way?
+
+3. How to create an object using literals way?
+
+4. How to use a symbol in object?
+
+5. How to freeze an object, i mean build it unchangeable?

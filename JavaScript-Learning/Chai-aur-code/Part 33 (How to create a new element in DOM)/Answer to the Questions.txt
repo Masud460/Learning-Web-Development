@@ -1,0 +1,40 @@
+1. This method usually used to see children of parent element:
+    parent.children; and it will give you an HTML collection of children elements;
+
+2. Yes, why not! Like this:
+    for (let i = 0; i < parent.children.length; i++) {
+        console.log(parent.children[i].innerHTML); 
+    }
+
+3. Like this:
+    parent.firstElementChild
+
+4. Like this:
+    parent.lastElementChild
+
+5. Like this:
+    child.parentElement
+
+6. Like this:
+    child.nextElementSibling;
+
+7. Like this:
+    parent.childNodes
+
+8. When we break a line JS sees that like a text, and all elements of document are importent in JS;
+
+9. Like this:
+    document.createElement('elementName');
+
+10. Like this:
+    element.className = 'className';
+
+11. Like this:
+    element.id = 'idName';
+
+12. Like this:
+    const addText = document.createTextNode('Ataullah Masud')
+    div.append(addText)
+
+13. Like this:
+    document.body.appendChild(div);

@@ -1,0 +1,37 @@
+1. Is the forEach method return any value?
+
+2. How to use filter and why?
+
+3. How to get the same result using forEach?
+
+4. An user send you some book, and he wants only those book which genre's is History, how you give him those book?
+
+5. How to use map method and why?
+
+6. How to get the same value with forEach?
+
+7. What is chaining, How does it works, give an example for clear these questions.'
+
+8. What is reduce, How does it works, How many thing in a reduce, clear in detail.
+
+9. Explain the following code:
+    const someNum = [1, 2, 3, 5, 4, 5]
+    const myTotal = someNum.reduce((acc, curVal) => {
+      return acc + curVal
+    }, 0)
+    console.log(myTotal);
+    // Expected output 20
+
+10. What happen if we don't decide initialValue, and from where to start the accumulator?
+
+11. How to get the same result with forEach?
+
+12. How to get the same result with forof?
+
+13. How to get the same result with forin?
+
+14. How to get the same result with while loop?
+
+15. How to get the same result with dowhile loop?
+
+16. Build a simple shoping cart and add the total price of the cart?

@@ -1,0 +1,3 @@
+1. Debouncing is a technique used to delay the execution of a function until after a specified period of inactivity. It's commonly used to prevent unnecessary function calls, such as avoiding multiple API calls when a user keeps clicking a button rapidly or typing in a search input.
+
+2. Throttling is a technique that ensures a function is executed at most once in a specified time interval, even if the event is triggered continuously. It’s useful for limiting the rate at which a function runs.

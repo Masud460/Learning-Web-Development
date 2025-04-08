@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <form>
+        <h1 id="message">Login</h1>
+        <label for="email">Email</label>
+        <input id="email" type="email" placeholder="Enter your email" />
+        <label for="password">Password</label>
+        <input
+          id="password"
+          type="password"
+          placeholder="Enter your password"
+        />
+        <input type="submit" value="Login" />
+      </form>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+1. 
+var is global scoped and reassignable and redeclareable , let is not global scoped but it's reassignable, and not redeclareabe, and const in not global scoped and not reassignable and not redeclareable.
+
+2. 
+example:
+
+function outer(){
+let name = 'masud';
+function inner(){
+let myName = 'ataullah';
+console.log(name)
+}
+inner()
+}
+outer();
+
+Explane:
+the inner function has access of the name variable of outer function, but the outer function does'nt have the access of myName variable of the inner function, and the global dosen't have the access of the name variable and the myName variable.
+
+3. 
+I don't know what is the event delegation.
+
+4.
+When we declare any variable, js operates it in two steps , the first step is memory creation phase, it creates a  memory for the variable and assign it to undefined, and the second step is all of the mathematical calculation and whatever we assign in the variable, it assigns it to it.
+
+and when we declare function it create another enviroment for this , 
+
+microtask:
+it is a private queue which relable for fetch promise, and it is high priority either then the macro task, because the macro task is for other asynchoronous task like setTimeout etc.
+
+5. 
+I don't know it.
+
+6. 
+using setTimeout and setInterval.
+
+7.
+The map use for adding something , and the filter use for filtering something, and the reduce use for calculating something , and the forEach use for looping array etc.
+
+8.
+I don't know it.
+
+9.
+

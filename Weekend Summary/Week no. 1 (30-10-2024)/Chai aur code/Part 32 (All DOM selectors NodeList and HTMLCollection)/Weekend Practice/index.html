@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | Chai aur code</title>
+    <style>
+        body{
+            background-color: #212121;
+            color: #fff;
+        }
+        span {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- <h1 id="title" class="title">Ataullah Masud <span>Coder</span></h1>
+    <p class="texts" id="texts">Lorem ipsum dolor sit amet.</p> -->
+    <ul class="parent">
+        <li class="child">JavaScript</li>
+        <li class="child">Python</li>
+        <li class="child">PHP</li>
+        <li class="child">CPP</li>
+    </ul>
+</body>
+<script>
+    const title = document.getElementById('title');
+    // title.setAttribute('class', 'heading')
+    const para = document.getElementsByClassName('texts')
+    const parent = document.querySelector('.parent')
+    const lastLi = parent.querySelector('li:last-child')
+    const li = document.querySelectorAll('li')
+    const toArray = Array.from(li)
+    
+    // console.log(title.getAttribute('class'));
+    // console.log(title.textContent);
+    console.log(toArray);
+</script>
+</html>

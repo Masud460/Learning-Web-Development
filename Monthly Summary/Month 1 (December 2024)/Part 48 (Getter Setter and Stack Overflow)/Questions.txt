@@ -1,0 +1,19 @@
+1. Why we use the 'getter'?
+
+2. What is the syntax of getter?
+
+3. Can we use the 'get' without the 'set'?
+
+4. What is the syntax of setter?
+
+5. Is parameter defining important for the setter?
+
+6. There is a problem when we set the value in setter, why the problem displays?
+
+7. What is the solution for this problem?
+
+8. Do the same thing with email.
+
+9. How developers could did this in old time in modern way?
+
+10. How developers could did this in old time in Object way?

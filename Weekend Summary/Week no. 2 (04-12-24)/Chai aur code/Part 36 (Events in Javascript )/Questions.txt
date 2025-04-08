@@ -1,0 +1,22 @@
+1. Write some bad approch in event.
+
+2. What is good approch for event?
+
+3. What has in third parameter of addEventListener?
+
+4. What we need to learn in event object?
+
+an Extra practice that we got from chai aur code, do that confidently! if you can, but our teacher will do that project soon;
+
+5. What is event Propagation? give an example to clearing the concept.
+
+6. How to do this:
+    we have an owl image inside a div and we seted addEventListener in both of them, but we want when we click on the owl image the div should not be clicked?
+
+7. Supose we have a google link, and we want when we click this link we will not go to the google website, How to do this?
+
+8. How to do this, when we click on an image that should be remove.
+
+9. In the previous task we have faced a problem, that was if we click on a li or ul than suddenly remove all images, how to solve this problem?
+
+10. What the difference between standerd function and arrow function in event handler?

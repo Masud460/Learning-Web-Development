@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+        body {
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <ul id="ul">
+
+        <li>Home</li>
+        <!-- Yes it dose -->
+        <li>Services</li>
+        <li>About</li>
+        <li>Contact</li>
+    </ul>
+</body>
+<script>
+    const ul = document.getElementById('ul')
+    // console.log(ul.children);
+    // for (let i = 0; i < ul.children.length; i++){
+    //     console.log(ul.children[i]);
+    // }
+    const fristChild = ul.querySelector('li');
+    const lastChild = ul.lastElementChild;
+    // console.log(fristChild);
+    // console.log(lastChild);
+    // console.log(fristChild.parentElement);
+    // console.log(fristChild.nextElementSibling);
+    // console.log(ul.childNodes);
+
+
+    // Create Element
+    const li = document.createElement('li')
+    li.className = 'one'
+    li.id = 'one'
+    // li.innerHTML = 'This is a weak list item'
+    const text = document.createTextNode('This is a list item')
+    li.appendChild(text)
+
+    ul.prepend(li)
+
+    console.log(li);
+
+</script>
+</html>

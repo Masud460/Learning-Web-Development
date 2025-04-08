@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Asynchoronous JS</title>
+    <style>
+      body {
+        background-color: #212121;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Ataullah Masud</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+  </body>
+  <script>
+    const viewingPanel = document.querySelector("h1");
+    const start = document.getElementById("start");
+    const stop = document.getElementById("stop");
+    function sayWelcome() {
+      console.log("Welcome to our website");
+    }
+    function changeText() {
+      viewingPanel.innerHTML = "Best Web Developer";
+    }
+
+    // let timeoutId = setTimeout(sayWelcome,2000)
+    // setTimeout(changeText, 2000)
+    // clearTimeout(timeoutId)
+
+    function dateUp() {
+      let date = Date.now();
+      console.log(date);
+    }
+
+    function sayHi(name) {
+      console.log("Hi " + name);
+      console.log(Date.now());
+    }
+    // clearInterval(intervalId)
+
+    let intervalId;
+    const startShowingTime = function () {
+        if(!intervalId){
+            intervalId = setInterval(sayHi, 2000, "Masud");
+        }
+    };
+    const stopShowingTime = function () {
+      clearInterval(intervalId);
+      intervalId = null;
+    };
+    start.addEventListener("click", startShowingTime);
+    stop.addEventListener("click", stopShowingTime);
+  </script>
+</html>

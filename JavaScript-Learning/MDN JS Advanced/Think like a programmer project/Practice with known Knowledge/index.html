@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>Number guessing game</title>
+
+    <style>
+      html {
+        font-family: sans-serif;
+      }
+
+      body {
+        width: 50%;
+        max-width: 800px;
+        min-width: 480px;
+        margin: 0 auto;
+      }
+
+      .form input[type="number"] {
+        width: 200px;
+      }
+
+      .lastResult {
+        color: white;
+        padding: 3px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Number guessing game</h1>
+
+    <p>
+      We have selected a random number between 1 and 100. See if you can guess
+      it in 10 turns or fewer. We'll tell you if your guess was too high or too
+      low.
+    </p>
+
+    <div class="form">
+      <label for="guessField">Enter a guess: </label>
+      <input
+        type="number"
+        min="1"
+        max="100"
+        required
+        id="guessField"
+        class="guessField"
+      />
+      <input type="submit" value="Submit guess" class="guessSubmit" />
+    </div>
+
+    <div class="resultParas">
+      <p class="guesses"></p>
+      <p class="lastResult"></p>
+      <p class="lowOrHi"></p>
+    </div>
+
+    <script>
+      const submit = document.querySelector(".guessSubmit");
+      const guessField = document.getElementById("guessField");
+      const previousGuesses = document.querySelector(".guesses");
+      const correctOrWrong = document.querySelector(".lastResult");
+      const lowOrHigh = document.querySelector(".lowOrHi");
+      const userInput = document.querySelector('input[type="number"]');
+      const resultArea = document.querySelector(".resultParas");
+
+      // Generate a random number between 1 and 100 for guessing that
+      let random = Math.floor(Math.random() * 100) + 1;
+
+      // Player turn
+      let turn = 1;
+
+      // Player previous guesses
+      let prevGuesses = [];
+
+      // Game access status
+      let gameAccess = true;
+
+      // Player guessing area
+      if (gameAccess) {
+        submit.addEventListener("click", function (e) {
+          e.preventDefault();
+          resultArea.style.display = 'block';
+          validation(parseInt(userInput.value));
+        });
+      }
+
+
+      // Checks userInput is valid or not
+      function validation(guess) {
+        if (isNaN(guess)) {
+          message("Please give a valid number");
+        } else if (guess > 100) {
+          message("Please give a number less than 100");
+        } else if (guess <= 0) {
+          message("Please give a number more than 0");
+        } else {
+          prevGuesses.push(guess);
+          previousGuesses.textContent = "Previous guesses: ";
+
+          // Display user their guesses
+          for (let i = 0; i < prevGuesses.length; i++) {
+            previousGuesses.textContent += `${prevGuesses[i]} `;
+          }
+          checkTheGuess(guess);
+
+          turn++;
+        }
+      }
+
+      // Check user guessed it right or not
+      function checkTheGuess(guess) {
+        resultArea.style.display = "block";
+        if (turn === 10) {
+          correctOrWrong.innerHTML = "Game Over!";
+          correctOrWrong.style.backgroundColor = "red";
+          gameEnd();
+        } else if (guess === random) {
+          userInput.value = "";
+          correctOrWrong.innerHTML = "Congratulations! You got it right!";
+          correctOrWrong.style.backgroundColor = "green";
+          gameEnd();
+        } else if (guess < random) {
+          userInput.value = "";
+          correctOrWrong.innerHTML = "Wrong!";
+          correctOrWrong.style.backgroundColor = "red";
+          message("Number is too low");
+        } else if (guess > random) {
+          
+          userInput.value = "";
+          userInput.focus()
+          correctOrWrong.innerHTML = "Wrong!";
+          correctOrWrong.style.backgroundColor = "red";
+          message("Number is too high");
+        }
+      }
+
+      function message(msg) {
+        lowOrHigh.innerHTML = msg;
+      }
+
+      // End the game and produce use to start the game again
+      function gameEnd() {
+        gameAccess = false;
+        userInput.value = "";
+        userInput.setAttribute("disabled", "");
+        submit.setAttribute("disabled", "");
+
+
+        startGame();
+      }
+      // Game starting discusson
+      function startGame() {
+        const startBtn = document.createElement("button");
+        const textBtn = document.createTextNode("Start New Game");
+        startBtn.appendChild(textBtn);
+        document.body.appendChild(startBtn);
+        startBtn.addEventListener("click", function () {
+          random = Math.floor(Math.random() * 100) + 1;
+          gameAccess = true;
+          turn = 1;
+
+          userInput.removeAttribute("disabled");
+          submit.removeAttribute("disabled");
+          prevGuesses = [];
+
+          resultArea.style.display = 'none';
+          startBtn.remove()
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asychoronous JS</title>
+    <style>
+        body{
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chai aur code</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+    <script>
+        // let sayWelcome = function(){
+        //     console.log('Welcome to our website');
+        // }
+        // setTimeout(sayWelcome, 2000)
+
+        let changeTitle = function(){
+            document.querySelector('h1').innerHTML = 'best JS series'
+        }
+        
+         const start = document.getElementById('start')
+         const stop = document.getElementById('stop')
+        // const changeMe = setTimeout(changeTitle, 3000);
+        // btn.addEventListener('click', function(){
+        //     clearTimeout(changeMe)
+        // }, false)
+        let sayHi = function(name){
+            console.log('Hi ' + name);
+        }
+
+        start.addEventListener('click', function(){
+            let passThis = setInterval(sayHi ,1000, 'Masud')
+            stop.addEventListener('click', function(){
+            clearInterval(passThis)
+        }, false)
+        }, false);
+        
+    </script>
+</html>

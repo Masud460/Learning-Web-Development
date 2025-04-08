@@ -1,0 +1,48 @@
+1. The old days react gave us this things:
+    class React {
+        constructor(){
+            this.library = "React";
+            this.server = "https://localhost:3000";
+
+            // requirement
+            
+        }
+    }
+
+    const app = new React()
+
+2. Here is it:
+    class React {
+        constructor(){
+            this.library = "React";
+            this.server = "https://localhost:3000";
+
+            // requirement
+            document
+                .querySelector('button')
+                .addEventListener('click', this.handleClick)
+        }
+
+        handleClick(){
+            console.log('Button Clicked');
+            console.log(this.server);
+        }
+    }
+
+3. We can fix this problem by using the bind method and passing the 'this' keyword on it, like this:
+    class React {
+        constructor(){
+            this.library = "React";
+            this.server = "https://localhost:3000";
+
+            // requirement
+            document
+                .querySelector('button')
+                .addEventListener('click', this.handleClick.bind(this))
+        }
+
+        handleClick(){
+            console.log('Button Clicked');
+            console.log(this.server);
+        }
+    }

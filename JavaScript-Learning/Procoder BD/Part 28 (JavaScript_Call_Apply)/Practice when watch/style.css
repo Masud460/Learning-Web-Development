@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+::placeholder {
+    opacity: .5;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.nav {
+    padding: 35px;
+    width: 100%;
+    background-color: rgb(86, 241, 86);
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    flex-direction: space-between;
+    padding: 45px;
+}
+
+.main .buying-area{
+    width: 50%;
+}
+
+.main .ticket{
+    width: 50%;
+}
+
+label, input{
+    display: block;
+    margin: 5px;
+}
+
+
+/* Buying area */
+form {
+    padding: 25px;
+    background-color: #e2dfdf;
+    border-radius: 8px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+form label, form input{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+form input {
+    width: 90%;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+}
+
+form input:focus{
+    outline: none;
+}
+
+input[type="submit"]{
+    width: 18%;
+    background-color: rgb(86, 241, 86);
+    color: #fff;
+    cursor: pointer;
+    transition: .5s;
+}
+input[type="submit"]:hover {
+    box-shadow: 0 0 1px 0 #fff;
+    padding: 10px 20px;
+}
+
+
+/* Ticket showing area */
+.ticket {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.ticket table {
+    width: 80%;
+    border: 1px solid #000;
+    margin: 15px;
+    padding: 5px;
+    color: #000;
+    border-radius: 8px;
+    text-align: center;
+}
+
+table, th{
+    padding: 15px;
+    font-size: 22px;
+    border-bottom: 1px  solid #000;
+
+}
+
+td {
+    padding: 15px;
+    font-size: 18px;
+}
+
+.ticket {
+    display: none;
+}

@@ -1,0 +1,46 @@
+1. If you want to check an object's property's details then you can do this in this way:
+    Object.getOwnPropertyDescriptor(objectName, 'propertyName')
+
+2. Like this:   
+    const teacher = {
+        name: 'Saifur',
+        age: 45,
+        isFree: true
+    }
+    Object.defineProperty(teacher, 'name', {
+        writable: false
+    })
+    teacher.name = 'saifur\'s'; // The code should not work
+
+3. The solution is here:
+    const chai = {
+        name: 'rong cha',
+        price: 10,
+        order: function () {
+            console.log('cha banano nai');
+        }
+    }
+
+    for (let [key, value] of Object.entries(chai)) {
+        if (typeof value !== 'function') {
+            console.log(`${key} : ${value}`);
+        }
+    }
+
+4. Like this:
+    const chai = {
+        name: 'rong cha',
+        price: 10,
+        order: function () {
+            console.log('cha banano nai');
+        }
+    }
+    Object.defineProperty(chai, 'name', {
+        enumerable: false
+    })
+
+    for (let [key, value] of Object.entries(chai)) {
+        if (typeof value !== 'function') {
+            console.log(`${key} : ${value}`);
+        }
+    }

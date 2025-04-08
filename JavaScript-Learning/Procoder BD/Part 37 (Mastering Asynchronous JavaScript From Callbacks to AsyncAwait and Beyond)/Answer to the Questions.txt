@@ -1,0 +1,110 @@
+1. This is a synchoronous JS function:
+    function a () {
+    console.log('a');
+    }
+    console.log('End');
+    a() 
+
+
+2. This is an Asynchoronous JS function:
+    function a() {
+    console.log('Function Working');
+    let aTime = new Date().getTime();
+    while (aTime + 5000 >= new Date().getTime());
+    console.log('Completed');
+    }
+    console.log('First Line');
+    a();
+    console.log('Last Line');
+
+3. Here is the example:
+    console.log('Hello');
+    console.log('Hello 1');
+    console.log('Hello 2');
+    setTimeout(function () {
+    console.log('Hello 3');
+    }, 5000)
+    console.log('Hello 4');
+    console.log('Hello 5');
+
+
+4. The syntax of Promise is:
+    let coffee = new Promise((res, rej) => {
+    if (true) {
+        return res;
+    } else {
+        return rej;
+    }
+    })
+
+5. With the two things:
+    coffee.then().catch();
+
+6. Here is the solution:
+    let mathAns = new Promise((res, rej) => {
+  let n = Math.floor(Math.random() * 10);
+  if (n < 5) {
+    return res();
+  } else {
+    return rej();
+  }
+    })
+    mathAns.then(function () {
+  console.log('Below');
+    }).catch(function () {
+  console.log('Above');
+    })
+
+
+7. Like this:
+    Promise.all([Promise1, Promise2]).then(res => console.log(res))
+
+8. Like this:
+    Promise.race([step1, step2]).then(res => console.log(res))
+
+9. Like this:
+    const promise1 = new Promise((res, rej)=> {
+  return res('Step one done');
+    })
+    let promise2 = promise1.then((data) =>{console.log(data)
+  return new Promise((res, rej) => {
+    return res('Step two done')
+  })
+    });
+
+    promise2.then(function (data) {
+  console.log(data);
+    })
+
+10. Like this:
+    function randomUser() {
+  fetch(`https://randomuser.me/api/`).then(function (raw) {
+    return raw.json()
+  }).then(function (data) {
+    console.log(data);
+  }).catch(function () {
+    console.error('No Data Found');
+  })
+    }
+    randomUser()
+
+11. JS Sees the code like this:
+    function myFunction() {
+  return Promise.resolve('Hello')
+    }
+    console.log(myFunction());
+
+12. Like this:
+    async function randomUser() {
+  let urlAPI = await fetch(`https://randomuser.me/api/`);
+  let rawData = await urlAPI.json();
+  console.log(rawData);
+    }
+    randomUser()
+
+// New addition
+
+13. A promise is in the pending state immediately after it is created, before it has been either resolved or rejected. It stays in the pending state until the resolve or reject function is called inside the promise executor function. Attaching .then() or .catch() does not affect the promise's internal state.
+
+14. When we get some 'error data' as a 'callback',
+that time we use the parenthises after the 'catch' in 'try catch' , and if we not get 'error callback' that time we don't use the parentheses after the 'catch' in 'try catch'.

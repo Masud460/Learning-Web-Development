@@ -1,0 +1,414 @@
+1. জাভাস্ক্রিপ্টে Encapsulation হলো একটি ধারণা যেখানে ডেটা এবং সেটার সাথে সম্পর্কিত ফাংশনগুলোকে একসাথে প্যাকেজ করা হয় এবং বাইরের ওয়ার্ল্ড থেকে সেগুলো আংশিক বা পুরোপুরি লুকানো হয়। এই প্রক্রিয়া ডেটাকে সুরক্ষিত রাখতে সাহায্য করে এবং এটি শুধুমাত্র অনুমোদিত মেথডের মাধ্যমে অ্যাক্সেস করা যায়।
+
+Encapsulation-এর মূল উদ্দেশ্য:
+1. ডেটা হাইডিং (Data Hiding) – ডেটাকে বাইরের সরাসরি অ্যাক্সেস থেকে রক্ষা করা।
+2. কোডের পুনঃব্যবহারযোগ্যতা (Reusability) – ক্লাস বা অবজেক্ট ব্যবহার করে।
+3. ডেটার নিরাপত্তা নিশ্চিত করা।
+উদাহরণ:
+
+class Person {
+    #name; // প্রাইভেট ভ্যারিয়েবল
+    constructor(name) {
+        this.#name = name; // প্রাইভেট প্রপার্টি সেট করা
+    }
+
+    // প্রাইভেট প্রপার্টি অ্যাক্সেস করার জন্য পাবলিক মেথড
+    getName() {
+        return this.#name;
+    }
+
+    setName(newName) {
+        if (newName.length > 0) {
+            this.#name = newName;
+        } else {
+            console.log("নাম ফাঁকা হতে পারে না।");
+        }
+    }
+}
+
+// একটি অবজেক্ট তৈরি করা
+const person = new Person("Rahim");
+
+console.log(person.getName()); // আউটপুট: Rahim
+
+person.setName("Karim");
+console.log(person.getName()); // আউটপুট: Karim
+
+person.setName(""); // আউটপুট: নাম ফাঁকা হতে পারে না।
+
+
+ব্যাখ্যা:
+#name একটি প্রাইভেট ভ্যারিয়েবল যা সরাসরি বাইরের অবজেক্ট থেকে অ্যাক্সেস করা যায় না।
+getName এবং setName হলো পাবলিক মেথড, যা ব্যবহার করে প্রাইভেট ভ্যারিয়েবল পড়া বা পরিবর্তন করা যায়।
+এভাবে ডেটা হাইডিং-এর মাধ্যমে ডেটাকে বাইরের অবাঞ্ছিত পরিবর্তন থেকে রক্ষা করা হয়।
+সংক্ষেপে:
+Encapsulation ডেটা এবং ফাংশনগুলোর মধ্যে একটি সুরক্ষিত ইন্টারফেস তৈরি করে। এর মাধ্যমে আপনি ডেটাকে সুরক্ষিত রাখতে এবং কোডকে আরও সংগঠিত করতে পারেন।
+
+
+
+2. জাভাস্ক্রিপ্টে Abstraction হলো প্রোগ্রামিংয়ের একটি কৌশল যেখানে জটিল সিস্টেমের শুধুমাত্র গুরুত্বপূর্ণ বৈশিষ্ট্যগুলো প্রদর্শন করা হয় এবং অপ্রয়োজনীয় বিবরণ লুকিয়ে রাখা হয়। এটি ব্যবহারকারীদের জটিল সিস্টেম সম্পর্কে জানার প্রয়োজন ছাড়াই সেটি সহজে ব্যবহার করতে সাহায্য করে।
+
+মূল ধারণা:
+মুখ্য অংশ প্রকাশ করা।
+অপ্রয়োজনীয় জটিলতা লুকিয়ে রাখা।
+ব্যবহারকারীকে কেবলমাত্র কীভাবে ব্যবহার করতে হবে তা শেখানো, ভিতরের কাজ নয়।
+উদাহরণ:
+
+উদাহরণ ১: ক্লাস ব্যবহার করে Abstract Concept
+
+class Vehicle {
+    start() {
+        console.log("গাড়ি চালু হচ্ছে...");
+    }
+
+    stop() {
+        console.log("গাড়ি বন্ধ হচ্ছে...");
+    }
+}
+
+class Car extends Vehicle {
+    drive() {
+        console.log("গাড়ি চলছে...");
+    }
+}
+
+// একটি অবজেক্ট তৈরি করা
+const myCar = new Car();
+
+myCar.start(); // আউটপুট: গাড়ি চালু হচ্ছে...
+myCar.drive(); // আউটপুট: গাড়ি চলছে...
+myCar.stop();  // আউটপুট: গাড়ি বন্ধ হচ্ছে...
+
+ব্যাখ্যা:
+
+Vehicle ক্লাসের মাধ্যমে সাধারণ বৈশিষ্ট্যগুলো (যেমন: start এবং stop) প্রকাশ করা হয়েছে।
+Car ক্লাসে নির্দিষ্ট কার্যকলাপ (যেমন: drive) সংযোজন করা হয়েছে।
+
+
+উদাহরণ ২: ফাংশন ব্যবহারের মাধ্যমে Abstract Concept
+function paymentProcess(paymentMethod) {
+    paymentMethod.pay();
+}
+
+class CreditCard {
+    pay() {
+        console.log("ক্রেডিট কার্ডের মাধ্যমে পেমেন্ট সম্পন্ন হয়েছে।");
+    }
+}
+
+class MobileWallet {
+    pay() {
+        console.log("মোবাইল ওয়ালেটের মাধ্যমে পেমেন্ট সম্পন্ন হয়েছে।");
+    }
+}
+
+// ক্রেডিট কার্ড এবং মোবাইল ওয়ালেট দিয়ে পেমেন্ট
+const creditCard = new CreditCard();
+const mobileWallet = new MobileWallet();
+
+paymentProcess(creditCard);  // আউটপুট: ক্রেডিট কার্ডের মাধ্যমে পেমেন্ট সম্পন্ন হয়েছে।
+paymentProcess(mobileWallet); // আউটপুট: মোবাইল ওয়ালেটের মাধ্যমে পেমেন্ট সম্পন্ন হয়েছে।
+
+
+ব্যাখ্যা:
+
+paymentProcess ফাংশন ব্যবহারকারীকে শুধু পেমেন্ট করার পদ্ধতি জানায়, তবে কীভাবে পেমেন্ট প্রসেস হয় তা লুকিয়ে রাখা হয়েছে।
+এটি বিভিন্ন পেমেন্ট পদ্ধতির মধ্যে সাধারণ বৈশিষ্ট্যগুলোকে "Abstract" করে।
+
+
+Encapsulation vs Abstraction:
+(e)Encapsulation	(a)Abstraction
+
+e.ডেটা লুকানোর ওপর জোর দেয়।	a.জটিলতাকে লুকিয়ে রাখার ওপর জোর দেয়।
+e.ক্লাসের ভেতরে প্রাইভেট প্রপার্টি ও মেথড ব্যবহৃত হয়।	a.মুখ্য বৈশিষ্ট্যগুলো প্রকাশ করা হয়।
+e.ডেটা সুরক্ষিত রাখে।	a.ব্যবহারকারীকে কম জটিলতায় সিস্টেম ব্যবহার করতে দেয়।
+
+
+উপসংহার:
+Abstraction হলো জটিলতা থেকে মুক্তি পাওয়ার একটি উপায়। এটি জাভাস্ক্রিপ্টের মতো প্রোগ্রামিং ভাষায় কোডকে সহজ, পরিষ্কার এবং ব্যবহারে সুবিধাজনক করে তোলে।
+
+
+3. জাভাস্ক্রিপ্টে Inheritance হলো প্রোগ্রামিংয়ের একটি ধারণা যেখানে একটি ক্লাস (child/subclass) অন্য একটি ক্লাসের (parent/superclass) বৈশিষ্ট্য এবং মেথডগুলো উত্তরাধিকারসূত্রে পায়। এটি কোড পুনঃব্যবহারযোগ্য (reusability) এবং সংগঠিত করতে সাহায্য করে।
+
+Inheritance-এর সুবিধা:
+Code Reusability: একবার লেখা কোড বিভিন্ন জায়গায় ব্যবহার করা যায়।
+Hierarchy Creation: ক্লাসগুলোর মধ্যে সম্পর্ক তৈরি করা যায়।
+Scalability: বড়ো প্রজেক্টে কোড ম্যানেজমেন্ট সহজ হয়।
+উদাহরণ:
+
+
+উদাহরণ ১: Basic Inheritance
+
+// Parent Class
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+
+    eat() {
+        console.log(`${this.name} খাচ্ছে।`);
+    }
+}
+
+// Child Class
+class Dog extends Animal {
+    bark() {
+        console.log(`${this.name} ঘেউ ঘেউ করছে।`);
+    }
+}
+
+// অবজেক্ট তৈরি করা
+const myDog = new Dog("Tommy");
+
+myDog.eat();  // আউটপুট: Tommy খাচ্ছে।
+myDog.bark(); // আউটপুট: Tommy ঘেউ ঘেউ করছে।
+
+
+ব্যাখ্যা:
+
+Animal হলো parent class, যেটিতে eat মেথড আছে।
+Dog হলো child class, যা Animal থেকে eat মেথড উত্তরাধিকারসূত্রে পেয়েছে এবং নিজস্ব bark মেথড যুক্ত করেছে।
+
+
+
+উদাহরণ ২: Method Overriding
+
+// Parent Class
+class Vehicle {
+    start() {
+        console.log("যানবাহন চালু হচ্ছে...");
+    }
+}
+
+// Child Class
+class Car extends Vehicle {
+    start() {
+        console.log("গাড়ি চালু হচ্ছে...");
+    }
+}
+
+// অবজেক্ট তৈরি করা
+const myCar = new Car();
+
+myCar.start(); // আউটপুট: গাড়ি চালু হচ্ছে...
+
+
+ব্যাখ্যা:
+
+Car ক্লাসে start মেথড parent ক্লাসের মেথডটিকে ওভাররাইড করেছে। ফলে child ক্লাসের মেথড ব্যবহার করা হয়েছে।
+
+
+উদাহরণ ৩: Super Keyword
+class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    info() {
+        console.log(`${this.name} এর বয়স ${this.age} বছর।`);
+    }
+}
+
+class Student extends Person {
+    constructor(name, age, grade) {
+        super(name, age); // Parent constructor কল
+        this.grade = grade;
+    }
+
+    info() {
+        super.info(); // Parent এর info মেথড কল
+        console.log(`${this.name} ${this.grade} গ্রেডে পড়ে।`);
+    }
+}
+
+const student = new Student("Rahim", 15, "10th");
+student.info();
+// আউটপুট:
+// Rahim এর বয়স 15 বছর।
+// Rahim 10th গ্রেডে পড়ে।
+
+
+ব্যাখ্যা:
+
+super ব্যবহার করে parent ক্লাসের কন্সট্রাক্টর এবং মেথড অ্যাক্সেস করা হয়েছে।
+এটি parent এবং child উভয়ের বৈশিষ্ট্য যোগ করে।
+
+
+সংক্ষেপে:
+Inheritance জাভাস্ক্রিপ্টে একটি গুরুত্বপূর্ণ বৈশিষ্ট্য যা কোড পুনঃব্যবহারযোগ্য করে এবং ক্লাসগুলোর মধ্যে সম্পর্ক তৈরি করে।
+
+Parent থেকে Child-এ বৈশিষ্ট্য এবং মেথড সরাসরি ব্যবহার করা যায়।
+super এবং extends কীওয়ার্ড inheritance প্রক্রিয়াকে সহজ করে।
+
+
+4. জাভাস্ক্রিপ্টে Polymorphism হলো প্রোগ্রামিংয়ের একটি ধারণা যেখানে একই ফাংশন বা মেথড বিভিন্ন রকমের ডেটা বা অবজেক্টের ওপর ভিন্নভাবে কাজ করতে পারে। এটি কোড পুনঃব্যবহারযোগ্যতা এবং ডায়নামিক বিহেভিয়ার নিশ্চিত করতে সাহায্য করে।
+
+Polymorphism-এর বৈশিষ্ট্য:
+একই মেথড ভিন্ন অবজেক্টের জন্য ভিন্ন আচরণ করতে পারে।
+কোডকে আরও মডুলার এবং ব্যবহারে সহজ করে।
+মেথড ওভাররাইডিং বা ওভারলোডিংয়ের মাধ্যমে কার্যকর হয়।
+উদাহরণ:
+
+
+উদাহরণ ১: মেথড ওভাররাইডিং (Method Overriding)
+
+// Parent Class
+class Animal {
+    makeSound() {
+        console.log("প্রাণী কিছু শব্দ করছে...");
+    }
+}
+
+// Child Classes
+class Dog extends Animal {
+    makeSound() {
+        console.log("ঘেউ ঘেউ!");
+    }
+}
+
+class Cat extends Animal {
+    makeSound() {
+        console.log("মিয়াঁও মিয়াঁও!");
+    }
+}
+
+// বিভিন্ন অবজেক্ট তৈরি করা
+const myDog = new Dog();
+const myCat = new Cat();
+
+myDog.makeSound(); // আউটপুট: ঘেউ ঘেউ!
+myCat.makeSound(); // আউটপুট: মিয়াঁও মিয়াঁও!
+
+
+ব্যাখ্যা:
+
+Animal ক্লাসে makeSound মেথড আছে, যা child ক্লাসগুলোতে ওভাররাইড করা হয়েছে।
+Dog এবং Cat ক্লাস একই মেথড ব্যবহার করছে কিন্তু ভিন্ন আউটপুট প্রদান করছে।
+
+
+
+উদাহরণ ২: ফাংশন ভিত্তিক Polymorphism
+
+function printShape(shape) {
+    shape.draw();
+}
+
+class Circle {
+    draw() {
+        console.log("বৃত্ত আঁকা হচ্ছে...");
+    }
+}
+
+class Rectangle {
+    draw() {
+        console.log("আয়তক্ষেত্র আঁকা হচ্ছে...");
+    }
+}
+
+// বিভিন্ন অবজেক্ট তৈরি করা
+const circle = new Circle();
+const rectangle = new Rectangle();
+
+printShape(circle);    // আউটপুট: বৃত্ত আঁকা হচ্ছে...
+printShape(rectangle); // আউটপুট: আয়তক্ষেত্র আঁকা হচ্ছে...
+
+
+
+ব্যাখ্যা:
+
+printShape ফাংশন একই রকমের নামকৃত মেথড (draw) বিভিন্ন অবজেক্টের জন্য ডাকে এবং প্রতিটি অবজেক্ট তার নিজস্ব আচরণ প্রকাশ করে।
+
+
+
+উদাহরণ ৩: ডায়নামিক Polymorphism
+
+class Employee {
+    getDetails() {
+        return "কর্মচারীর বিস্তারিত:";
+    }
+}
+
+class Manager extends Employee {
+    getDetails() {
+        return super.getDetails() + " ম্যানেজার পদে কর্মরত।";
+    }
+}
+
+class Developer extends Employee {
+    getDetails() {
+        return super.getDetails() + " ডেভেলপার পদে কর্মরত।";
+    }
+}
+
+function printEmployeeDetails(employee) {
+    console.log(employee.getDetails());
+}
+
+const manager = new Manager();
+const developer = new Developer();
+
+printEmployeeDetails(manager);   // আউটপুট: কর্মচারীর বিস্তারিত: ম্যানেজার পদে কর্মরত।
+printEmployeeDetails(developer); // আউটপুট: কর্মচারীর বিস্তারিত: ডেভেলপার পদে কর্মরত।
+
+
+ব্যাখ্যা:
+
+getDetails মেথড parent এবং child উভয় ক্লাসে আছে।
+child ক্লাসগুলোতে super.getDetails() ব্যবহার করে parent মেথডের আচরণ বাড়ানো হয়েছে।
+Polymorphism এবং এর সুবিধা:
+সাধারণ ইন্টারফেস প্রদান: বিভিন্ন অবজেক্টের জন্য একই ফাংশন ব্যবহার করা যায়।
+কোড পুনঃব্যবহারযোগ্যতা: একই মেথডের মাধ্যমে একাধিক কাজ করা সম্ভব।
+ডায়নামিক বিহেভিয়ার: প্রোগ্রামের রানের সময় বিভিন্ন অবজেক্ট অনুযায়ী আচরণ পরিবর্তন হয়।
+সংক্ষেপে:
+Polymorphism জাভাস্ক্রিপ্টে কোডকে আরও মডুলার, পুনঃব্যবহারযোগ্য এবং ডায়নামিক করে তোলে। এটি parent-child সম্পর্ক এবং মেথড ওভাররাইডিংয়ের মাধ্যমে কার্যকর হয়।
+
+
+5. When we use the normal function and we want to create a new function like the previous by editing this, we hold the function in a variable and use it for our choice, but There is a problem, and that problem is : if we hold the previous function in a variable and edit it for a new function the previous function's details also changes, so that time we use the function constructor to avoid the problem, because it will give a copy of previous function not the reference.
+
+for example:
+    function user(username, loginCount, isLoggedIn) {
+    this.username = username
+    this.loginCount = loginCount
+    this.isLoggedIn = isLoggedIn
+
+    return this
+    }
+
+    const userOne = user('Masud', 12, true)
+    const userTwo = user('Jobaer', 10, false)
+    console.log(userOne);
+
+    in this code we haven't log the userTwo to the console, but the userOne function's details are replaced with the userTwo's details, to avoid the problem we can use the new constructor keyword before every copy of function, Like this:
+
+    function user(username, loginCount, isLoggedIn) {
+    this.username = username
+    this.loginCount = loginCount
+    this.isLoggedIn = isLoggedIn
+
+    return this
+    }
+
+    const userOne = new user('Masud', 12, true)
+    const userTwo = new user('Jobaer', 10, false)
+    console.log(userOne);
+    console.log(userTwo);
+
+6. It will automatically returned.
+
+7. There are four steps for the new keyword:
+    1st:
+        When we use the new keyword, it automatically creates an empty object.
+    2nd:
+        When we use the new keyword, There called a constructor function for the new keyword.
+        it hold all arguments, and gives to us.
+    3rd:
+        every arguments inject in the new keyword.
+    4th:
+        we get those (arguments) details in function. 
+
+8. It gives the details of function like functionName blabla.
+
+9. It works like a comparision operator, Know it from internet.
+    for example:
+    console.log(userOne instanceof Object);

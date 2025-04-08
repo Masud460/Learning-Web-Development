@@ -1,0 +1,14 @@
+Q1: What is multidimensional array?
+
+Ans: an array inside an array is called a multidimensional array.
+
+Note:
+    The pop() method returns the item that was removed. To save that item in a new variable, you could do this:
+
+    const cities = ["Manchester", "Liverpool"]; 
+    const removedCity = cities.pop();
+    console.log(removedCity); // "Liverpool"
+
+Q2: What does the map() method?
+
+Ans: Sometimes you will want to do the same thing to each item in an array, leaving you with an array containing the changed items. You can do this using map(). 

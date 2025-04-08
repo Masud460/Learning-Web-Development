@@ -1,0 +1,32 @@
+1. Here is the solution:
+    for (let i = 1; i <= 10; i++) {
+    const element = i;
+    console.log(element);
+    }
+
+2. The child loop also printed 10 times with the parent loop;
+
+3. Like this: 
+    const myArray = ['Ataullah', 'Jubaer', 'Saifullah', 'Noman', 'Meem'];
+    for (let i = 0; i < myArray.length; i++) {
+    const element = myArray[i];
+    console.log(element);
+    }
+
+4. Like this:
+    for (let index = 1; index <= 20; index++) {
+    if (index === 5) {
+        console.log('Detected 5');
+        break;
+    }
+    console.log(index);    
+    }
+
+5. Like this: 
+    for (let index = 1; index <= 20; index++) {
+    if (index === 5) {
+        console.log('Detected 5');
+        continue;
+    }
+    console.log(index);    
+    }

@@ -1,0 +1,21 @@
+1. How to create grid columns?
+
+2. How to create grid rows?
+
+3. How to set automatic grid system? i mean i have three thing to grid, and i've seted two grid rows and i want to change the another one automatically, how can I do this?
+
+4. How to set gap between row and column?
+
+5. If we want same gap between row and column how can we do that?
+
+6. How can use grid column and rows with responsive?
+
+7. What is the shorthand of grid-template-rows and grid-template-columns?
+
+8. What is the shortcute of repeat a thing in grid? supose we want to create 12 columns in same size, so how can we do this instead of writing the columns twelve times?
+
+9. Supose we need to create a layout which has three columns and three rows, and we have 'header menu content footer' so we want to expand the header first full row and second row's first column is menu and second and third column are content and the last full row is footer, how can we do this?
+
+10. What is the shorthand for this?
+
+24:00

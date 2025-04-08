@@ -1,0 +1,113 @@
+1. The way of creating a class:
+    class user {
+        // code
+    }
+
+2. The way to create a constructor in class and use that:
+    class user {
+        constructor(username, email, password) {
+            this.username = username;
+            this.email = email;
+            this.password = password;
+        }
+    },
+
+    This is like a function, but in class we don't call it function, we call it 'method'.
+
+
+3. Here it is:
+    encryptPassword() {
+        return `${this.password} is encrypted`
+    }
+
+4. Here it is:
+    changeUsername() {
+        return `${this.username.toUpperCase()}`
+    }
+
+5. Behind the scene of the upper code is:
+    // behind the scene
+    function user(username, email, password) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+    }
+
+    user.prototype.encryptPassword = function () {
+        return `${this.password} is encrypted`
+    }
+
+    user.prototype.changeUsername = function () {
+        return `${this.username.toUpperCase()}`
+    }
+
+    const mahfuj = new user('Mahfuj', 'mahfuj@google.com', '4321')
+
+    console.log(mahfuj.encryptPassword());
+    console.log(mahfuj.changeUsername());
+
+
+6. Here is the way of extends a class with other:
+    class user {
+        constructor(username) {
+            this.username = username;
+        }
+
+        logIt() {
+            console.log(`Username is : ${this.username}`);
+        }
+    }
+
+    class teacher extends user {
+        constructor(username, email, password) {
+            this.email = email;
+            this.password = password;
+        }
+    }
+
+7. Here is the solution of the problem:
+    class teacher extends user {
+        constructor(username, email, password) {
+            super(username)
+            this.email = email;
+            this.password = password;
+        }
+    }
+
+8. It was very simple:
+    addCourse() {
+        console.log(`A new course added by ${this.username}`);        
+    }
+
+9. No, we can't access the teacher's class's method from the user's class.
+
+10. Yes, we can access the user's class's method from the teacher's class.
+
+11. For doing this just add the 'static' keyword before the method. like this: 
+    class user {
+        constructor(username) {
+            this.username = username;
+        }
+
+        logMe() {
+            console.log(`username: ${this.username}`);
+        }
+
+        static createId() {
+            return `${this.username.toLowerCase()}_${Math.floor(Math.   random() * 899) + 100}`
+        }
+    }
+
+    const masud = new user('Masud')
+    console.log(masud.createId());
+
+12. The following code not works:
+    class teacher extends user {
+        constructor(username, email) {
+            super(username)
+            this.email = email;
+        }
+    }
+
+    const hitesh = new teacher('Hitesh', 'hitesh@google.com')
+    console.log(hitesh.createId());

@@ -1,0 +1,26 @@
+1. The problem is the JS don't know what the context is right now, so we need to tell JS about our current context by using 'this.' before the username variable like this:
+    const user = {
+    username: 'Masud',
+    price: 499,
+    welcome: function () {
+        return `${this.username}, welcome to the website`
+    }
+}
+console.log(user.welcome())
+
+2. The first one will print 'Masud, welcome to the website' and the second one will print 'Jubaer, welcome to the website'
+
+3. The 'this' keyword prefers the global object with some property and values in the function.
+
+4. The output of the code is undefined.
+
+5. It returns an empty object.
+
+6. Like this:
+    1st way:
+        const square = (num) => num * num;
+    2nd way:
+        const square = (num) => (num * num);
+
+7. That time we need to cover the object with parenthesis, like this:
+    const square = () => ({username: 'Masud'});

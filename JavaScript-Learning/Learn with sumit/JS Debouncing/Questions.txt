@@ -1,0 +1,5 @@
+1. Why use Debounce?
+
+2. Write a debounce function?
+
+3. The previous function has a problem, that is when we're clicking the button many times it's delay but after the delay time it works so many times that we've clicked, but we only want one time the function be clicked, how to do this?

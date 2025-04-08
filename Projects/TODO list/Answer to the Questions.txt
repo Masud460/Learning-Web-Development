@@ -1,0 +1,58 @@
+1. Like this:
+.task_lists {
+    transform: scale(2);
+    margin: 0 8px 0;
+}
+
+2. Like this:
+
+<label class="square_checkbox">
+            <input type="checkbox">
+            <span class="checkbox"></span>
+            <h3>Do something 1</h3>
+        </label>
+
+    .square_checkbox input {
+    display: none;
+}
+
+.square_checkbox h3 {
+    display: inline;
+    vertical-align: middle;
+    font-weight: 500;
+    font-size: 22px;
+}
+
+
+.square_checkbox .checkbox {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border: 1px solid #6C63FF;
+    margin: 0 10px 0;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 500ms;
+}
+
+.square_checkbox input:checked + .checkbox {
+    background-color: #6C63FF;
+    position: relative;
+}
+
+.square_checkbox input:checked + .checkbox::after {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 3px;
+    width: 5px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+
+3. Like this:
+    vertical-align: middle;

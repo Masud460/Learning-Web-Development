@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+        body {
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <ul id="ul"></ul>
+</body>
+<script>
+    const ul = document.getElementById('ul')
+
+    // Unoptimized way
+    function createLiUnoptimized(data){
+        const li = document.createElement('li')
+        li.innerHTML = `<h1>${data}</h1>`;
+        ul.appendChild(li)
+    }
+    // createLiUnoptimized('Hello Guys!')
+    // createLiUnoptimized('How are you?')
+
+
+    // Optimized way
+    function createLiOptimized(data){
+        const li = document.createElement('li')
+        const text = document.createTextNode(data)
+        li.appendChild(text)
+        ul.appendChild(li)
+    }
+    createLiOptimized('JavaScript')
+    createLiOptimized('Python')
+    createLiOptimized('Mongo')
+    createLiOptimized('Node')
+    // createLiOptimized('Who are you?')
+    // createLiOptimized('What is your name?')
+
+
+    // Edit
+
+    // Unptimized
+    // const newLi = document.createElement('li')
+    // newLi.innerHTML = 'How are you?'
+    // newLi.textContent = 'What is your name?'
+    // newLi.innerText = 'Where do you live?'
+    // ul.appendChild(newLi)
+
+
+    // Optimized
+    const fristLi = document.querySelector('li:first-child')
+    // const newLi = document.createElement('li')
+    // const text = document.createTextNode('What happining in here?')
+    // newLi.appendChild(text)
+    // fristLi.replaceWith(newLi)
+
+    fristLi.outerHTML = '<li>JavaScript</li>'
+    
+    const lastLi = document.querySelector('li:last-child')
+    lastLi.remove()
+</script>
+</html>

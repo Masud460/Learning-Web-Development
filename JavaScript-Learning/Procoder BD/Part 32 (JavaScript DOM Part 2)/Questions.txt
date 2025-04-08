@@ -1,0 +1,17 @@
+1. How to do that if a user type a greeting text that will show to before the user name, and if he change the text that text will change but the name will same as that has?
+
+2. How to do this, I have some boxes and i want to change every box name like box 1 then box 2, let say i have 1000 boxes so how i change every box name with one programm?
+
+3. How to create an element with JS?
+
+4. How to set that element in a specific area?
+
+5. How to set an element inside a tag with JS?
+
+6. How to do this with JS: add a fruit name in a li inside an ul, if i write any fruit name that will add to the li;
+
+7. How to do this in a optimized way?
+
+8. How many ways for edit an element(text or one element with other)?
+
+9. How to remove an element with JS?

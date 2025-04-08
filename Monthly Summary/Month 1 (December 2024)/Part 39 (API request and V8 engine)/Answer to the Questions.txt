@@ -1,0 +1,27 @@
+1. api.github.com/users/Masud460
+
+2. Like this: 
+    const xhr = new XMLHttpRequest()
+
+3. Like this:
+    xhr.open('GET', requestURL)
+    xhr.send()
+
+4. Like this:
+    xhr.readyState
+
+5. Like this:
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState);
+    }
+
+6. Like this:
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState);
+        if (xhr.readyState === 4){
+            console.log(this.responseText);
+        }
+    }
+
+7. Like this:
+    const data = JSON.parse(this.responseText)

@@ -1,0 +1,25 @@
+1. What's the method to see children of parent element?
+
+2. Can we use for loop for looping an HTML collection?
+
+3. How to select first child of a parent element?
+
+4. How to select last child of a parent element?
+
+5. How to get access of parent element from a child element?
+
+6. How to get access of next child from a child?
+
+7. How to see the full NodeList of a parent?
+
+8. When we break a line in HTML, how JS sees that, is JS count all of document elements?
+
+9. How to create an element in JS?
+
+10. How to add className in an element?
+
+11. How to add id in an element?
+
+12. How to create text node, and append it in an element?
+
+13. How to append the whole element in body that we've just created?

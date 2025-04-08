@@ -1,0 +1,92 @@
+1. This is the syntax of a for of loop, and it's not needs any condition:
+    const myArr = [1, 2, 3, 4, 5]
+    for (const num of myArr) {
+    console.log(num);
+    }
+
+2. It will return every character in serial;
+
+3. The Map object holds key-value pairs and remembers the original insertion order of the keys. Any value (both objects and primitive values) may be used as either a key or a value.
+
+4. There are many different between map and object:
+    1st:
+        Object dose'nt remembers the original insertion order of the keys,
+        but Map remembers the original insertion order of the keys.
+
+    2st:
+        Object can hold duplicate value, but map cannot.
+
+5. This is the syntax of map constructor:
+    const map = new Map();
+
+6. This the way to set keys and values in map:
+    const map = new Map();
+    map.set('BN', 'Bangladesh')
+
+7. Yes. the map is loopable;
+
+8. No. the object aren't itretable;
+
+9. No. the code isn't works;
+
+10. There are two ways to solve the problem:
+    1st:
+        using forin loop:
+        for (const key in myObj) {
+        console.log(key, ':', myObj[key]);
+        }
+
+    2nd:
+        for (const key of Object.keys(myObj)) {
+        console.log(key, ':', myObj[key]);
+        }
+
+11. Like this:
+    const programming = ['js', 'py', 'java', 'cpp']
+    for (const key in programming) {
+    console.log(programming[key]);
+    }
+
+12. No. map are'nt itretable;
+
+13. Like this:
+    const bike = ['bmw', 'pulser', 'r15', 'suzuki']
+    bike.forEach(function(bike) {
+    console.log(bike);
+    })
+
+14. Yes, Like this:
+    function printMe(item) {
+    console.log(item);
+    }
+    bike.forEach(printMe)
+
+15. Three things forEach holds in an array:
+    1: array item,
+    2: array index,
+    3: whole array
+    
+    for example:
+        bike.forEach((item, index, arr) => {
+        console.log(item, index, arr);
+        })
+
+16. Like this:
+    const myCoding = [
+  {
+    languageName: 'JavaScript',
+    languageFileName: 'js'
+  },
+  {
+    languageName: 'Java',
+    languageFileName: 'java'
+  },
+  {
+    languageName: 'Python',
+    languageFileName: 'py'
+  }
+    ]
+
+    myCoding.forEach(item => {
+    console.log(item.languageFileName, item.languageName);
+    })

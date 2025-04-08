@@ -1,0 +1,179 @@
+1. No, The forEach method cannot return any value;
+
+2. Filter is use for filtering something , for example you have 10 numbers, and you want to exicute those numbers which are greater than 4,
+to do this you can simply use the following codes:
+    const myNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9,10];
+    const greaterThanFours = myNumbers.filter((num) => {
+        return num > 4;
+    })
+    console.log(greaterThanFours);
+
+3. Like this:
+    const newNums = [];
+    myNumbers.forEach((num) => {
+        if (num > 4) {
+            newNums.push(num)
+        }
+    })
+    console.log(newNums);
+
+4. Like this:
+    const userBooks = books.filter((book) => {
+      return book.genre === 'History';
+    });
+    console.log(userBooks);
+
+5. someone has told you he has 10 numbers and he wants to add 10 with all of those number than you can do this using map method, and this is used for adding something with existing array:
+    const myNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    const addTenWithAll = myNumbers.map((num) => {
+      return num + 10;
+    });
+    console.log(addTenWithAll);
+
+6. Like this:
+    const newNum = [];
+    myNumbers.forEach(num => {
+        if (newNum) {
+            newNum.push(num + 10)
+        }
+    })
+    console.log(newNum);
+
+7. Chaining is using method after method, and the result of first method will go to the second method not directly in the variable, for example:
+    const newNum = myNumbers
+      .map((num) => {
+        return num * 10;
+      })
+      .map((num) => {
+        return num + 1;
+      })
+      .filter((num) => {
+        return num > 50;
+      });
+    console.log(newNum);
+
+8. reduce is a method which is used most of the time in shoping card, it has three things to know about those,
+    1st: currentValue
+    it's the current value of your array,
+
+    2nd: initialValue
+    it's a value that what's the point you want to start from, and it's use only one time, and from the second time it's will not use;
+
+    3rd: accumulator
+    it's frist value has 0, and it call the initialValue for what is the starting value/initialValue, from the second time the value of accumulator is replaced with the equal of accumulator and currentValue;
+
+9. Explaining code:
+  the frist time it's currentValue was 5, because the first value of array is 1, and the accumulator value was 0 as we knew it before, the accumulator 0 and currentValue 1 sumed and equal to 1, the second time the accumulator value replaced with the equal of accumulator and currentValue which was 1, the second time accumulator is 1 and the currentValue was 2, because the first value of array was 2 after 1, sumed these two things (accumulator, currentValue) and equal to 3, third time accumulator is 3, and currentValue was 3, equal to 6, fourth time accumulator is 6, and currentValue was 5, equal to 11, fifth time accumulator is 11, and currentValue was 4, equal to 15, sixth time accumulator is 15, and currentValue was 5, equal to 20, so the result is 20.
+
+10. if we don't decide the initialValue then it will automatically set to the first value of the array, and the accumulator will start from the first value of array, and currentValue will start from the second value of the array, so you need to set the initialValue because it's gonna be a problem in like these code:
+  const shoppingCart = [
+    {
+      itemName: "JS Course",
+      price: 2999,
+    },
+    {
+      itemName: "Python Course",
+      price: 999,
+    },
+    {
+      itemName: "CPP Course",
+      price: 99,
+    },
+  ];
+  const billToPay = shoppingCart.reduce((acc, curVal) => {
+      return acc + curVal.price
+  })
+  console.log(billToPay);
+
+11. Like this:
+  let someNum = [1, 2, 3, 5, 4, 5];
+  let accum;
+  let initialValue = 0;
+  someNum.forEach(num => {
+    if (accum === undefined) {
+      let newTotal = num + initialValue;
+      console.log(newTotal);
+      accum = newTotal;
+    } else {
+      let anotherTotal = num + accum
+      console.log(anotherTotal);
+      accum = anotherTotal;
+    }
+  });
+
+12. Like this:
+    for (num of someNum) {
+    if (accum === undefined) {
+      let newTotal = initialValue + num;
+      console.log(newTotal);
+      accum = newTotal;
+    } else {
+      let anotherTotal = accum + num;
+      console.log(anotherTotal);
+      accum = anotherTotal;
+    }
+  }
+
+13. Like this:
+  for (const num in someNum) {
+    if (accum === undefined) {
+      let newTotal = initialValue + someNum[num];
+      console.log(newTotal);
+      accum = newTotal;
+    } else {
+      let anotherTotal = accum + someNum[num];
+      console.log(anotherTotal);
+      accum = anotherTotal;
+    }
+  }
+
+14. Like this:
+  let aNum = 0;
+  while (aNum < someNum.length) {
+    if (accum === undefined) {
+      let newTotal = initialValue + someNum[aNum];
+      console.log(newTotal);
+      accum = newTotal;
+    } else {
+      let anotherTotal = accum + someNum[aNum];
+      console.log(anotherTotal);
+      accum = anotherTotal
+    }
+    aNum++;
+  }
+
+15. Like this:
+  let aNum = 0;
+  do {
+    if (accum === undefined) {
+      let newTotal = initialValue + someNum[aNum];
+      console.log(newTotal);
+      accum = newTotal;
+    } else {
+      let anotherTotal = accum + someNum[aNum];
+      console.log(anotherTotal);
+      accum = anotherTotal;
+    }
+    aNum++
+  } while (aNum < someNum.length);
+
+16. Here it is:
+  const shopingCart = [
+    {
+      itemName: 'JS Course',
+      price: 2999
+    },
+    {
+      itemName: 'Python Course',
+      price: 999
+    },
+    {
+      itemName: 'CPP Course',
+      price: 99
+    }
+  ]
+
+  const total = shopingCart.reduce((acc, curVal) => {
+    return acc + curVal.price
+  }, 0)
+  console.log(total);

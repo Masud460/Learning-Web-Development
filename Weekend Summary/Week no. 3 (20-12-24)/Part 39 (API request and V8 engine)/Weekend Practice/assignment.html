@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        list-style: none;
+      }
+
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        color: #fff;
+        background-color: #212121;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: grey;
+        border-radius: 15px;
+        font-size: 24px;
+        width: 250px;
+        height: 400px;
+        display: none;
+      }
+
+      div img {
+        width: 200px;
+        height: 200px;
+        border-radius: 15px;
+        margin-bottom: 10px;
+      }
+
+      div h3 {
+        padding: 10px 15px;
+        background-color: black;
+        border-radius: 10px;
+      }
+
+      button {
+        font-size: 24px;
+        background-color: rgb(233, 49, 49);
+        border: none;
+        border-radius: 5px;
+        padding: 15px 25px;
+        font-weight: 700;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: rgba(233, 49, 49, 0.63);
+      }
+    </style>
+  </head>
+  <body>
+  </body>
+  <script>
+    const body = document.querySelector('body')
+
+    // Create card
+    const container = document.createElement('div')
+    const img = document.createElement('img')
+    const h3 = document.createElement('h3')
+
+    // Append card
+    container.appendChild(img)
+    container.appendChild(h3)
+    body.appendChild(container)
+
+    // Get data from API
+    function getData(){
+        const requestURL = 'https://api.github.com/users/hiteshchoudhary'
+        const xhr = new XMLHttpRequest()
+        xhr.open('GET', requestURL)
+        xhr.send()
+
+        xhr.onreadystatechange = function(){
+            if (xhr.readyState === 4){
+            const data = JSON.parse(this.responseText)
+            img.src = data.avatar_url;
+            h3.innerHTML = 'Followers: ' + data.followers;
+            container.style.display = 'flex'
+            button.style.display = 'none'
+        }
+        }
+    }
+
+    // Handle the click event
+    const button = document.createElement('button')
+    button.innerHTML = 'Get Data'
+    button.addEventListener('click', getData)
+    body.appendChild(button)
+  </script>
+</html>

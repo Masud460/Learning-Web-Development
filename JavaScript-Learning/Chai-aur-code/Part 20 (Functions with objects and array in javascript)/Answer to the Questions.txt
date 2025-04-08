@@ -1,0 +1,31 @@
+1. To solve the problem, we can use the rest operator (...para) in function parameter's area like this:
+    function calculateCartPrice(...prices) {
+        return prices;
+    }
+    console.log(calculateCartPrice(2000, 6000, 3000)) // returns [ 2000, 6000, 3000 ]
+
+2. It returns the value as array.
+
+3. Like this:
+    const student = {
+    name: 'Masud',
+    roll: '01',
+    id: 1044,
+    class: 'Hedayatunnahu'
+}
+
+function displayResult(studentData) {
+    return `The student name is: ${studentData.name}, and roll no. is: ${studentData.roll}, and id is: ${studentData.id}, and the class is: ${studentData.class}`
+}
+
+console.log(displayResult(student))
+
+4. Like this:
+    const bookList = ['Hedayatunnahu', 'Nahumeer', 'Mizan', 'Elmussaraf'];
+
+function getFreeBookBySpin(book) {
+    let random = Math.floor(Math.random() * bookList.length);
+    return book[random];
+};
+
+console.log(getFreeBookBySpin(bookList))

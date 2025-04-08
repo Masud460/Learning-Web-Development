@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+    <style>
+        body {
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <button id="click">Click Here</button>
+</body>
+<script>
+    class React {
+        constructor(){
+            this.server = 'https://localhost:3000';
+            this.library = 'React'
+
+            document.getElementById('click').addEventListener('click', this.handleClick.bind(this))
+        }
+        handleClick(){
+            console.log('It is react course');
+            console.log(this.server);
+        }
+    }
+    const app = new React()
+</script>
+</html>

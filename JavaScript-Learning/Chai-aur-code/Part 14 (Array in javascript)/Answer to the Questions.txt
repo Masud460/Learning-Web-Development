@@ -1,0 +1,12 @@
+1. A shallow copy of an object is a copy whose properties share the same references as those of the source object from which the copy was made. As a result, when you change either the source or the copy, you may also cause the other object to change too.
+
+2. A deep copy of an object is a copy whose properties do not share the same references as those of the source object from which the copy was made. As a result, when you change either the source or the copy, you can be assured you're not causing the other object to change too. 
+
+3. Another way fo create an array:
+    const myAnotherArr = new Array('Hello', 'Hi', 'How are you?')
+
+4. There are many difference between slice and splice.
+    1st:
+        The slice method not holds the last index number where the splice method holds the last index also.
+    2nd:
+        The slice method returns a new array by not changing the original array where the splice method returns the values by changing the original array.

@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: red;
+    font-size: 45px;
+}
+
+p {
+    color: blue;
+}
+
+div {
+    width: 200px;
+    height: 200px;
+    background-color: aqua;
+    margin-bottom: 15px;
+}
+
+div p {
+    color: black;
+}
+
+.text-black {
+    color: red;
+}

@@ -1,0 +1,86 @@
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: "Montserrat", serif;
+    font-weight: 300;
+}
+
+::placeholder {
+    color: #fff;
+    opacity: .5;
+}
+
+.container {
+    background-image: linear-gradient(#ff0248, #ff6d31);
+    width: 90%;
+    padding: 25px 15px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px #ddd;
+    margin: 25px auto 0
+}
+
+.container h1 {
+    color: #fff;
+    margin-bottom: 10px;
+    font-weight: 900;
+}
+
+.container label {
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+    margin: 5px 0;
+}
+
+.container input {
+    width: 100%;
+    padding: 10px 5px;
+    background-image: linear-gradient(#ff4a69, #ff7060);
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.container input:focus {
+    outline: none;
+}
+
+.container button {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.container button:hover {
+    background-color: #ddd;
+}
+
+.info, .result {
+    background-color: #fff;
+    border-radius: 5px;
+    margin: 5px 0 5px;
+    padding: 15px ;
+}
+
+.result #score {
+    font-size: 60px;
+    background-color: #ddd;
+    border-radius: 5px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: inline-block;
+    padding: 5px;
+}
+
+.result {
+    display: none;
+}

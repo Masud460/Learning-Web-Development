@@ -1,0 +1,15 @@
+1. How to select an element with id?
+
+2. How to get an element attribute?
+
+3. How to set attribute in element? and what need to know in this situation?
+
+4. What is the difference between innerText and textContent?
+
+5. How to select an element with className?
+
+6. How to select a farther element?
+
+7. When we select some element with querySelectorAll we get some node lists, is those like array?
+
+8. How to convert a HTMLCollection to an array?

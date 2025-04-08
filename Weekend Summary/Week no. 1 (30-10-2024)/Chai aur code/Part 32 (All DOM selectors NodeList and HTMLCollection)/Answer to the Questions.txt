@@ -1,0 +1,25 @@
+1. Like this:
+    document.getElementById('idName');
+
+2. Like this:
+    element.getAttribute('attributeName');
+
+3. Like this:
+    element.setAttribute('attributeName', 'attributeValue');
+    in this situation this is always overwrite the previous value;
+
+4. The textContent shows all the text if some text you invisibled with css or like that, it will show that text also, but the innerText shows only the text that is visible not that what is invisible.
+
+5. Like this:
+    document.getElementsByClassName('className');
+
+6. for example, you have selected an ul with a selector and saved in a variable named myul, and this ul has some li, so if you want to select those li you can select like this:
+    myul.querySelector('li');
+
+7. No, those properly aren't like array.
+
+8. Like this:
+    Supose you have some HTMLCollection in a variable named htmlColl, now if you want to convert these HTMLCollection in an array you can simply do this:
+        Array.from(htmlColl);
+
+9. We will get a HTMLCollection that holds the inner things of that element.

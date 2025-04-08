@@ -1,0 +1,60 @@
+Q1: What is fullform of API?
+
+Ans: The full form of API is 'Application Programming Interfaces'
+
+Q2: How many category of an API?
+
+Ans: API has two categorys,
+    1. Browser API,
+    2. Third perty API
+
+Q3: What is Browser API? and how does it work?
+
+Ans: Browser APIs are built into your web browser, and are able to expose data from the surrounding computer environment, or do useful complex things. For example:
+
+The DOM (Document Object Model) API allows you to manipulate HTML and CSS, creating, removing and changing HTML, dynamically applying new styles to your page, etc. Every time you see a popup window appear on a page, or some new content displayed (as we saw above in our simple demo) for example, that's the DOM in action.
+The Geolocation API retrieves geographical information. This is how Google Maps is able to find your location and plot it on a map.
+The Canvas and WebGL APIs allow you to create animated 2D and 3D graphics. People are doing some amazing things using these web technologies — see Chrome Experiments and webglsamples.
+Audio and Video APIs like HTMLMediaElement and WebRTC allow you to do really interesting things with multimedia, such as play audio and video right in a web page, or grab video from your web camera and display it on someone else's computer (try our simple Snapshot demo to get the idea).
+
+Q4: What is Third party API?
+
+Ans: Third party APIs are not built into the browser by default, and you generally have to grab their code and information from somewhere on the Web. For example:
+
+The Twitter API allows you to do things like displaying your latest tweets on your website.
+The Google Maps API and OpenStreetMap API allows you to embed custom maps into your website, and other such functionality.
+
+Q5: What is 'execution enviroments'?
+
+Ans: Each browser tab has its own separate bucket for running code in (these buckets are called "execution environments" in technical terms) ;
+
+Q6: What is Interpreted and Compiled?
+
+Ans: Interpreted versus compiled code
+You might hear the terms interpreted and compiled in the context of programming. In interpreted languages, the code is run from top to bottom and the result of running the code is immediately returned. You don't have to transform the code into a different form before the browser runs it. The code is received in its programmer-friendly text form and processed directly from that.
+
+Compiled languages on the other hand are transformed (compiled) into another form before they are run by the computer. For example, C/C++ are compiled into machine code that is then run by the computer. The program is executed from a binary format, which was generated from the original program source code.
+
+JavaScript is a lightweight interpreted programming language. The web browser receives the JavaScript code in its original text form and runs the script from that. From a technical standpoint, most modern JavaScript interpreters actually use a technique called just-in-time compiling to improve performance; the JavaScript source code gets compiled into a faster, binary format while the script is being used, so that it can be run as quickly as possible. However, JavaScript is still considered an interpreted language, since the compilation is handled at run time, rather than ahead of time.
+
+Q7: What is server-side code and client-side code?
+
+Ans: Server-side versus client-side code
+You might also hear the terms server-side and client-side code, especially in the context of web development. Client-side code is code that is run on the user's computer — when a web page is viewed, the page's client-side code is downloaded, then run and displayed by the browser. In this module we are explicitly talking about client-side JavaScript.
+
+Server-side code on the other hand is run on the server, then its results are downloaded and displayed in the browser. Examples of popular server-side web languages include PHP, Python, Ruby, C#, and even JavaScript! JavaScript can also be used as a server-side language, for example in the popular Node.js environment —
+
+Q8: What is dynamic and static code?
+
+And: Dynamic versus static code
+The word dynamic is used to describe both client-side JavaScript, and server-side languages — it refers to the ability to update the display of a web page/app to show different things in different circumstances, generating new content as required. Server-side code dynamically generates new content on the server, e.g. pulling data from a database, whereas client-side JavaScript dynamically generates new content inside the browser on the client, e.g. creating a new HTML table, filling it with data requested from the server, then displaying the table in a web page shown to the user. The meaning is slightly different in the two contexts, but related, and both approaches (server-side and client-side) usually work together.
+
+A web page with no dynamically updating content is referred to as static — it just shows the same content all the time.
+
+Q9: What if we add script tag in the bottom of the HTML?
+
+Ans: code in your web documents is generally loaded and executed in the order it appears on the page. By placing the JavaScript at the bottom, we ensure that all HTML elements are loaded.
+
+Q10: How to add script file in HTML head?
+
+And: Like this: <script type="module" src="script.js"></script>

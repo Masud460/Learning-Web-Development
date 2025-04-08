@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event</title>
+    <style>
+      body {
+        background: #212121;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <button id="btn" onclick="changeText()">Click Me</button> -->
+    <h2>Amazing Pictures</h2>
+    <div>
+      <ul id="images">
+        <li>
+          <img
+            width="200px"
+            id="photoshop"
+            src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt="photoshop"
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="japan"
+            src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="river"
+            src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li id="owl">
+          <img
+            width="200px"
+            
+            src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="prayer"
+            src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <a style="color: aliceblue" href="https://google.com" id="google"
+            >Google</a
+          >
+        </li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    // const button = document.querySelector('#btn');
+    const ul = document.querySelector("#images");
+    const lis = document.querySelectorAll('li');
+    const owl = document.getElementById('owl');
+    const google = document.getElementById('google');
+
+    // function createLi(e) {
+    //     const li = document.createElement('li')
+    //     li.innerHTML = '<a>Hello</a>'
+    //     ul.appendChild(li)
+    //     console.log(e.type)
+    // }
+    function createLi(e) {
+        console.log('UL clicked')
+        // console.log('event time stamp' + e.timeStamp)
+
+    }
+    lis.forEach(li => {
+        li.addEventListener('click', (e) => {
+            console.log(this)
+        })
+    })
+
+    // ul.addEventListener('click', createLi, false);
+    // owl.addEventListener('click',function(e) {
+    //     console.log('Owl clicked')
+    //     e.stopPropagation()
+    // }, false)
+
+
+    google.addEventListener('click', function(e){
+        e.preventDefault()
+    })
+
+
+    // lis.forEach(li => {
+    //     li.addEventListener('click', function(e){
+    //         this.remove()
+    //     })
+    // })
+
+    ul.addEventListener('click', function(e){
+        // if (e.target.tagName == 'IMG' || e.target.tagName == 'LI'){
+        //     e.target.remove()
+        // }
+        // console.log(e.target.tagName)
+        // let removeIt = e.target.parentNode;
+        // removeIt.parentNode.removeChild(removeIt)
+    })
+  </script>
+</html>

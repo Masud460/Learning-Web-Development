@@ -1,0 +1,25 @@
+1. Can we get accese of the 'this' keyword in arrow function?
+
+2. Can we add prototypes value in a function? if we can than how?
+
+3. How to create our prototype in a function?
+
+4. Create a proto method for increcing the score.
+
+5. Create a proto method for printing the user's function.
+
+6. In the previous step we have seen a problem when using our created method, How to solve that problem?
+
+7. What the meaning of 'this' in hindi?
+
+8. Read the sheet that gave you mr.hitesh choudhary.
+
+9. How to create a method that i can accese from all objects datatype? do this with an example.
+
+10. If we inject a prototype in an array can we get accese of that prototype from other datatypes like object etc?
+
+11. How to link two object? and what is named for this? give an example for clearing the concept.
+
+12. What is the modern syntax for doing this?
+
+13. Create a prototype that clear the white space of string and tells the real length of the string, and show the message : The true length is theNumber;

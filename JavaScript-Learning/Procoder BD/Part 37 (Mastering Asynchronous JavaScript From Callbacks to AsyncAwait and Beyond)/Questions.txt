@@ -1,0 +1,33 @@
+1. Write a synchoronous JS function;
+
+2. Write an synchoronous JS function that blocks code;
+
+3. Give an example to see How works the setTimeout / Asynchoronous js and it's blocks codes from exicute?
+
+4. What is the syntax of Promise?
+
+5. How to active a Promise?
+
+6. Create a Promise that returns 'Above' message if a number above 5 and 'Below' if below 5;
+
+7. How to execute many Promise in one time that return in array?
+
+8. How to do this: i have many Promise , but i want to show the Promise that will resolve or reject first?
+
+9. How to chian Promises?
+
+10. How to collect data from API and convert it to json and then use it and if not found any data it shows an error in console in synchoronous way?
+
+11. How JavaScript sees the following code:
+    async function myFunction () {
+        return 'Hello'
+    }
+    myFunction();?
+
+12. How to collect data from API and convert it to json and then use it and if not found any data it shows an error in console in Asynchoronous way?
+
+// New addition
+
+13. When is a promise in pending state?
+
+14. When we use the parentheses after 'catch' in 'try catch'?

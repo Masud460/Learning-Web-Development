@@ -1,0 +1,32 @@
+1. Debounce use for this:
+    supose we have an ecommerce website, and a user accidently ordered a product more than one, but he doesn't want to do this, so for this developers use Debounce to handle the accidently clicks.
+
+2. Here is a debounce function:
+    function debounce(fn, delay) {
+        return function () {
+            setTimeout(function(){
+                fn()
+            }, delay)
+        }
+    }
+
+    button.addEventListener('click', debounce(function (event) {
+        console.log('Clicked')
+    }, 2000))
+
+3. Here is the solved code:
+   function debounce(fn, delay) {
+    let timeoutId;
+    return function () {
+        if (timeoutId) {
+            clearTimeout(timeoutId)
+        }
+        timeoutId = setTimeout(function () {
+            fn()
+        }, delay)
+    }
+}
+
+button.addEventListener('click', debounce(function (event) {
+    console.log('Clicked')
+}, 500))

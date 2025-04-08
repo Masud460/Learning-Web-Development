@@ -1,0 +1,17 @@
+1. How to destructure an object's property?
+
+2. How to change the destructrured property name?
+
+3. How to destructure a nested object?
+
+4. How to set a default value in destructure?
+
+5. How to destructure an array's element?
+
+6. Supose i have an array and it has 1 to 5 these five elements, and i need only the 2 and 5, so how can i do this with using destructure?
+
+7. How can we destructure a nested array? supose in the previous array's third element is another array, and it has [3, 100, 500] and i want to destructure only 100 and 500, so how can we do this?
+
+8. Give an amaizing example of destructuring, like value swamp.
+
+9. How could developer do this in old way?

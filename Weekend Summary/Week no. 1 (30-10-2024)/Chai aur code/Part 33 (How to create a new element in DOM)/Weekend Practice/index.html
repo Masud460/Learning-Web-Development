@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM | Chai aur code</title>
+    <style>
+      body {
+        background-color: #212121;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="parent">
+      <!-- This is a Comment -->
+      <li class="child">JavaScript</li>
+      <li class="child">HTML</li>
+      <li class="child">CSS</li>
+      <li class="child">Python</li>
+      <li class="child">CPP</li>
+    </ul>
+  </body>
+  <script>
+    const parent = document.querySelector(".parent");
+    const firstLi = document.querySelector("li:first-child");
+    // console.log(parent.children);
+    // console.log(parent.firstElementChild);
+    // console.log(parent.lastElementChild);
+    // console.log(firstLi.parentElement);
+    // console.log(firstLi.nextElementSibling);
+    // console.log(parent.childNodes);
+    // for (let i = 0; i < parent.children.length; i++){
+    //     console.log(parent.children[i].innerHTML);
+    // }
+
+    // create element
+    const newLi = document.createElement("li");
+    const addText = document.createTextNode("MERN Stack");
+    newLi.className = "name";
+    newLi.id = "name";
+    newLi.style.backgroundColor = "Green";
+    newLi.style.padding = "10px";
+    newLi.appendChild(addText);
+    console.log(newLi);
+    document.body.appendChild(newLi)
+  </script>
+</html>

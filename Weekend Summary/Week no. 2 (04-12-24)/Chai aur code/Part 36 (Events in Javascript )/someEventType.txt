@@ -1,0 +1,4 @@
+// types
+mouseover, mouseout, keydown, input, 
+
+// timeStamp

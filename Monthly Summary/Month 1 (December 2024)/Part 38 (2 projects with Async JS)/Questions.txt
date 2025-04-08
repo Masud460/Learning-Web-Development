@@ -1,0 +1,11 @@
+1. How to do this:
+    if someone enter to the website then he should get a welcome message after 2 second.
+
+2. How to do this:
+    i have a title that's text is 'Chai aur code', and i want i will changed it with 'best JS series' after 2 second?
+
+3. How to stop the setTimeout before exicuting?
+
+4. What is third parameter of a set interval?
+
+5. Do the task that give you chai aur code. 

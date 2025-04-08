@@ -1,0 +1,36 @@
+1. Like this:
+    const user = {
+        id: 234,
+        name: 'Masud',
+        age: 19
+    }
+    const { name } = user;
+
+2. Like this:
+    const { name: title } = user;
+
+3. Like this:
+    const {education: {degree}} = user
+
+4. Like this:
+    const {education: {degree} = {}} = user
+
+5. Like this:
+    let numbers = [1, 2, 3, 4, 5];
+    let [a, b] = numbers; // a assigned to 1, and b assigned to 2;
+
+6. Like this:
+    let [,a, ,,b] = numbers
+
+7. Like this:
+    let [,,[,a, b]] = numbers   
+
+8. Here it is:
+    let a = 1;
+    let b = 2;
+    [b, a] = [a, b]
+
+9. Like this:
+    let temp = a;
+    a = b;
+    b = temp;

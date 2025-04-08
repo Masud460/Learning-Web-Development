@@ -1,0 +1,1 @@
+1. How to do this: I have a button and i want when i click the button this is copy a text to clipboard?

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Event Delegation</title>
+    </head>
+    <body>
+        <div id="parent">
+            <button>Click</button>
+            <span>This is a span</span>
+        </div>
+    </body>
+    <script>
+        /*
+        Event Delegation
+        
+        Event delegation is a JavaScript technique where instead of attaching event listeners to multiple child elements, you attach a single event listener to a parent element.
+        This is useful when you have dynamically added elements because you don’t need to add event listeners every time a new element is created.
+        */
+
+
+
+        document.getElementById("parent").addEventListener("click", function (event) {
+            if (event.target.tagName === "BUTTON") {
+                console.log("Button clicked:", event.target.innerText);
+            } else if( event.target.tagName === 'SPAN'){
+                console.log('Span clicked', event.target.innerText)
+            }
+        });
+    </script>
+</html>

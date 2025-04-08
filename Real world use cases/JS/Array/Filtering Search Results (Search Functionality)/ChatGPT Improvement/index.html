@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Array Usages</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        background-color: #212121;
+      }
+
+      ::placeholder {
+        font-weight: 600;
+        opacity: 0.5;
+      }
+
+      #add-fruit,
+      #search-btn {
+        border: none;
+        padding: 15px 30px;
+        background-color: #000;
+        color: #fff;
+        border-radius: 5px;
+        font-weight: 600;
+        font-size: 18px;
+        cursor: pointer;
+        margin: 15px 3px;
+      }
+
+      form {
+        border: 2px solid #000;
+        border-radius: 5px;
+        margin: 30px;
+        background-color: #fff;
+        width: 400px;
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #inputs {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      label {
+        font-size: 18px;
+        text-align: center;
+        margin: 3px 0;
+        font-weight: 600;
+        display: block;
+      }
+
+      input {
+        width: 90%;
+        height: 25px;
+        padding: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <div id="inputs">
+        <label for="add">Your favourite fruits</label>
+        <input
+          id="userInput"
+          type="text"
+          placeholder="Enter your frute's name"
+        />
+        <label for="search">Search your frute</label>
+        <input
+          type="text"
+          id="search"
+          placeholder="Enter the frist character"
+        />
+        <p id="fruit-list" style="color: #000; text-align: center; font-weight: bold;"></p>
+      </div>
+      <div id="buttons">
+        <button id="add-fruit">Add Fruits</button>
+        <button id="search-btn">Search Fruits</button>
+      </div>
+    </form>
+    <script src="script.js"></script>
+  </body>
+</html>

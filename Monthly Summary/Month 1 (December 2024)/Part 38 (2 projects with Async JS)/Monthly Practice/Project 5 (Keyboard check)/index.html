@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keyboard check</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      background: #212121;
+      color: #fff;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    #workspace {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    tr,
+    th,
+    td {
+      border: 2px solid #fff;
+      margin: 35px;
+      padding: 10px;
+      color: #fff;
+      font-size: 24px;
+      font-weight: 700;
+    }
+  </style>
+  <body>
+    <div id="project">
+      <h1>Press any key on you keyboard and see Magic!</h1>
+      <div id="workspace"></div>
+    </div>
+  </body>
+  <script>
+    const insert = document.getElementById("workspace");
+    window.addEventListener("keydown", function (e) {
+      insert.innerHTML = `
+        <table>
+            <tr>
+                <th>Key</th>
+                <th>Keycode</th>
+                <th>Code</th>
+            </tr>
+            <tr>
+                <td>${e.key == ' ' ? 'Space' : e.key}</td>
+                <td>${e.keyCode}</td>
+                <td>${e.code}</td>
+            </tr>
+        </table>`;
+    });
+  </script>
+</html>

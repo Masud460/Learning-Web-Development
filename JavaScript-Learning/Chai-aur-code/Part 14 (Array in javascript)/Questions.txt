@@ -1,0 +1,7 @@
+1. What is the shallow copy?
+
+2. What is the deep copy?
+
+3. What is the another way of create an array?
+
+4. What is the defference between slice and splice?

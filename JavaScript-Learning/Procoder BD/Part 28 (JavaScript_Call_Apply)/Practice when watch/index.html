@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bus ticket</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="nav">
+      <h1>BD Bus Tickets</h1>
+    </nav>
+    <main class="main">
+      <div class="buying-area">
+        <form>
+          <caption>
+            User Details
+          </caption>
+          <label for="name">Name</label>
+          <input id="name" type="text" placeholder="Enter your name" />
+          <label for="seat_no">Seat No.</label>
+          <input id="seat_no" type="text" placeholder="Enter seat no." />
+          <label for="destination">Destination</label>
+          <input
+            id="destination"
+            type="text"
+            placeholder="Enter your destination"
+          />
+          <label for="time">Travel Time</label>
+          <input id="time" type="text" placeholder="Enter your travel time" />
+          <input type="submit" value="Buy Now" />
+        </form>
+      </div>
+      <div class="ticket">
+        
+
+        <h1>Your ticket is here!</h1>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Destination</th>
+                    <th>Seat No.</th>
+                    <th>Travel time</th>
+                </tr>
+                <tr>
+                    <td id="username"></td>
+                    <td id="user-des"></td>
+                    <td id="user-seat"></td>
+                    <td id="user-time"></td>
+                </tr>
+            </table>
+          </h3>
+        </div>
+      </div>
+    </main>
+
+
+    <script src="script.js"></script>
+  </body>
+</html>

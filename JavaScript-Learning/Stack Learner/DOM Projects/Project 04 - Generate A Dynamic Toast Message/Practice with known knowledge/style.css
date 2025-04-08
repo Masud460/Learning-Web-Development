@@ -1,0 +1,102 @@
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#root {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1{
+    font-size: 35px;
+    text-align: center;
+    color: #000;
+    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+}
+
+input {
+    padding: 10px 0px;
+    text-align: center;
+    margin-top: 10px;
+    border-radius: 5px;
+    font-weight: 600;
+    background-color: #fff;
+    font-size: 18px;
+    width: 185px
+}
+
+#copy-btn {
+    padding: 10px 5px;
+    margin-top: 10px;
+    border-radius: 5px;
+    font-weight: 200;
+    background-color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+#change-btn {
+    font-size: 28px;
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 10px 35px;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-weight: 0;
+    cursor: pointer;
+}
+
+#change-btn:hover {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #fff;
+}
+
+#toast-msg {
+    color: #fff;
+    border: 2px solid #fff;;
+    margin: 15px;
+    padding: 10px 35px;
+    font-size: 18px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    animation: slide 800ms ease-out, endAnime 800ms ease-in 800ms forwards;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(20px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+    
+}
+
+@keyframes endAnime {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

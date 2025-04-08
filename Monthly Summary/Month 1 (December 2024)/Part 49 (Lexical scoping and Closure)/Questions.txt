@@ -1,0 +1,5 @@
+1. Give an example of lexical scoping.
+
+2. When we create a function (e, makeFunc), and define a variable in this function (e, name),  and then create another function (e, displayname) in this function, and then log the outer function's name variable in the inner function, and return the inner function's reference from the outer function, and hold the outer function in a variable (e, myFunc), in that time is only the inner function returns or the full outer function too i mean the full lexical scope returns or not? give an example for clearing the concept.
+
+3. Give an use case sinorio for the lexical scope.

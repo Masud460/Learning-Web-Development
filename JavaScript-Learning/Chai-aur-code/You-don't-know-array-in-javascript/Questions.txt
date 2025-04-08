@@ -1,0 +1,5 @@
+1. What is most important thing for accessing something in PowerShell?
+
+2. How to see children in PowerShell?
+
+3. What symbol refers the home directory(C:\Users\Ataullah-Masud)?

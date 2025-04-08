@@ -1,0 +1,36 @@
+1. Here it is:
+    function addLanguage(langName) {
+      const ul = document.querySelector(".languages");
+      const li = document.createElement("li");
+      li.innerHTML = `langName`;
+      ul.appendChild(li);
+    }
+    addLanguage("Python");
+
+2. Here it is:
+    function addLanguage(langName) {
+      const ul = document.querySelector(".languages");
+      const li = document.createElement("li");
+      const nameOfLang = document.createTextNode(langName);
+      li.appendChild(nameOfLang);
+      ul.appendChild(li);
+    }
+    addLanguage("Python");
+
+3. Like this:
+    const fifthLang = document.querySelector("li:nth-child(5)");
+    fifthLang.innerHTML = "C#";
+
+4. Like this:
+  const fifthLang = document.querySelector("li:nth-child(5)");
+    const newLi = document.createElement("li");
+    newLi.textContent = "C#";
+    fifthLang.replaceWith(newLi);
+
+5. This is another way to edit an element:
+    const thirdLang = document.querySelector("li:nth-child(3)");
+    thirdLang.outerHTML = "<li>Laravel</li>";
+
+6. Like this:
+  const lastLang = document.querySelector('li:last-child')
+    lastLang.remove()

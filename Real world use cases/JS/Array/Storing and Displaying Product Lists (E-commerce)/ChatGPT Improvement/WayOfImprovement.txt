@@ -1,0 +1,22 @@
+🛠 What Can Be Improved?
+1️⃣ Performance Optimization (6.5/10)
+
+Instead of table.innerHTML +=, use insertRow() to avoid re-rendering the entire table.
+Avoid redundant pop() calls in remove logic.
+2️⃣ Code Reusability & Structure (7/10)
+
+Right now, all logic is inside the event listener.
+Create separate functions for adding/removing products to make the code cleaner.
+3️⃣ Dynamic Image & Product Data (7/10)
+
+Instead of hardcoding products, load them dynamically from an array or API.
+This will make the project more scalable and real-world applicable.
+4️⃣ Better ID Handling (6.5/10)
+
+Your ID generation (Math.random() * 50) could create duplicates.
+Use Date.now() or a counter for unique IDs.
+5️⃣ More Features for User Experience (UX) (7/10)
+
+Add a Remove from Cart button.
+Show a Total Items Count somewhere.
+Allow users to add quantity instead of adding duplicates.

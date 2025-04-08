@@ -1,0 +1,29 @@
+1. In the following code we have seen an error which is  'username is not defined', but we have declared the username in the object, so why the problem and how to solve it? code:
+    const user = {
+    username: 'Masud',
+    price: 499,
+    welcome: function () {
+        return `${username}, welcome to the website`
+    }
+}
+console.log(user.welcome())
+
+2. What's the output of the following code?
+    console.log(user.welcome())
+    user.username = 'Jubaer'
+    console.log(user.welcome())
+
+3. What prefers this keyword in literal function?
+
+4. What is the output of the following code?
+    function chai() {
+    let username = 'Masud';
+    console.log(this.username);
+}
+chai()
+
+5. What prefers this keyword in Arrow function? 
+
+6. How to return anything in arrow function without typeing the return keyword?
+
+7. There is a problem when we returning an object from arrow function without typeing the return keyword, how to solve it?

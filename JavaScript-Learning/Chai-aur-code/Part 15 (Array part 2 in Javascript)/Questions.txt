@@ -1,0 +1,12 @@
+1. When we have many array and we want to store the every array elements in a single array, that time how can we do this?
+
+2. Supose we have an array and it has another array and so on, what we need to do if we want to store these all arrays in a single array?
+
+3. How to check if a datatype array or not?
+
+4. How to convert a datatype in array?
+
+5. What is the output of the following code?
+    console.log(Array.from({name: 'Masud'}))
+
+6. What is the another way to convert a datatype in array?

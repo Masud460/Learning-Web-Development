@@ -1,0 +1,9 @@
+1. Why use the transition?
+
+2. What is good practice for transition-duration?
+
+3. What does the transition-property?
+
+4. How to add many property in the transition-property?
+
+5. What are transition-timing-function's propertys? 

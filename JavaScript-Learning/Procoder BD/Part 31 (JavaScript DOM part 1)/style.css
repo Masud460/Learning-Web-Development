@@ -1,0 +1,13 @@
+h1 {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.text-white {
+  color: green;
+}
+
+.cta {
+  background: aqua;
+  padding: 10px 20px;
+  width: 200px;
+}

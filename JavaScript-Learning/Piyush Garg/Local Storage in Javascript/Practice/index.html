@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LocalStorage</title>
+    </head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+            transition: all 500ms;
+        }
+
+        html, body{
+            width: 100%;
+            height: 100%;
+            background-color: #212121;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .container {
+            width: 350px;
+            height: 350px;
+            background-color: #000;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 10px;
+            box-shadow: 0 0 10px #fff;
+        }
+
+        .container input{
+            padding: 7px 25px;
+            font-size: 14px;
+            width: 35px;
+            height: 35px;
+            border-radius: 5px;
+            border: 0;
+        }
+
+        .container input:hover {
+            width: 200px;
+            height: 35px;
+        }
+
+        #btn {
+            border: none;
+            border-radius: 5px;
+            background-color: #000;
+            box-shadow: 0 0 10px #fff;
+            color: #fff;
+            padding: 7px 15px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        #btn:hover {
+            background-color: #fff;
+            color: #000;
+        }
+    </style>
+    <body>
+        <div class="container">
+
+            <h1 id="set_username">My name is </h1>
+            <code>console.log('Hello World!')</code><br>
+            <input type="text" id="username" placeholder="Enter Your Name">
+            <button id="btn">Submit</button>
+            
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>

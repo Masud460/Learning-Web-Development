@@ -3,7 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-  transition: all 300ms;
+  transition: all 300ms ;
 }
 
 html,
@@ -22,7 +22,6 @@ body {
 }
 
 .container {
-  width: 100%;
   height: 100%;
   max-width: 470px;
   min-width: 400px;
@@ -39,35 +38,39 @@ body {
   font-weight: 500;
 }
 
+
+/* Control Area */
+
 .control_area {
+  height: 20%;
   display: grid;
   grid-template: 1fr 1fr / 11fr 1fr;
-  grid-gap: 14px;
+  grid-gap: 10px;
 }
 
 .control_area input[type="search"] {
   grid-column: 1 / -1;
   border: 1px solid #6c63ff;
   border-radius: 5px;
-  padding: 0 25px;
+  padding: 8px 25px;
   font-size: 16px;
   color: #6c63ff;
 }
 
 .control_area input[type="search"]:focus {
   outline: none;
-  box-shadow: 0 0 3px 1px #6b63ffca;
+  box-shadow: 0 0 3px 2px #6b63ffca;
 }
 
-.control_area select {
+.control_area > select {
   grid-column: 1 / -2;
   background-color: #6c63ff;
   color: #fff;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
   border: none;
   border-radius: 5px;
-  padding: 0 10px;
+  padding: 8px 10px;
   outline: none;
 }
 
@@ -76,7 +79,7 @@ body {
 }
 
 .control_area select:hover {
-  box-shadow: 0 0 5px 2px #ffffff8e;
+  background-color: #534cc2;
 }
 
 .control_area select > option {
@@ -90,15 +93,13 @@ body {
   align-items: center;
   gap: 5px;
   grid-column: 1 / -1;
-  height: 45px;
-
   border: none;
   border-radius: 5px;
+  padding: 2px;
   color: #fff;
   background-color: #6c63ff;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
-  /* vertical-align: middle; */
   cursor: pointer;
 }
 
@@ -107,49 +108,31 @@ body {
 }
 
 .control_area button span {
-  font-size: 35px;
+  font-size: 28px;
   font-weight: 300;
-  /* vertical-align: middle; */
 }
 
 .icon_dark {
-  width: 45px;
-  height: 45px;
+  width: 35px;
+  height: 35px;
   background-color: #6c63ff;
   fill: #f5f5f5;
   border-radius: 5px;
   cursor: pointer;
-  padding: 8px;
-  transition: all 500ms;
+  padding: 5px;
 }
 
 .icon_dark:hover {
   background-color: #534cc2;
 }
 
-/* Default checkbox */
-/* .check {
-    margin: 25px 35px;
-    padding: 15px 0;
-    border-bottom: 1px solid #6C63FF;
-}
-
-.task_labels {
-    font-size: 20px;
-    font-weight: 600;
-}
-
-.task_lists {
-    transform: scale(2);
-    margin: 0 8px 0;
-} */
-
 /* Custom checkbox */
 .square_checkbox {
-  min-width: 470px;
-  max-width: 800px;
+  width: 100%;
+  max-width: 470px;
+  min-width: 400px;
   border-bottom: 0.5px solid #6b63ff8f;
-  padding: 8px 0;
+  padding: 5px 0;
 }
 
 .square_checkbox input {
@@ -192,29 +175,43 @@ body {
   transform: rotate(45deg);
 }
 
+
+/* Adding Area */
+
 .add_area {
     box-shadow: 0 0 10px #000;
   position: absolute;
   top: 20px;
   background-color: #F7F7F7;
-  display: grid;
-  grid-template-rows: 50px 40px 135px 60px;
-  grid-template-columns: 110px auto 110px ;
-  ;
-  /* background: red; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
   border-radius: 15px;
   width: 95%;
   max-width: 450px;
   height: 40%;
   padding: 15px 25px;
+  display: none;
+}
+
+.add_head {
+  width: 100%;
+}
+
+.add_area .buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .add_area h1 {
   text-align: center;
   grid-column: 2 / 3;
   font-size: 24px;
-  font-weight: 500;
-  
+  font-weight: 600;
+  margin-bottom: 10px;
 }
 
 .add_area input {
@@ -223,8 +220,8 @@ body {
   font-size: 14px;
   font-weight: 500;
   color: #6c63ff;
-  grid-column: 1 / -1;
-    padding: 0 25px;
+  padding: 7px 25px;
+  width: 100%;
 }
 
 .add_area input:focus {
@@ -233,35 +230,28 @@ body {
 
 .add_area  button{
     border: none;
-    border-radius: 8px;
-    padding: 10px 20px;
-    margin: 5px;
+    border-radius: 5px;
+    padding: 7px 25px;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 16px;
     cursor: pointer;
 }
 
-.add_area button:nth-child(3) {
-    grid-column: 1 / 2;
-    grid-row: 4 / 5;
-    background-color: #f7f7f7;
-    border: 1px solid #6C63FF;
-    color: #6C63FF;
+.add_area .buttons :nth-child(1){
+  border: 1px solid #6c63ff;
+  color: #6c63ff;
 }
 
-.add_area button:nth-child(3):hover {
-  background-color: #6C63FF;
+.add_area .buttons :nth-child(1):hover{
+  background-color: #6c63ff;
   color: #fff;
 }
 
-.add_area  button:nth-child(4) {
-    grid-column: 3 /4;
-    grid-row: 4 / 5;
-    background-color: #6C63FF;
-    color: #fff;
+.add_area .buttons :nth-child(2){
+  background-color: #6c63ff;
+  color: #fff;
 }
 
-.add_area button:nth-child(4):hover {
-  background-color: #6b63ff8f;
-  color: #fff;
+.add_area .buttons :nth-child(2):hover {
+  background-color: #534cc2;
 }

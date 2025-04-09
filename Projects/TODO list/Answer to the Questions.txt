@@ -56,3 +56,10 @@
 
 3. Like this:
     vertical-align: middle;
+
+
+
+4. .
+
+5. Like this:
+    searchNote.style.setProperty('::placeholder', 'color: #fff')

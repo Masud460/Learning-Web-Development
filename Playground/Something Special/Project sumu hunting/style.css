@@ -1,0 +1,168 @@
+ /* Reset and Base Styles */
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #f0f2f5;
+    color: #1c1e21;
+}
+
+/* Main Container */
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 72px 0 112px;
+}
+
+/* Content Wrapper */
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 60px;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+/* Left Side - Branding */
+.branding {
+    max-width: 500px;
+    padding-right: 32px;
+}
+
+.logo {
+    color: #1877f2;
+    font-size: 56px;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.tagline {
+    font-size: 28px;
+    line-height: 32px;
+}
+
+/* Right Side - Login Form */
+.login-form {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 396px;
+    text-align: center;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    border: 1px solid #dddfe2;
+    border-radius: 6px;
+    font-size: 17px;
+    outline: none;
+}
+
+.login-form input:focus {
+    border-color: #1877f2;
+    box-shadow: 0 0 0 2px #e7f3ff;
+}
+
+.login-btn {
+    background-color: #1877f2;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 12px;
+    width: 100%;
+    margin-bottom: 16px;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    background-color: #166fe5;
+}
+
+.forgot-password {
+    color: #1877f2;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.divider {
+    border-bottom: 1px solid #dadde1;
+    margin: 20px 0;
+}
+
+.create-account {
+    background-color: #42b72a;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 12px 16px;
+    margin-top: 16px;
+    cursor: pointer;
+}
+
+.create-account:hover {
+    background-color: #36a420;
+}
+
+/* Footer - Create Page */
+.create-page {
+    margin-top: 28px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.create-page a {
+    color: #1c1e21;
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .content {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+    
+    .branding {
+        padding-right: 0;
+        margin-bottom: 20px;
+    }
+    
+    .logo {
+        font-size: 48px;
+    }
+    
+    .tagline {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 500px) {
+    .login-form {
+        width: 100%;
+    }
+    
+    .logo {
+        font-size: 40px;
+    }
+    
+    .tagline {
+        font-size: 20px;
+    }
+}

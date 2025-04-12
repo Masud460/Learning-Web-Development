@@ -61,5 +61,43 @@
 
 4. .
 
-5. Like this:
-    searchNote.style.setProperty('::placeholder', 'color: #fff')
+5. It's not possible, but we can do this with another approach, like this:
+    css: 
+        .dark_search {
+            color: #fff;
+        }
+
+    js:
+        searchNote.classList.add('dark_search')
+
+6. Like this:
+    We need to make a div dynamically with js which default value is unvisible,(e.g. const overlay = document.createElement(div), overlay.classList.add('overlay'), document.body.appendChild(overlay)) then customize that in css (e.g. 
+    .overlay{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        backdrop-filter: blur(5px);
+        z-index: 998;
+        display: none;
+    }
+    ), then customize in js(e.g.
+        addNote.addEventListener('click', function () {
+            addArea.style.display = 'flex';
+            overlay.style.display = 'block';
+        })
+
+        cancel.addEventListener('click', function () {
+            addArea.style.display = 'none';
+            overlay.style.display = 'none';
+        })
+        )
+
+7. Like this:
+    window.addEventListener('keydown', event => {
+          if (event.key === 'Enter') {
+            apply.click()
+          }
+    })

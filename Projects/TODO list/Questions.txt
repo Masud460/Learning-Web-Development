@@ -7,3 +7,8 @@
 4. How to create stylish search bar?
 
 5. How can we change placeholder with JS?
+
+6. How can we do this? 
+    We have a popup menu which default value is unvisible, and when the popup appears the outer side should be blurred;
+
+7. We want when we click the enter button a button will be clicked, How can we do this?

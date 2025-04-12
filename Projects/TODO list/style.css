@@ -6,6 +6,14 @@
   transition: all 300ms ;
 }
 
+:root {
+  --color: #6c63ff;
+  --hover-color: #fff;
+  --back-color: #fff;
+  --back-hover-color: #6c63ff;
+  --border-hover-color: #fff;
+}
+
 html,
 body {
   width: 100%;
@@ -21,8 +29,21 @@ body {
   opacity: 0.5;
 }
 
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px);
+  z-index: 998;
+  display: none;
+}
+
 .container {
   height: 100%;
+  width: 100%;
   max-width: 470px;
   min-width: 400px;
   position: relative;
@@ -41,14 +62,14 @@ body {
 
 /* Control Area */
 
-.control_area {
-  height: 20%;
+.grid_area {
+  height: 80px;
   display: grid;
   grid-template: 1fr 1fr / 11fr 1fr;
   grid-gap: 10px;
 }
 
-.control_area input[type="search"] {
+.grid_area input[type="search"] {
   grid-column: 1 / -1;
   border: 1px solid #6c63ff;
   border-radius: 5px;
@@ -57,12 +78,16 @@ body {
   color: #6c63ff;
 }
 
-.control_area input[type="search"]:focus {
+.grid_area input[type="search"]:focus {
   outline: none;
   box-shadow: 0 0 3px 2px #6b63ffca;
 }
 
-.control_area > select {
+.dark_search::placeholder{
+  color: #fff;
+}
+
+.grid_area > select {
   grid-column: 1 / -2;
   background-color: #6c63ff;
   color: #fff;
@@ -74,28 +99,27 @@ body {
   outline: none;
 }
 
-.control_area select:focus {
+.grid_area select:focus {
   background-color: #534cc2;
 }
 
-.control_area select:hover {
+.grid_area select:hover {
   background-color: #534cc2;
 }
 
-.control_area select > option {
+.grid_area select > option {
   background-color: #fff;
   color: #6c63ff;
 }
 
-.control_area button {
+.add_btn  {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5px;
-  grid-column: 1 / -1;
   border: none;
   border-radius: 5px;
-  padding: 2px;
+  width: 430px;
+  margin: 10px 0 0 0;
   color: #fff;
   background-color: #6c63ff;
   font-size: 16px;
@@ -103,16 +127,17 @@ body {
   cursor: pointer;
 }
 
-.control_area button:hover {
+.add_btn:hover {
   background-color: #534cc2;
 }
 
-.control_area button span {
+.add_btn span:last-child {
   font-size: 28px;
   font-weight: 300;
+  margin-left: 5px;
 }
 
-.icon_dark {
+.icon_dark, .icon_white {
   width: 35px;
   height: 35px;
   background-color: #6c63ff;
@@ -129,7 +154,7 @@ body {
 /* Custom checkbox */
 .square_checkbox {
   width: 100%;
-  max-width: 470px;
+  max-width: 430px;
   min-width: 400px;
   border-bottom: 0.5px solid #6b63ff8f;
   padding: 5px 0;
@@ -179,9 +204,11 @@ body {
 /* Adding Area */
 
 .add_area {
-    box-shadow: 0 0 10px #000;
-  position: absolute;
-  top: 20px;
+    box-shadow: 0 0 10px #ffffff88;
+  position: fixed;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: #F7F7F7;
   display: flex;
   justify-content: space-between;
@@ -192,7 +219,12 @@ body {
   max-width: 450px;
   height: 40%;
   padding: 15px 25px;
+  z-index: 999;
   display: none;
+}
+
+.add_note_dark::placeholder {
+  color: #fff;
 }
 
 .add_head {
@@ -237,15 +269,21 @@ body {
     cursor: pointer;
 }
 
-.add_area .buttons :nth-child(1){
+.add_area .buttons .cancel_btn{
+  background-color: var(--back-color);
   border: 1px solid #6c63ff;
-  color: #6c63ff;
+  color: var(--color);
 }
 
-.add_area .buttons :nth-child(1):hover{
-  background-color: #6c63ff;
-  color: #fff;
+.add_area .buttons .cancel_btn:hover{
+  background-color: var(--back-hover-color);
+  border-color: var(--border-hover-color)
+  color: var(--hover-color);
 }
+
+/* .cancel_js:hover {
+  border-color: #6c63ff;
+} */
 
 .add_area .buttons :nth-child(2){
   background-color: #6c63ff;
@@ -254,4 +292,44 @@ body {
 
 .add_area .buttons :nth-child(2):hover {
   background-color: #534cc2;
+}
+
+
+@media screen and (min-width: 768px){
+  .container {
+    width: 768px;
+    max-width: 768px;
+  }
+  .grid_area {
+    width: 550px;
+    grid-template: repeat(12, 1fr)
+  }
+  .grid_area input[type="search"]{
+    grid-column: 1 / 8;
+  }
+  .grid_area select{
+    grid-column: 8 / 11;
+  }
+  .grid_area .icon_dark, .grid_area .icon_white{
+    grid-column: 11 / 12;
+  }
+  .add_btn {
+    position: absolute;
+    top: auto;
+    bottom: 150px; 
+    right: 100px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .add_btn span:first-child {
+    display: none;
+    margin: auto;
+  }
+  .add_btn span:last-child {
+    margin: 0.5px 0 0 2px;
+  }
 }

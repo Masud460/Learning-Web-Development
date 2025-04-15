@@ -1,0 +1,18 @@
+1. Like this:
+    localStorage.setItem(key, value);
+
+2. Like this:
+    localStorage.getItem(key);
+
+3. Like this:
+    localStorage.removeItem(key);
+
+4. Like this:
+    localStorage.clear();
+
+5. Like this:
+    localStorage.key(index);
+
+6. Yes, we can.
+    First of all we set the value like this: localStorage.key = value;
+    Second we access the value like this: localStorage.key;

@@ -1,74 +1,43 @@
-const container = document.querySelector('.container');
+// References
 
-
+const container = document.querySelector(".container");
 const body = document.body;
-const checkbox = document.querySelectorAll(".square_checkbox");
-const placeholder = document.querySelector("::placeholder");
 
+// Home screen elements
 const head = document.querySelector(".head");
-const searchNote = document.getElementById('search_note');
-
-
+const searchNote = document.getElementById("search_note");
+const select = document.querySelector("select");
 
 // Add New Note
-const addNote = document.querySelector('.add_btn');
-const addArea = document.querySelector('.add_area');
+const addNote = document.querySelector(".add_btn");
+const addArea = document.querySelector(".add_area");
+const addNoteHead = document.getElementById("add_note_head");
+const userNote = document.getElementById("usernote");
+const apply = document.querySelector(".apply_btn");
+const cancel = document.getElementById("cancel_btn");
 
-const addNoteHead = document.getElementById('add_note_head');
+// Checkbox
+let checkboxText = document.querySelectorAll(".checkbox_text");
 
-const overlay = document.createElement('div');
-overlay.classList.add('overlay');
+// Display blurring
+const overlay = document.createElement("div");
+overlay.classList.add("overlay");
 body.appendChild(overlay);
 
-const userNote = document.getElementById('usernote');
+// Show warning
+const warning = document.getElementById("warn");
 
-const cancel = document.getElementById('cancel_btn');
-const apply = document.querySelector('.apply_btn');
-
-let todos = [];
-
-addNote.addEventListener('click', function () {
-    addArea.style.display = 'flex';
-  overlay.style.display = 'block';
-})
-
-cancel.addEventListener('click', function () {
-  addArea.style.display = 'none';
-  overlay.style.display = 'none';
-})
-
-const saveDataInLocal = function () {
-  const userNoteValue = userNote.value;
-  todos.push(userNoteValue);
-  localStorage.setItem(`notes`, todos)
-  let index = 1;
-  // todos.forEach(todo => {
-  //   localStorage.setItem(`note ${index}`, todo)
-  //   index++;
-  // })
-  userNote.value = '';
-  userNote.focus();
-}
-
-apply.addEventListener('click', saveDataInLocal)
-
-window.addEventListener('keydown', event => {
-  if (event.key === 'Enter') {
-    apply.click()
-  }
-})
-
+// Control Dark and White
+let themeIcon = document.querySelector(".icon_white");
 
 // Dark and White
 // My version
 
-let darkAndWhite = document.querySelector(".icon_dark");
-
-darkAndWhite.addEventListener("click", function () {
-  if (darkAndWhite.getAttribute("class") === "icon_dark") {
+themeIcon.addEventListener("click", function () {
+  if (themeIcon.getAttribute("class") === "icon_white") {
     // Dark Mode
     // Home screen
-    console.log(darkAndWhite.getAttribute("class"));
+    body.style.backgroundColor = "#252525";
     head.style.color = "#fff";
     this.innerHTML = `
                           <svg class="icon_dark" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" style="font-weight: bold" viewBox="0 0 24 24">
@@ -77,61 +46,179 @@ darkAndWhite.addEventListener("click", function () {
           `;
     searchNote.style.borderColor = "#fff";
     searchNote.style.backgroundColor = "transparent";
-      searchNote.style.color = "#fff";
-      searchNote.classList.add('dark_search');
-    checkbox.forEach((box) => (box.style.color = "#fff"));
-    body.style.backgroundColor = "#252525";
+    searchNote.style.color = "#fff";
+    searchNote.classList.add("dark_search");
+    checkboxText.forEach((box) => {
+      box.style.setProperty("--checkbox-color", "#fff");
+    });
 
     // Add screen
-    addNoteHead.style.color = '#fff';
-    addArea.style.backgroundColor = '#252525';
-    userNote.style.color = '#fff';
-    userNote.style.borderColor = '#fff';
-    userNote.style.backgroundColor = 'transparent';
-    userNote.classList.add('add_note_dark');
-    cancel.style.setProperty('--back-color', '#252525')
-    cancel.style.setProperty('--color', '#fff')
-    cancel.style.setProperty('--hover-color', '#fff')
-    cancel.style.setProperty('--back-hover-color', '#6c63ff')
-    cancel.style.setProperty('--border-hover-color', '#6c63ff')
-    cancel.classList.add('cancel_js')
+    // headding styles
+    addNoteHead.style.color = "#fff";
 
-    this.setAttribute("class", "icon_white");
-    darkAndWhite = document.querySelector(".icon_white");
+    // add note box styles
+    addArea.style.backgroundColor = "#252525";
+
+    // input box styles
+    userNote.style.color = "#fff";
+    userNote.style.borderColor = "#fff";
+    userNote.style.backgroundColor = "transparent";
+    userNote.classList.add("add_note_dark");
+
+    // Warning Style
+    warning.style.setProperty("--warn-color", "#fff");
+
+    // cancel button styles
+    cancel.style.setProperty("--color", "#fff");
+    cancel.style.setProperty("--hover-color", "#fff");
+    cancel.style.setProperty("--back-color", "#252525");
+    cancel.style.setProperty("--back-hover-color", "#6c63ff");
+    cancel.style.setProperty("--border-color", "#fff");
+    cancel.style.setProperty("--border-hover-color", "#6c63ff");
+
+    this.classList.add("icon_dark");
   } else {
     // White Mode
     // Home Screen
     head.style.color = "#000";
+    body.style.backgroundColor = "#f7f7f7";
     this.innerHTML = `
                             <svg id="theme" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
                   <path d="M223.5 32C100 32 0 132.3 0 256S100 480 223.5 480c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"/></svg>
             `;
     searchNote.style.borderColor = "#6c63ff";
     searchNote.style.backgroundColor = "#f7f7f7";
-      searchNote.style.color = "#6c63ff";
-      searchNote.classList.remove('dark_search');
-    checkbox.forEach((box) => (box.style.color = "#000"));
-    body.style.backgroundColor = "#f7f7f7";
+    searchNote.style.color = "#6c63ff";
+    searchNote.classList.remove("dark_search");
+    checkboxText.forEach((box) => {
+      box.style.setProperty("--checkbox-color", "#000");
+    });
 
     // Add Screen
-    addNoteHead.style.color = '#000';
-    addArea.style.backgroundColor = '#F7F7F7';
-    userNote.style.color = '#6c63ff';
-    userNote.style.borderColor = '#6c63ff';
-    userNote.style.backgroundColor = '#F7F7F7';
-    userNote.classList.remove('add_note_dark');
-    cancel.style.backgroundColor = "#fff";
-    cancel.style.setProperty('--button-color', '#6c63ff')
-    cancel.style.borderColor = "#6c63ff";
-    cancel.classList.remove('cancel_js')
+    addNoteHead.style.color = "#000";
+    addArea.style.backgroundColor = "#F7F7F7";
 
-    darkAndWhite.setAttribute('class', 'icon_dark');
-    darkAndWhite = document.querySelector('.icon_dark')
+    userNote.style.color = "#6c63ff";
+    userNote.style.borderColor = "#6c63ff";
+    userNote.style.backgroundColor = "#F7F7F7";
+    userNote.classList.remove("add_note_dark");
+
+    // Warning style
+    warning.style.setProperty("--warn-color", "#000");
+
+    cancel.style.setProperty("--color", "#6c63ff");
+    cancel.style.setProperty("--hover-color", "#fff");
+    cancel.style.setProperty("--back-color", "#fff");
+    cancel.style.setProperty("--back-hover-color", "#6c63ff");
+    cancel.style.setProperty("--border-color", "#6c63ff");
+    cancel.style.setProperty("--border-hover-color", "#6c63ff");
+
+    this.setAttribute("class", "icon_white");
   }
 });
 
+// Add new note
 
-// Deepseek version
+addNote.addEventListener("click", function () {
+  addArea.style.display = "flex";
+  overlay.style.display = "block";
+});
+
+
+// Saving data on localStorage
+function saveDataInLocal() {
+  const userNoteValue = userNote.value;
+
+  let key = "todo";
+  if (localStorage.length == 0) {
+    localStorage.setItem(`${key} ${1}`, userNoteValue);
+  } else {
+    localStorage.setItem(`${key} ${localStorage.length + 1}`, userNoteValue);
+  }
+}
+
+// Reseting input field after using it
+function resetInputField() {
+  userNote.value = "";
+  addArea.style.display = "none";
+  overlay.style.display = "none";
+}
+// Add items to the todo area
+function addTodo(todoText) {
+  const label = document.createElement("label");
+  const input = document.createElement("input");
+  const span = document.createElement("span");
+  const h3 = document.createElement("h3");
+  const textColor =
+    themeIcon.getAttribute("class") === "icon_white" ? "#000" : "#fff";
+  h3.style.setProperty("--checkbox-color", textColor);
+
+  // modification
+  label.classList.add("square_checkbox");
+  input.type = "checkbox";
+  span.classList.add("checkbox");
+  h3.innerHTML = todoText;
+  h3.classList.add("checkbox_text");
+
+  // add these in label
+  label.appendChild(input);
+  label.appendChild(span);
+  label.appendChild(h3);
+
+  // add label to todo area
+  const todoArea = document.getElementById("todos");
+  todoArea.appendChild(label);
+
+  checkboxText = document.querySelectorAll(".checkbox_text");
+}
+
+
+// create new todo lists
+function createNewtodo() {
+  addTodo(userNote.value)
+}
+
+// Show previous tasks on load
+window.onload = function () {
+  showTasks();
+};
+function showTasks() {
+  for (let i = 1; i <= localStorage.length; i++){
+    addTodo(localStorage.getItem(`todo ${i}`));
+  }
+}
+
+apply.addEventListener("click", function () {
+  if (userNote.value === "") {
+    warning.innerHTML = "NOTE: Please give a valid TODO.";
+    return;
+  }
+  for (let i = 0; i < localStorage.length; i++) {
+    if (localStorage.getItem(`todo ${i}`) == userNote.value.trim()) {
+      warning.innerHTML = "NOTE: This task is already exist.";
+      return;
+    }
+  }
+  saveDataInLocal();
+  createNewtodo();
+  resetInputField();
+});
+
+// Apply with Enter key
+window.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    apply.click();
+  }
+});
+
+cancel.addEventListener("click", function () {
+  addArea.style.display = "none";
+  overlay.style.display = "none";
+  warning.innerHTML = "";
+  resetInputField();
+});
+
+// Deepseek dark and light version
 /*
 const themeToggle = document.querySelector(".theme-toggle");
 const body = document.body;
@@ -159,7 +246,7 @@ themeToggle.addEventListener("click", function() {
 });
 
 // Corresponding CSS:
-/*
+
 body.dark-mode {
   background-color: #252525;
   color: #fff;

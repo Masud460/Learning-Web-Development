@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LocalStorage</title>
+  </head>
+  <body></body>
+  <script>
+    const key = prompt("Enter the key you want to set");
+    const value = prompt("Enter the value you want to set");
+    localStorage.setItem(key, value);
+
+    console.log(`The value at the key ${key} is ${localStorage.getItem(key)}`);
+
+
+    // localStorage.removeItem(key);
+    // if (!localStorage.getItem(key)){
+    //     console.log('The key you just seted is removed')
+    // }
+
+    if (key.trim().toLowerCase() == 'clear'){
+        localStorage.clear()
+    }
+
+    // console.log(localStorage.key(1))
+    localStorage.name = 'Ataullah';
+    console.log(localStorage.name)
+    console.log(localStorage)
+  </script>
+</html>

@@ -1,0 +1,11 @@
+1. How to set an item in localStorage?
+
+2. How to get an item from localStorage?
+
+3. How to remove an item from localStorage?
+
+4. How to clear the whole localStorage?
+
+5. How to check the key in localStorage with the index of that key?
+
+6. Can we use the localStorage like an object?

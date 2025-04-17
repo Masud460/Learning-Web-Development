@@ -114,3 +114,11 @@
 9. The problem was we are only using the reference that we've created the first time, so that's why the text color is not changing because we've not re-queried/updated the checkbox reference after adding a new todo dynamically coz we've not refered the checkbox to that new created todo, so here is the solution:  checkbox = document.querySelectorAll('square_checkbox')
 
 10. document.documentElement is a property that returns the root element of the document, which is always the <html> element in HTML documents. It provides direct access to the <html> tag, allowing you to manipulate attributes, classes, or styles at the document's root level.
+
+11. You can style checked checkboxes using the ':checked' pseudo-class.
+
+12. checkbox.checked;
+
+13. Like this:
+    const removeIndex = complete.indexOf(todo.innerText);
+    complete.splice(removeIndex, 1)

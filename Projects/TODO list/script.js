@@ -124,7 +124,6 @@ addNote.addEventListener("click", function () {
   overlay.style.display = "block";
 });
 
-
 // Saving data on localStorage
 function saveDataInLocal() {
   const userNoteValue = userNote.value;
@@ -172,10 +171,9 @@ function addTodo(todoText) {
   checkboxText = document.querySelectorAll(".checkbox_text");
 }
 
-
 // create new todo lists
 function createNewtodo() {
-  addTodo(userNote.value)
+  addTodo(userNote.value);
 }
 
 // Show previous tasks on load
@@ -183,7 +181,7 @@ window.onload = function () {
   showTasks();
 };
 function showTasks() {
-  for (let i = 1; i <= localStorage.length; i++){
+  for (let i = 1; i <= localStorage.length; i++) {
     addTodo(localStorage.getItem(`todo ${i}`));
   }
 }
@@ -216,6 +214,70 @@ cancel.addEventListener("click", function () {
   overlay.style.display = "none";
   warning.innerHTML = "";
   resetInputField();
+});
+
+// select todo storages
+const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+let all = [];
+for (let i = 1; i <= localStorage.length; i++){
+  let key = localStorage.key(`todo ${i}`);
+  all.push(localStorage.getItem(key))
+}
+let complete = [];
+let incomplete = [];
+
+checkboxes.forEach(checkbox => {
+  if (!checkbox.checked) {
+    incomplete.push(checkbox)
+  }
+})
+
+// Checkbox behaviour
+checkboxes.forEach((checkbox) => {
+  checkbox.addEventListener("click", function (event) {
+    const todo = event.target.parentElement.querySelector(":nth-child(3)");
+    console.log(todo)
+    const checkboxColor =
+      themeIcon.getAttribute("class") === "icon_white" ? "#000" : "#fff";
+
+    if (event.target.checked) {
+      todo.innerHTML = `<del>${todo.innerHTML}</del>`;
+      todo.style.setProperty("--checkbox-color", "grey");
+      complete.push(todo.innerText);
+      console.log(complete);
+    } else {
+      todo.innerHTML = todo.textContent;
+      todo.style.setProperty("--checkbox-color", checkboxColor);
+      const removeIndex = complete.indexOf(todo.innerText);
+      complete.splice(removeIndex, 1)
+    }
+  });
+});
+
+console.log(all)
+console.log(complete)
+console.log(incomplete)
+
+// Select menu
+const selectOption = document.querySelectorAll("select option");
+selectOption.forEach((opt) => {
+  switch (opt.value) {
+    case "all": {
+      all.forEach(todo => {
+        addTodo(todo)
+      })
+    } break;
+    case 'complete': {
+      complete.forEach(todo => {
+        addTodo(todo)
+      });
+    } break;
+    case 'incomplete': {
+      incomplete.forEach(todo => {
+        addTodo(todo)
+      })
+    }
+  }
 });
 
 // Deepseek dark and light version

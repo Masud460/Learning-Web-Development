@@ -1,0 +1,61 @@
+1. Type the command on terminal:
+    npm init -y
+    npm install -D tailwindcss@3 postcss autoprefixer vite;
+    then type the command: npx tailwindcss init -p; then type a '*' with qoutetion in tailwind.config.js content area, then add ("scripts": {
+    "start": "vite"
+  }) in package.json file, and type these three things in input.css file (@tailwind base;
+  @tailwind components;
+  @tailwind utilities); 
+  then run the command: npm run start;
+
+2. text-xs, text-sm, text-lg, text-base, text-2xl, text-3xl, text-4xl, text-5xl, text-6xl, text-7xl, text-8xl, text-9xl.
+
+3. Like this:
+  leading-3, leading-4... leading-10, leading-none, leading-tight, leading-sung, leading-normal, leading-relaxed, leading-loose.
+
+4. Like this:
+  font-sans, font-serif, font-mono,
+
+5. Like this:
+  hover:font-sans;
+
+6. Like this:
+  italic, not-italic.
+
+7. Like this:
+  font-thin, font-light, font-extralight, font-normal, font-medium,  font-semibold, font-bold, font-extrabold, font-black,
+
+8. Like this:
+  tracking-tighter, tracking-tight, tracking-normal, tracking-wide, tracking-wider, tracking-widest.
+
+9. Like this:
+  list-none, list-disc, list-decimal, list-inside.
+
+10. Like this:
+  text-center, text-right, text-left, text-start, text-justify, text-end.
+
+11. Like this:
+  text-white, text-black, text-slate-50 ... text-slate-950, text-red-50 ... text-red-950, text-blue-50 ... text-blue-950...
+
+12. Like this:
+  underline, overline, line-through, no-underline.
+
+13. Like this:
+  decoration-blue-300;
+
+14. Like this:
+  m-0 == margin: 0px;
+  m-1 == margin: 1rem;
+  mx-1 == margin: 0 1rem;
+  my-1 == margin: 1rem 0;
+
+15. Like this:
+  p-0 == padding: 0px;
+  p-1 == padding: 1rem;
+  px-1 == padding: 0 1rem;
+  py-1 == padding: 1rem 0;
+
+16. 47:37;
+
+17. Like this:
+  rounded, rounded-md, rounded-lg, rounded-full...etc.

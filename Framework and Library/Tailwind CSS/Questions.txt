@@ -1,0 +1,33 @@
+1. How to install Tailwind CSS v3?
+
+2. Write all font size classes of tailwind.
+
+3. How can we define line height in tailwind?
+
+4. How to use font-family?
+
+5. How to use hover effect, for example if I hover on the text it should change to sans font-family.
+
+6. How to use font-style?
+
+7. How to use font-weight?
+
+8. How to use letter spacing?
+
+9. How to control list-style-type?
+
+10. How to control text-align?
+
+11. How to control text color/font-color?
+
+12. How to set text underline, overline?
+
+13. How to control text decoration color?
+
+14. How to use margin?
+
+15. How to use padding?
+
+16. How to use border border?
+
+17. How to use rounded border?

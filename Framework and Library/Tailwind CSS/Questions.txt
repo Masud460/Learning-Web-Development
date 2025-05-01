@@ -28,6 +28,20 @@
 
 15. How to use padding?
 
-16. How to use border border?
+16. How to use border?
 
 17. How to use rounded border?
+
+18. How to use border color?
+
+19. How to use ring?
+
+20. How to set ring color?
+
+21. How to use color code?
+
+22. How to use px rem em?
+
+23. How to use transition?
+
+24. How to apply same classes in multiple element in shoutcut way?

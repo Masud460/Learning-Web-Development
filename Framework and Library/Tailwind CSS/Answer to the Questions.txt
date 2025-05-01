@@ -55,7 +55,28 @@
   px-1 == padding: 0 1rem;
   py-1 == padding: 1rem 0;
 
-16. 47:37;
+16. Like this:
+  border-0, border, border-2, border-4, border-6.. and so on,  border-x-2(right and left 2px), border-y-2(top and bottom 2px) and so on..., border-t-2, border-r-2, border-b-2, border-l-2;
 
 17. Like this:
   rounded, rounded-md, rounded-lg, rounded-full...etc.
+
+18. Like this:
+  border-blue-300; like other color style...
+
+19. Like this:
+  ring-1, ring-2, ring, ring-4, these for the ring, and we need to set the offset too, and that is 'ring-offset-1', 2, 4, and so on;
+
+20. Like this:
+  ring-red-300, like other color system;
+
+21. Like this:
+  bg-[#000];
+
+22. Like this:
+  mr-[128px]
+
+23. Like this:
+  transition-all, transition-color, transition-transform, duration-100, duration-200, duration-300;
+
+24. First of all save all classes that you want to set in all element,  then go to the css file and make a class(e.g. .btn), then type @apply and all classes, after that type the class name that you have created in css file(e.g. .btn) and paste the class in all element you want to apply those class in.

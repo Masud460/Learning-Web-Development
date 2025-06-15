@@ -1,8 +1,10 @@
 {
   "scripts": {
-    "start": "vite"
-  }
-  ,
+    "start": "vite",
+    "build": "tailwindcss -i input.css -o ./css/style.min.css --minify",
+    "dev": "vite build",
+    "watch": "tailwindcss -i input.css -o ./css/style.min.css --watch"
+  },
   "devDependencies": {
     "autoprefixer": "^10.4.21",
     "lightningcss": "^1.29.3",

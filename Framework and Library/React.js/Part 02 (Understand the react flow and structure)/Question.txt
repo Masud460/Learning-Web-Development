@@ -1,0 +1,9 @@
+1. What is virtual DOM?
+
+2. Edit these react files and fun.
+
+3. What is react fragment?
+
+4. What is the component in React?
+
+5. What is the major learning point of today?

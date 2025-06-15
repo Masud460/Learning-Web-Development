@@ -80,3 +80,72 @@
   transition-all, transition-color, transition-transform, duration-100, duration-200, duration-300;
 
 24. First of all save all classes that you want to set in all element,  then go to the css file and make a class(e.g. .btn), then type @apply and all classes, after that type the class name that you have created in css file(e.g. .btn) and paste the class in all element you want to apply those class in.
+
+25. For doing this we can use the @layer in the css input file, like this:
+  @layer base/components/utilities(use one of these) {
+    h1 {
+      @apply font-bold bg-black
+    }
+  }
+
+26. Supose you need to change the background color when it hits 640px, You can write the code like this: sm:bg-black; and for medium use 'md', for large use 'lg', for extra large use 'xl'.
+
+27. Go to the global css file then write "@theme" in the bottom of import file then type --breakpoint-sm: px; or --breakpoint-md: px; or --breakpoint-lg: px, etc. like this:
+  @theme {
+    --breakpoint-sm: 460px;
+    --breakpoint-md: 668px;
+    --breakpoint-lg: 970px;
+  }
+
+28. Go to theme variables in global css file, then write the variable like this:
+  --color-blue-400: #2e86de;
+  .
+
+29. Go to global css file, then theme and write like this:
+  @theme {
+    --font-mono: "Fira Code", 'monospace';
+  }
+
+30. First of all go to the tailwind.config.js file then type 'darkMode: 'selector'' in module.exports object, then select your selector by changing the selector value, If you change it to 'media' this will behave based on your local system theme, and if you change it to 'class' that time you need to write 'dark' class in the body/html tag for dark mode, and remove the class for light mode.
+
+31. The 'classList.toggle('class')' is majorly use to add or remove a class in js when a button is clicked or an event happens, this is commonly use for dark/light mode and etc.
+
+32. Tailwind CSS is a utility-first framework that generates thousands of CSS classes. However, using it directly in development would result in a massive, unoptimized CSS file (often several MBs).
+
+  Key Reasons for Building Tailwind:
+
+  1.Purge Unused CSS (Tree Shaking)
+
+  In production, you don’t need all utility classes—only the ones you actually use.
+
+  The build process removes unused classes, drastically reducing file size (e.g., from 3MB+ → 10KB).
+
+  2.Minification & Optimization
+
+  The generated CSS is compressed (removes whitespace, comments, etc.).
+
+  Improves load time and performance.
+
+  3.Applying PostCSS Plugins
+
+  Tailwind uses PostCSS under the hood.
+
+  Plugins like autoprefixer add vendor prefixes (-webkit-, -moz-).
+
+  4.Handling Custom Configurations
+
+  Your tailwind.config.js (colors, fonts, breakpoints) is processed during build.
+
+33. This is so simple, just write the code in your package.json scripts object:
+  "build": "tailwindcss -i input.css -o ./css/styles.css"
+
+34. Just run this command in terminal:
+  npm run build
+
+35. Just add '.min' in package.json file after the output file name and before the file extension name and add '--minify' after the output file name(e.g. "build": "tailwindcss -i input.css -o ./css/styles.min.css --minify")
+
+36. Write the code in package.json file:
+  "dev": "vite build"
+
+37. Write the code in package.json file:
+  "watch": "vite build --watch"

@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+    --breakpoint-sm: 460px;
+    --breakpoint-md: 668px;
+    --breakpoint-lg: 970px;
+    --color-blue-400: #2e86de;
+    --font-mono: "Fira Code", 'monospace';
+}
+
+/* @layer base{
+    h1 {
+        @apply bg-black text-white rounded-full
+    }
+} */
+
+
+
+.btn {
+    @apply text-base font-medium text-white bg-blue-600 hover:bg-blue-700 my-1 py-1 px-6 rounded ring-1 ring-offset-1 ring-blue-300 transition-colors duration-300;
+}

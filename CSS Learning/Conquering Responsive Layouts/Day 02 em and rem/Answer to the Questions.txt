@@ -1,0 +1,12 @@
+1. em default value is 16px, but when you set the parent element, em will follow the parent element size.
+
+2. The margin in px is 32px because it's following the font-size's value, and in em font-size follows the parent element, and other things like margin, padding follows the font-size's value, so in this case 2rem = 1rem for margin.
+
+3. rem is like the em unit, but it not follows the parent element value rather it follows the root value, like this:
+    :root {
+        font-size: 16px; // so the rem is now 1rem = 16px;
+    }
+    or like this:
+    html {
+        font-size: 16px;
+    }

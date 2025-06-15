@@ -45,3 +45,30 @@
 23. How to use transition?
 
 24. How to apply same classes in multiple element in shoutcut way?
+
+25. How to do this?
+    When we create an element it should be birth with some preset styles, like if we create a h1 tag it's font must be bold and it's background must be black.
+
+26. How to use tailwind responsive/@mediaqueries?
+
+27. How can we customize the pixels amount for responsive?
+
+28. How to use customized color in tailwind? supose we need a color tailwind doesn't have that, How can we use that color in our projects?
+
+29. How to customize font family in tailwindcss?
+
+30. How to use dark mode and light mode in tailwindcss?
+
+31. What you know about the 'toggle' function?
+
+32. Why we need to create "build" for tailwind?
+
+33. How to create "build"?
+
+34. How to run the build that we've just created?
+
+35. How to minify/compress the size of build css file?
+
+36. How to do the thing in efficiant/optimize/simple way?
+
+37. How to update the css file every time automatically?

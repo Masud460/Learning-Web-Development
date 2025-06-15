@@ -1,0 +1,9 @@
+1. How does work the em unit?
+
+2. What is the px of the following margin?
+    .parent h1 {
+        font-size: 2em;
+        margin: 1em;
+    }
+
+3. How does work the rem unit?

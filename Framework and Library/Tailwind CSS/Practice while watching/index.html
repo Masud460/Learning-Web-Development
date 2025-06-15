@@ -2,9 +2,15 @@
 <html lang="en">
   <head>
     <title>Tailwindcss</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Tagesschrift&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="input.css" />
   </head>
-  <body class="bg-gray-900 text-white">
+  <body class="w-100 h-100 bg-gray-900 text-white">
     <!-- Font Size -->
     <!-- <h1 class="text-xs">Hello</h1>
         <h1 class="text-sm">Hello</h1>
@@ -111,7 +117,7 @@
                 <button class="btn">Order</button>
                </div> -->
 
-    <div
+    <!-- <div
       class="div flex justify-center items-center py-4 px-4 bg-slate-600 rounded"
     >
       <form class=" py-14 px-6 w-96 h-96 bg-slate-900 rounded-md ">
@@ -122,6 +128,12 @@
         <input class="input" type="password" placeholder="Enter your password" />
         <button class="py-2 px-6 font-bold ring ring-offset-2 ring-blue-500 bg-blue-500 text-white rounded-md mt-2 mx-28">Sign in</button>
       </form>
+    </div> -->
+
+    <div class="div bg-slate-300 dark:bg-slate-900 flex justify-center items-center flex-col">
+      <h1 class="text-4xl  bg-blue-900 dark:bg-slate-300 dark:text-black text-blue-def font-mono">Hello World!</h1>
+      <button id="btn" class="border-none py-1 mt-5 px-6 bg-blue-def rounded font-semibold ">Dark</button>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>

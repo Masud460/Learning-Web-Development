@@ -1,0 +1,9 @@
+React batches state updates, then builds a new Virtual DOM. It compares this new Virtual DOM with the previous one, and finally updates only the changed parts in the real DOM.
+
+React একাধিক স্টেট আপডেট একসাথে করে (batch করে), তারপর একটি নতুন Virtual DOM তৈরি করে। এরপর নতুন Virtual DOM-এর সাথে পুরোনো Virtual DOM তুলনা করে, এবং শুধুমাত্র পরিবর্তিত অংশগুলো বাস্তব DOM-এ (real DOM) আপডেট করে।
+
+
+
+React doesn't immediately update the real DOM after each change. Instead, it updates the Virtual DOM first, and once all changes are done, it updates the real DOM efficiently.
+
+React স্টেট পরিবর্তনের সাথে সাথে বাস্তব DOM আপডেট করে না। বরং, প্রথমে Virtual DOM আপডেট করে, এবং সব পরিবর্তন শেষ হলে কেবলমাত্র পরিবর্তিত অংশগুলো বাস্তব DOM-এ আপডেট করে, যাতে কাজটা আরও দ্রুত ও কার্যকর হয়।

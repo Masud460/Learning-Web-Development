@@ -1,0 +1,9 @@
+colors:
+background - #136c72;
+button - #38CFD9; 
+button text - #23424a;
+
+fonts:
+heading -  Roboto Black  font-size: 48px;
+paragraph - Roboto Regular  font-size: 21px;
+button - Roboto Bold  font-size: 21px;

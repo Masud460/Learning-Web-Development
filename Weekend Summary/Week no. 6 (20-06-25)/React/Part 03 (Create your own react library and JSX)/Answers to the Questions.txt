@@ -1,0 +1,93 @@
+1. Like this:
+    const reactElement = {
+    type: 'a',
+    props: {
+        href: 'https://google.com',
+        target: '_black'
+    },
+    children: 'click to visit the page'
+}
+
+2. Here it is:
+    
+function customRender(reactElement, container) {
+  const domElement = document.createElement(reactElement.type);
+  domElement.innerHTML = reactElement.children;
+
+  for (const prop in reactElement.props) {
+    if (prop === reactElement.children) continue;
+    domElement.setAttribute(prop, reactElement.props[prop]);
+    console.log(prop);
+    console.log(reactElement.props[prop]);
+  }
+  container.appendChild(domElement);
+}
+
+const reactElement = {
+  type: "a",
+  props: {
+    href: "https://google.com",
+    target: "_black",
+  },
+  children: "click me to visit google",
+};
+
+const mainContainer = document.getElementById("root");
+
+customRender(reactElement, mainContainer);
+
+
+3. Yes, it will work.
+
+4. Yes, it works. but you shouldn't do this.
+
+5. React doesn't understand the jsx syntax (Writing HTML in JS), so some bundler like vite, parcel etc. converts the jsx syntax to this type of syntax:
+    const reactElement = {
+        type: 'a',
+        props: {
+            href: 'https://google.com',
+            target: '_blank'
+        },
+        children: 'click me to visit google'
+    },
+    The above codebase is converted version of the following code:
+        <a href="https://google.com" target="_blank">
+            click me to visit google
+        </a>.
+
+6. No, it will not work, because you created the syntax based on your theory, and and rendered the syntax in your created rendering method, so you know the parameter and the key, values that you're expecting, so who created the react rendering method he's also expecting some parameter and key, values and he knows the name of those thing, that's why it's not work.
+
+7. Like this:   
+    const reactElement = React.createElement(
+  'a',
+  {
+    href: "https://google.com",
+    target: "_blank"
+  },
+  'Click me to visit google'
+)
+    for this you need to set the line top of the main.jsx file: import React from 'react';
+
+8. By using the qurly brakets, Like this: 
+    function App() {
+  const myName = 'Ataullah Masud';
+  return (
+    <h1>Hello my name is {myName}</h1>
+  )
+}
+
+9. It's called 'Expression'/ 'Evaluated Expression',
+and this is the final output of the JS, it means you cannot write direct JS (e.g. ifelse) in these brakets.
+
+10. It's will be added to the React children nodes, like this:
+
+  const username = " Poweredby Masud";
+  const reactElement = React.createElement(
+  'a',
+  {
+    href: "https://google.com",
+    target: "_blank"
+  },
+  'Click me to visit google',
+  username
+)

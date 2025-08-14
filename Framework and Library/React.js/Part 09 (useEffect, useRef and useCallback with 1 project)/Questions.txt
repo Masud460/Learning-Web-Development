@@ -1,0 +1,35 @@
+1. When we create a project in react, what we need to do first of all?
+
+2. What we need to do for using a hook?
+
+3. What is the defination of useCallback hook?
+
+4. How to create a range tag in React?
+
+5. How do the dependencies in the useCallback hook work?
+
+6. Is the onChange event is important for range?
+
+7. Create a checkbox that defalt value is not number allowed, and when we check the box it should be allow the number.
+
+8. I have a checkbox which default value is false, and I want to change it to true and false every time I check the box, how can I do that?
+
+9. Why do we need to use the useEffect hook?
+
+10. What is the syntax of useEffect hook?
+
+11. What is the useRef hook?
+
+!important: we can use the window object directly in core react, but we cannot use it in next.js, because next.js codes render in serverside, and there is not any kind of window object.
+
+12. How to use the useRef hook? explain step by step.
+
+13. How to show selection effect when user copy the password?
+
+14. How to set the copy range for user?
+
+summary from a commenter:
+watching 2nd time got more clear to the concepts sir ji
+1. useCallback: used for optimization it calls the function inside it when the dependencies are changed and returns a memorized function 
+2. useEffect: runs the function inside it whenever the page renders first-time or dependencies are changed
+3. useRef : used to give reference of selected components in our page so that functions can be performed on referenced values

@@ -1,0 +1,9 @@
+1. We know that when we need to write inline event listeners we add in HTML tag like this:
+    <button onclick="action">Click</button>,
+    but how to write this in React?
+
+2. Create a counter app, when we click the add button it should be increase by one, and when we click the remove button it should be decrease by one.
+
+3. When we tring to add a count why this method is not working?
+
+4. So how can we control this? 

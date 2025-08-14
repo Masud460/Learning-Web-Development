@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Viewport units</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: green;
+            /* width: 50vw;
+            height: 50vh; */
+            width: 50vmax;
+            height: 50vmin;
+        }
+        .round {
+            background-color: red;
+            border-radius: 100%;
+            /* width: 15vw;
+            height: 20vh; */
+            width: 15vmax;
+            height: 20vmin;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="round"></div>
+    </div>
+</body>
+</html>

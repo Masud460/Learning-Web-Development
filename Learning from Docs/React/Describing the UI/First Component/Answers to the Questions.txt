@@ -1,0 +1,61 @@
+1. A component in React is a custom UI element—a building block that combines HTML (markup), CSS (style), and JavaScript (logic) into one reusable unit.
+
+2. React components let you create, structure, and reuse parts of a user interface, like a menu, table of contents, header, etc.
+
+3. Components are the foundation of React apps. Everything you build in React is made up of components.
+
+Just like HTML has <h1>, <li>, etc., React lets you create your own tags like <TableOfContents />.
+
+4. You can nest and compose components to build entire web pages.
+
+Example: A page might be built from components like <PageLayout>, <Sidebar>, <TableOfContents>, and so on.
+
+This approach helps break down a big UI into small, manageable parts.  
+
+5. Yes, we can create a tag like this: <TableOfContents />
+
+6. Yes, we can use thousands of prebuild components from open source echsystem.
+
+7. I will tell him: a React component is a JavaScript function that you can sprinkle with markup.
+
+8. React components are regular JavaScript functions, but their names must start with a capital letter or they won’t work!
+
+9. In three steps we will know how to create a component is React.
+    1st: create a function ( In the React it's called component ) like this:
+        function Profile(){
+            return (
+
+            )
+        }
+
+    2nd: Markup the component (Write HTML between the parentheses) like this:
+    return (
+        <>
+        <h1>Head</h1>
+        <p>lorem ipus etc.</p>
+        </>
+    )
+
+    3rd: Export the component like this:
+        export default Profile
+
+
+10. It's very simple, import the component from another file like this: 
+    import Profile from './Profile.jsx'
+    then use Profile name for rendering. (We will talk about rendering soon)
+
+    or use it here by exporting another function like this:
+        export default function Gallary () {
+            return (
+                <>
+                    <h1>Here are some components</h1>
+                    <Profile />
+                    <Profile />
+                    <Profile />
+                </>
+            )
+        }
+
+11. No, we cannot do this, Components can render other components, but you must never nest their definitions
+
+12. It will work, but slowly and sometime you might get bugs.

@@ -1,0 +1,12 @@
+1. If we duplicate the setCounter more time, does the counter work like our logic ? like this:  
+    let [counter, setCounter] = useState(0)
+    function addValue() {
+        setCounter(++counter)
+        setCounter(++counter)
+        setCounter(++counter)
+        setCounter(++counter)
+      } does it increase by one or four or other ?  
+
+2. Is the explanation you just gave fully correct?
+
+3. So how can we increase it by four in the third situation?

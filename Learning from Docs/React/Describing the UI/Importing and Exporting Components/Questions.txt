@@ -1,0 +1,8 @@
+1. If I import a file without writing the file extention name, will React support it?
+
+2. Can we use more than one default export in a single file?
+
+3. When to use default export and named export?
+
+4. By using the curly braces like this:
+    import { Profile } from './Gallary.jsx';

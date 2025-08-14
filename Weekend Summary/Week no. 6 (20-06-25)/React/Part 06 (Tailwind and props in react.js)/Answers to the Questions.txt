@@ -1,0 +1,18 @@
+1. Ok, done it.
+
+2. This is becasue jsx needs to close tag, since that all tag doesn't have the closing tag, we use the "/" after the tag name like this: <img />;
+
+3. Ok, done it.
+
+4. When we use multiple same component, but we need to change in some area like: we are using some cards of profiles, and we need to unique the name of the people, that time we pass the name using props, the concept is like js function's parameter;
+
+5. Yes, we can pass variable, array and object using props like this:
+    const myObj = {name: "Masud"};
+
+    (
+        <Card someObj={myObj} />
+    )
+
+6. Like this:
+    Go to the variable injection area and set default value like this: {value || defValue},
+    or use nullish coalescing, or use as like function's parameter default value with '=', or use ternary operator.

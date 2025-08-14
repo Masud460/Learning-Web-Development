@@ -1,0 +1,17 @@
+1. What happens when we use ReactDOM.createRoot()?
+
+2. What happens when we reload the Browser?
+
+3. How React solve the problem to fast the process?
+
+4. What the problem for this process?
+
+5. What we want in this situation?
+
+6. How does React do this?
+
+7. What called the process of finding changes from two different trees?
+
+8. What is the popular name of Reconciliation?
+
+9. Is it important to update everything immediately in React app?

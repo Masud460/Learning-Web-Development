@@ -1,0 +1,11 @@
+1. Install React and tailwindcss with vite.
+
+2. As we solved the problem with multiple tag using, but when we use a tag that dosen't have the closing tag, we see some error in React, why this happens?
+
+3. Create a Card component that can be use multiple times.
+
+4. What is props?
+
+5. Can we pass object and array using props? if can then how can? what is the syntax?
+
+6. In JS function's parameter we use default value like this: value = defValue, but how can we use this in jsx?

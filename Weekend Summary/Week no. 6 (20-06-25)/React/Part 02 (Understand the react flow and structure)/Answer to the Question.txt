@@ -1,0 +1,9 @@
+1. React creates a DOM like a browser DOM, and this DOM called "Virtual DOM".
+
+2. Ok.
+
+3. We can only return a tag at a time in react, but when we need to return more tags, that time we wrap the all tag in these brakets "<> </>", and this brakets called fragment in react.
+
+4. The component is a function that returns some HTML tags as we just created.
+
+5. The major learning of today is When we create a file or function or anything that has a name, we should name that thing's first word in uppercase.

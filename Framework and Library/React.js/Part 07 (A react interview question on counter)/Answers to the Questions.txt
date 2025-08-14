@@ -1,0 +1,29 @@
+1. In this situation it will increase by four, because you are using the prefix increase, but when you use postfix it will increase by 3, and when you use like this: counter + 1; it will increase by 1.
+
+2. A:
+Not completely — because although it looks like the counter is increasing four times, that’s not how React really processes it.
+
+In the first case, where you use ++counter multiple times:
+
+setCounter(++counter);
+setCounter(++counter);
+setCounter(++counter);
+setCounter(++counter);
+
+JavaScript increments the local variable counter before each setCounter call. So you're passing values like 1, 2, 3, 4 to React. But React doesn't apply them all — it overwrites the state with the last call, which is 4. It does not accumulate them. It just sets the state to 4 once the render happens. You’re seeing “increase by 4” only because you manually increased the variable yourself.
+
+In the second case, when using counter++ (postfix), it behaves similarly, but the values passed to setCounter are 0, 1, 2, 3, and React ends up showing 3.
+
+In the third case:
+
+setCounter(counter + 1);
+setCounter(counter + 1);
+setCounter(counter + 1);
+setCounter(counter + 1);
+
+You're passing the same value (counter + 1) every time, so React just sees “set it to 1” four times and does that. So the final result is only +1.
+
+This guarantees React sees and applies each update based on the latest state, even if updates are batched.
+
+
+3. We get a callback function in the setCounter, and if we pass a parameter (e.g. prevValue) and increase it by one (e.g. return prevValue + 1), and perform this four times, it will increase by four.

@@ -1,0 +1,66 @@
+1. JSX is a syntax extension for JavaScript that lets you write HTML-like markup inside a JavaScript file. Although there are other ways to write components, most React developers prefer the conciseness of JSX, and most codebases use it.
+
+2. The Web has been built on HTML, CSS, and JavaScript. For many years, web developers kept content in HTML, design in CSS, and logic in JavaScript—often in separate files! Content was marked up inside HTML while the page’s logic lived separately in JavaScript, but as the Web became more interactive, logic increasingly determined content. JavaScript was in charge of the HTML! This is why in React, rendering logic and markup live together in the same place—components.
+
+3. No, they are two separate technologies. JSX is not React, and React is not JSX.
+
+4. React is a JavaScript library for building user interfaces (UIs).
+It allows you to create reusable components, manage state, and efficiently update the UI based on user interactions or data changes.
+
+5. JSX (JavaScript XML) is a syntax extension for JavaScript.
+It allows you to write code that looks like HTML inside your JavaScript files. Example:
+    <h1>Hello, world!</h1> // this code is written in a jsx file
+    But JSX is not real JavaScript—your browser can’t understand it directly.
+
+6. JSX code is compiled (converted) into regular JavaScript using a tool like Babel before it runs in the browser.
+
+    For example, this JSX:
+    <h1>Hello</h1>
+    gets compiled into:
+    React.createElement('h1', null, 'Hello');
+
+
+7. Yes, you can write React code without JSX using React.createElement() manually. JSX is just a shortcut to make writing UI code easier and more readable.
+
+8. Technically yes. JSX just gets compiled into createElement() calls, and those don’t have to come from React. For example, libraries like Preact or custom rendering libraries can also use JSX if properly configured.
+
+9. Because React is designed to work perfectly with JSX, and JSX makes building React components feel natural and clean. That’s why they are commonly used together, even though they are independent.
+
+10. 
+
+React = Library to build UIs
+
+JSX = Syntax to write React components more easily
+
+They are separate, but commonly used together
+
+You don’t need JSX to use React, but it helps
+
+JSX must be compiled before running in the browser
+
+
+11. JSX looks like HTML, but under the hood it is transformed into plain JavaScript objects. You can’t return two objects from a function without wrapping them into an array. This explains why you also can’t return two JSX tags without wrapping them into another tag or a Fragment.
+
+12. Wrap the style attribute with two curly braces like this:
+    <ul style={{
+        backgroundColor: 'gray',
+        color: 'black'
+    }}>
+        <li>Apple</li>
+    </ul>
+    Have you noticed the style attribute is now working like a JS Object!
+
+13. No, JS dosen't support the dashes in any attribute except the data etc attribute, because JSX behind the scene is JS.
+
+14. Sure, here is a best example of using it:
+    const person = {
+        name: "Masud",
+        theme: {
+            backgroundColor: 'gray',
+            color: 'white'
+        }
+    }
+
+    (
+        <div style={person.theme}>The name of the user is {person.name}</div>
+    )

@@ -1,0 +1,23 @@
+1. What a component is in React?
+
+2. What is the benifit of components?
+
+3. Why Components Are Important in React?
+
+4. How components help us?
+
+5. Can we create custom tag in React?
+
+6. Can we use prebuild components from Material UI or like this?
+
+7. If someone says, Describe React in a line, then how can you do this?
+
+8. What is most important to know about nameing React files?
+
+9. How to create a react component?
+
+10. How to use a component?
+
+11. Can we create nested component in React?
+
+12. If we create a component in bottom, and render it from it's top component, will it work?

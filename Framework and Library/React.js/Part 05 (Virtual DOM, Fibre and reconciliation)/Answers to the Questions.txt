@@ -1,0 +1,17 @@
+1. It (React) creates a DOM called VirtualDOM, and compare the DOM with real DOM (Browser's DOM), and updates only that things those are actually changed, so this technique is much faster than updating the whole DOM.
+
+2. It remove all thing from the DOM, recreates those part from scratch, it feels more slower to the user.
+
+3. React virtual DOM is like a family tree (tree structure of elements), when something changes, React sees the old tree and the new tree, then updates only the parts that is changed.
+
+4. Sometime, some value in UI depends on network update, (like fetching user data from network), since React updates the DOM very fast, if the network not send any data, that time we might get some bugs.
+
+5. If React updates the DOM before getting the data from the network, we will have to update the DOM after comebacking the data, so this is a long work, so in this situation we want to update the DOM after comebacking the data from network.
+
+6. For the update React uses an algorithm called React Fibre, it defines what to update, when to update and how fast, especially helpful for complext UIs.
+
+7. This is called reconciliation, it finds diffrences between two trees and updated only what's needed. this is how React sync everytime.
+
+8. Reconciliation is the popular name that people know as virtual DOM, when people talk about how smartly virtual DOM works , that is they are talking about the Reconciliation.
+
+9. No, this is not important, because React uses the idea of animation, loading indecates etc. to make decission which will have priority in changes.

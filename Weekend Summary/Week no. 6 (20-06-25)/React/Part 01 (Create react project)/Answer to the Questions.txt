@@ -1,0 +1,2 @@
+1. Like this:
+    First of all install vite from the vite website, then select react from the recommandation, then select JavaScript and hit enter, then install node_modules by typing this command: npm install, that's it.

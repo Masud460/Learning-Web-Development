@@ -1,0 +1,206 @@
+1. 
+// My version
+
+When we create reuseable component, and we have some inputs that impact when change, so that time we handle the onChange events by passing arguments like this:
+
+component using syntax:
+<InputBox
+    onAmountChange={(amount) => setAmount(amount)}
+/>
+
+component inside syntax:
+function InputBox({onAmountChange}){
+return (
+<input
+onChange={(e) => {
+            return onAmountChange && onAmountChange(Number(e.target.value));
+          }}
+/>
+)
+}
+
+In the above code we are passing the value in component using syntax, and setting the working syntax in the real component.  
+
+// ChatGPT version
+When we build reusable components in React, we often need a way to notify the parent component whenever an input value changes. Instead of directly managing state inside the reusable component, we pass down a callback function as a prop.
+
+In the parent component, we provide the callback like this:
+
+<InputBox onAmountChange={(amount) => setAmount(amount)} />
+
+
+Here, onAmountChange is a function that updates the parent’s state (setAmount).
+
+Inside the InputBox component, we accept this prop and call it whenever the input value changes:
+
+function InputBox({ onAmountChange }) {
+  return (
+    <input
+      onChange={(e) => onAmountChange?.(Number(e.target.value))}
+    />
+  );
+}
+
+
+This way:
+
+The parent component controls the state.
+
+The child component remains reusable and doesn’t need to know what happens with the value.
+
+The input’s value is passed “up” through the callback, and the parent decides how to use it.
+
+✅ This pattern is called “lifting state up”, and it’s one of the most common React practices for managing state between components.
+
+
+
+// ChatGPT's breakdown of the whole project
+
+1. Props and Callback Functions (Child ↔ Parent Communication)
+<InputBox onAmountChange={(amount) => setAmount(amount)} />
+
+
+Parent passes a function (setAmount) to the child via props (onAmountChange).
+
+Child calls this function when input changes:
+
+onChange={(e) => onAmountChange(Number(e.target.value))}
+
+
+👉 Learning: This is how data flows up from child → parent. (Called “lifting state up.”)
+
+2. Controlled Components
+<input
+  value={amount}
+  onChange={(e) => onAmountChange(Number(e.target.value))}
+/>
+
+
+The value of the input comes from React state (amount).
+
+When the user types, onChange updates that state.
+👉 Learning: The input is controlled entirely by React state → this is called a controlled component.
+
+3. useId Hook
+const amountInputId = useId();
+<label htmlFor={amountInputId}>...</label>
+<input id={amountInputId} ... />
+
+
+React gives a unique ID with useId.
+
+This ensures label and input are correctly linked.
+👉 Learning: Accessibility & unique IDs made easy.
+
+4. Reusable Component Design
+function InputBox({ label, amount, onAmountChange, ... }) { ... }
+
+
+Instead of building two different inputs (From & To), you made one reusable InputBox.
+
+It accepts props to change behavior:
+
+amountDisable → disables input.
+
+currencyDisable → disables select.
+
+label, amount, selectCurrency, etc.
+👉 Learning: Make generic components so you can reuse them in multiple places.
+
+5. Mapping Dynamic Options
+{currencyOptions.map((currency) => (
+  <option key={currency} value={currency}>{currency}</option>
+))}
+
+
+You create <option>s dynamically from an array.
+👉 Learning: Use .map() to render dynamic lists in React.
+
+6. Parent Component Manages State
+const [amount, setAmount] = useState(0);
+const [from, setFrom] = useState("bdt");
+const [to, setTo] = useState("usd");
+const [convertedAmount, setConvertedAmount] = useState(0);
+
+
+The parent keeps all the main states: input amount, from currency, to currency, converted amount.
+
+It then passes those states & setters down to children.
+👉 Learning: Keep “source of truth” in the parent and pass down as props.
+
+7. Custom Hook (useCurrencyInfo)
+function useCurrencyInfo(currency) {
+  const [data, setData] = useState({});
+  useEffect(() => {
+    fetch(`.../${currency}.json`)
+      .then(res => res.json())
+      .then(res => setData(res[currency]))
+  }, [currency]);
+  return data;
+}
+
+
+You made your own hook for fetching currency data.
+
+Whenever currency changes, useEffect runs again → fetches new data.
+👉 Learning: Put reusable logic in custom hooks for cleaner code.
+
+8. useEffect Dependency
+useEffect(() => {
+  // fetch data when "currency" changes
+}, [currency]);
+
+
+currency is a dependency → if currency changes, effect runs again.
+👉 Learning: Dependencies control when side effects re-run.
+
+9. Swap Logic
+const swap = () => {
+  setFrom(to);
+  setTo(from);
+  setConvertedAmount(amount);
+  setAmount(convertedAmount);
+};
+
+
+Clicking “swap” swaps both currencies and values.
+👉 Learning: Updating multiple states at once changes UI behavior instantly.
+
+10. Form Submission
+<form onSubmit={(e) => { e.preventDefault(); convert(); }}>
+
+
+Prevents page refresh (default form behavior).
+
+Calls convert() instead.
+👉 Learning: Always use e.preventDefault() when handling forms in React.
+
+11. Styling with Tailwind + Inline CSS
+<div className="bg-white p-3 rounded-lg">
+
+
+Using Tailwind classes for fast styling.
+
+style={{ backgroundImage: `url(${backgroundImage})` }}
+
+
+Inline style for dynamic background image.
+👉 Learning: Combine Tailwind classes + inline CSS for flexible styling.
+
+12. Separation of Concerns
+
+Child (InputBox): Only handles UI (input/select) and sends changes up.
+
+Parent (App): Manages all states, handles conversion logic.
+
+Hook (useCurrencyInfo): Handles fetching data.
+👉 Learning: Split responsibilities: component = UI, parent = state/logic, hook = reusable logic.
+
+🎯 In Super-Simple Words:
+1. props let child and parent talk to each other.
+2. useState makes values remembered and changeable.
+3. useEffect lets you do things when something changes (like fetch data).
+4. useRef (you used useId) helps with DOM stuff and unique IDs.
+5. Reusable components = same box, but different labels/values.
+6. Custom hooks = your own special React tools.
+7. Parent keeps state, child just shows UI.

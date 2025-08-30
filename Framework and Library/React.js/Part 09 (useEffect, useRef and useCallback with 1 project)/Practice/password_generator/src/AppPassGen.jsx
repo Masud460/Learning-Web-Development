@@ -1,9 +1,11 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 
-function App() {
+function AppPassGen() {
   const [length, setLength] = useState(8);
   const [allowNum, setAllowNum] = useState(false);
-  const [allowChar, setAllowChar] = useState(false);
+  const [allowRomanNum, setAllowRomanNum] = useState(false)
+  const [allowBracks, setAllowBracks] = useState(false);
+  const [allowSymbs, setAllowSymbs] = useState(false)
   const [password, setPassword] = useState("");
 
   // Password Generator
@@ -11,8 +13,15 @@ function App() {
     let pass = "";
     let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
+    const romanNums = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
+
     if (allowNum) str += "0123456789";
-    if (allowChar) str += "!@#$%^&*()_+=[]{}";
+    if (allowRomanNum) {
+      str += romanNums.at(Math.floor(Math.random() * romanNums.length))
+      console.log(romanNums.at(Math.floor(Math.random() * romanNums.length)));
+  }
+    if (allowSymbs) str += "!@#$%^&*_+=";
+    if (allowBracks) str += "(){}[]<>";
 
     for (let i = 1; i <= length; i++) {
       let char = Math.floor(Math.random() * str.length + 1);
@@ -20,12 +29,12 @@ function App() {
     }
 
     setPassword(pass);
-  }, [length, allowNum, allowChar]);
+  }, [length, allowNum, allowBracks, allowRomanNum, allowSymbs]);
 
   // useEffect
   useEffect(() => {
     generatePassword();
-  }, [length, allowNum, allowChar]);
+  }, [length, allowNum, allowRomanNum, allowBracks, allowSymbs]);
 
   // useRef
   const passwordRef = useRef(null);
@@ -39,7 +48,7 @@ function App() {
   return (
     <>
       <div className="w-full h-full flex justify-center items-center">
-        <div className="bg-gray-600 w-128 rounded-lg p-4 text-center mt-8 text-yellow-600">
+        <div className="bg-gray-600 w-168 rounded-lg p-4 text-center mt-8 text-yellow-600">
           <h1 className="text-white text-2xl mb-2">Password Generator</h1>
           <div>
             <input
@@ -48,7 +57,7 @@ function App() {
               value={password}
               ref={passwordRef}
               readOnly
-              className="outline-none bg-white rounded-l-lg w-94 py-2 px-3 font-semibold  mb-3"
+              className="outline-none bg-white rounded-l-lg w-134 py-2 px-3 font-semibold  mb-3"
             />
             <button
               className="bg-blue-500 rounded-r-lg w-26 py-2 text-white font-semibold cursor-pointer mb-3"
@@ -79,14 +88,30 @@ function App() {
             />
             <label htmlFor="number">Numbers</label>
             <input
-              id="character"
               type="checkbox"
-              defaultChecked={allowChar}
+              defaultChecked={allowRomanNum}
               onChange={() => {
-                setAllowChar((prev) => !prev);
+                setAllowRomanNum(prev => !prev)
               }}
             />
-            <label htmlFor="character">Character</label>
+            <label>Roman Numbers</label>
+            <input
+              id="character"
+              type="checkbox"
+              defaultChecked={allowSymbs}
+              onChange={() => {
+                setAllowSymbs((prev) => !prev);
+              }}
+            />
+            <label htmlFor="character">Symbols</label>
+            <input
+              type="checkbox"
+              defaultChecked={allowBracks}
+              onChange={() => {
+                setAllowBracks(prev => !prev)
+              }}
+            />
+            <label>Brackets</label>
           </div>
         </div>
       </div>
@@ -94,4 +119,4 @@ function App() {
   );
 }
 
-export default App;
+export default AppPassGen;

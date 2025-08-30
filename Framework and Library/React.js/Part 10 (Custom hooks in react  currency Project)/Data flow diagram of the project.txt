@@ -1,0 +1,79 @@
+🔹 Data Flow Diagram
+                ┌─────────────────────────┐
+                │   Custom Hook           │
+                │   useCurrencyInfo(from) │
+                │   ↓ fetch API           │
+                │   ↓ returns currencyInfo│
+                └───────────┬─────────────┘
+                            │
+                            │
+ ┌───────────────────────────▼───────────────────────────┐
+ │                 Parent Component (App)                │
+ │                                                       │
+ │  State:                                               │
+ │   - amount            (user input)                    │
+ │   - from              (currency type)                 │
+ │   - to                (currency type)                 │
+ │   - convertedAmount   (calculated value)              │
+ │                                                       │
+ │  Functions:                                           │
+ │   - setAmount(amount)                                 │
+ │   - setFrom(currency)                                 │
+ │   - setTo(currency)                                   │
+ │   - setConvertedAmount(value)                         │
+ │   - swap() → switch currencies                        │
+ │   - convert() → calculate convertedAmount             │
+ │                                                       │
+ │  Passes props ↓                                       │
+ └──────────────┬───────────────────────────────┬────────┘
+                │                               │
+                │                               │
+                ▼                               ▼
+     ┌──────────────────────┐         ┌──────────────────────┐
+     │   Child Component    │         │   Child Component    │
+     │     InputBox (From)  │         │     InputBox (To)    │
+     │                      │         │                      │
+     │ Props:               │         │ Props:               │
+     │  - label="From"      │         │  - label="To"        │
+     │  - amount={amount}   │         │  - amount={convertedAmount} │
+     │  - selectCurrency={from} │     │  - selectCurrency={to}      │
+     │  - onAmountChange → setAmount │ │  - onTypeChange → setTo     │
+     │  - onTypeChange → setFrom     │ │  - amountDisable={true}     │
+     │  - currencyOptions={options}  │ │  - currencyOptions={options}│
+     └──────────────────────┘         └──────────────────────┘
+
+🔹 How Data Moves (Step by Step)
+
+User types in "From" input
+
+onChange in InputBox → calls onAmountChange → updates App’s amount.
+
+User selects "From" currency
+
+Calls onTypeChange → updates App’s from state.
+
+Custom Hook runs
+
+Because from changed, useEffect runs → fetches new rates → updates currencyInfo.
+
+App converts
+
+When user clicks Convert → multiply amount × currencyInfo[to] → updates convertedAmount.
+
+"To" InputBox updates
+
+Because convertedAmount state changed in App, the To InputBox automatically re-renders with the new value.
+
+Swap button
+
+Exchanges values of from, to, amount, and convertedAmount.
+
+⚡ Super-Simple Summary:
+
+Child only shows inputs/selects.
+
+Parent controls all state (amount, from, to, convertedAmount).
+
+Custom Hook fetches currency data when needed.
+
+Data always flows down (props) and actions bubble up (callbacks).

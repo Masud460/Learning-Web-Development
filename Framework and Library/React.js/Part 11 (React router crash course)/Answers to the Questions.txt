@@ -1,0 +1,8 @@
+1. Because if we use the ancor tag the browser dom will recreate, and this is not the purpos of using React, That's why we use the Link tag.
+
+2. We use the NavLink tag when we need to change the classNames in a special sinario, like if we have some some nav menu, and we want to change the color of the current menu from gray to orange, we can do this like this:
+    <NavLink
+        className={(isActive) => {
+            `{isActive ? "text-orange-700" : "text-gray-700"}`
+        }}
+    >Home</NavLink>

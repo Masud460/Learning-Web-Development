@@ -1,0 +1,5 @@
+1. Why do we use the Link tag in React-Router-DOM instead of ancor tag?
+
+2. Why do we use the NavLink?
+
+17:00

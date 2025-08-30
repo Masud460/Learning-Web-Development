@@ -1,0 +1,124 @@
+1. Here is it,
+    1st:
+        We need an api of currency rate, in my case I will use this: https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${currency}.json;
+
+    2nd:
+        Create a function and start it's name with the keyword 'use' (This is a tradition), and since we only take the currency type from the user, take this with parameter like this:
+        function useCurrencyInfo(currency){
+
+        }
+
+    3rd:
+        We know that when we need to invoke a function on anything change in React we use the 'useEffect' hook. since the fetch is also like a function, so we need to invoke the fetch api inside the 'useEffect' hook, and set the currency for dependency, and invoke the fetch api in the callback function and convert the response to json like this:
+        function useCurrencyInfo(currency){
+            useEffect(() => {
+                fetch(https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${currency}.json)
+                    .then(res => res.json())
+            }, [currency])
+        }
+
+        4th:
+            Now we need to store the data, so if we store it in a normal variable it will be not change in the UI, that's why we will use the useState hook to store the data and return it like this:
+            function useCurrencyInfo(currency){
+                const [data, setData] = useState({});
+            useEffect(() => {
+                fetch(https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${currency}.json)
+                        .then(res => res.json())
+                        .then(res => setData(res[currency]))
+                }, [currency])
+                return data;
+            }   
+
+            !important: Don't forget to import the hooks from core react like this:
+            import {useEffect, useState} from 'react';
+
+2. Here is it:
+    import { useState, useId } from "react";
+
+
+function InputBox({
+    label,
+    amount,
+    onAmountChange,
+    onTypeChange,
+    currencyOptions = [],
+    selectCurrency = "bdt",
+    amountDisable = false,
+    currencyDisable = false,
+    className = ''
+}) {
+  const amountInputId = useId()
+  return (
+    <div className={`bg-white p-3 rounded-lg text-sm flex ${className}`}>
+      <div className="w-1/2">
+        <label htmlFor={amountInputId} className="text-black/40 mb-2 inline-block">${label}</label>
+        <input
+          id={amountInputId}
+          className="outline-none w-full bg-transparent py-1.5"
+          type="number"
+          placeholder="Amount"
+          value={amount}
+          disabled={amountDisable}
+          onChange={(e) => {
+            return onAmountChange && onAmountChange(Number(e.target.value));
+          }}
+        />
+      </div>
+      <div className="w-1/2 flex flex-wrap justify-end text-right">
+        <p className="text-black/40 mb-2 w-full">Currency Type</p>
+        <select
+          className="rounded-lg px-1 py-1 bg-gray-100 cursor-pointer outline-none"
+          value={selectCurrency}
+          onChange={(e) => onTypeChange && onTypeChange(e.target.value)}
+          disabled={currencyDisable}
+        >
+                  {currencyOptions.map(currency => (
+                      <option key={currency} value={currency}>{ currency }</option>
+              
+          ))}
+
+        </select>
+      </div>
+    </div>
+  );
+}
+
+export default InputBox;
+
+3. These need for Input box:
+    label,
+    amount,
+    onAmountChange,
+    onCurrencyChange,
+    selectCurrency = 'bdt',
+    currencyOptions= [],
+    disableAmount = false,
+    disableCurrency = false,
+    className = ''
+
+4. For better performance.
+
+5. If we have a lot of components and hooks, than the best way of export is create another file (e.g. components.js) and import all component or hook in there, then export the file.
+
+6. We can optimize it by using the useId hook, it will generate a unique value everytime, like this:
+    const amountInputId = useId();
+    <lable htmlFor={amountInputId}></lable>
+    <input id={amountInputId}>
+ it's helful for select by tab key.
+
+7. The following states we need to handle:
+    amount,
+    from,
+    to,
+    convertedAmount.
+
+8. Store it in a variable, then pass the currency that you want to convert like this:
+    const currencyInfo = useCurrencyInfo(currency);
+
+9. The swap funcitonality is very simple, just create a method and convert the 'from' input to 'to' and the 'to' input to 'from', and also set the convertedAmount to the new amount and set the 'amount' to the 'convertedAmount' like this:
+    const swap = () => {
+        setFrom(to);
+        setTo(from);
+        setConvertedAmount(amount);
+        setAmount(convertedAmount);
+    }

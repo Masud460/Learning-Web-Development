@@ -1,0 +1,71 @@
+1. How to create custom toggle in React?
+Ans: like this:
+    const [isOn, setIsOn] = useState(false)
+    const handleToggle = () => {
+        setIsOn(!isOn)
+    }
+    <button
+        onClick={handleToggle}
+    >
+    Switch to {isOn ? "C" : "F"}
+    </button>
+
+
+2. If we set any state in the react body without useEffect, it will fall in the loop, like this:
+    if (weatherData == undefined) {
+    setIsDisplay("block");
+  } else {
+    setIsDisplay("hidden");
+  }
+  so the solution is: use useEffect in this type of syntax like this:
+    useEffect(() => {
+        if (weatherData == undefined) {
+    setIsDisplay("block");
+  } else {
+    setIsDisplay("hidden");
+  }
+    }, [weatherData])
+    so now it only changes when anything change in the weatherData.
+
+3. Why does my switch statement not work when I try to check cloud percentage ranges like this?
+  switch (cloud) {
+  case cloud == 0:
+    setSky("Search city");
+    break;
+  case cloud <= 5:
+    setSky("Sunny");
+    break;
+  case cloud <= 87:
+    setSky("Mostly Cloudy");
+    break;
+  case cloud <= 100:
+    setSky("Overcast");
+    break;
+  default:
+    setSky("Search city");
+    break;
+}
+It works fine if I use if...else, but fails with switch.
+
+Ans: The problem is that switch compares values using strict equality (===), not conditions.
+In your code, case cloud <= 5 is a boolean expression (e.g. true or false), while switch (cloud) is a number (e.g. 25). Since 25 !== true and 25 !== false, no case matches. If you want to check ranges with switch, use switch(true) like this:
+  switch (true) {
+  case cloud === 0:
+    setSky("Search city");
+    break;
+  case cloud <= 25:
+    setSky("Sunny");
+    break;
+  case cloud <= 87:
+    setSky("Mostly Cloudy");
+    break;
+  case cloud <= 100:
+    setSky("Overcast");
+    break;
+  default:
+    setSky("Search city");
+    break;
+}
+Here’s why this works:
+switch(true) means each case is tested against true.
+If cloud = 20, then cloud <= 25 → true, so that case runs.

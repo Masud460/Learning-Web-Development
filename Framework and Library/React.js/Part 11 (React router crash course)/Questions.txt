@@ -1,0 +1,26 @@
+1. Why do we use the Link tag?
+
+2. Why do we use the NavLink?
+
+3. How to use the NavLink for identifying a page?
+
+4. Why the page not works when we trying to load the page by adding components in App and render the App?
+
+5. How to use the 'RouterProvider' component?
+
+6. How can we create our router method?
+
+7. If we want to add the header and footer in every page, and change only the middle section, how can we do that in optimized way?
+
+8. How do we set the route of a page? For example, if we define routes like home and about in createBrowserRouter, how should we link them in the NavLink so that the navbar navigates correctly?
+
+9. How to create an easy router? the previous way was very complicated.
+
+10. How can we display dynamic text from the URL in a component? For example, if the URL is /user/123, how can we show 123 inside our component?
+
+11. Create a new component it should have to display the hiteshchoudhary github followers and his avatar.
+
+12. In the previous Github component we saw a small problem: when we click the Github link in the NavLink, the component loads a little slowly. How can we fix this?
+
+Homework:
+Create nested routes in one of these component/route.

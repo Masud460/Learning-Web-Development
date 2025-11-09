@@ -178,6 +178,7 @@ body {
   min-width: 400px;
   border-bottom: 0.5px solid #6b63ff8f;
   padding: 5px 0;
+  position: relative;
 }
 
 .square_checkbox input {
@@ -219,6 +220,19 @@ body {
   border: solid white;
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
+}
+
+.btn_remove {
+  border: none;
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.btn_remove:hover {
+  color: gray;
 }
 
 

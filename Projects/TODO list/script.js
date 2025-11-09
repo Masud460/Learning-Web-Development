@@ -7,6 +7,7 @@ const body = document.body;
 const head = document.querySelector(".head");
 const searchNote = document.getElementById("search_note");
 const select = document.querySelector("select");
+let btnRemove;
 
 // Add New Note
 const addNote = document.querySelector(".add_btn");
@@ -148,6 +149,7 @@ function addTodo(todoText) {
   const input = document.createElement("input");
   const span = document.createElement("span");
   const h3 = document.createElement("h3");
+  const btn = document.createElement("button")
   const textColor =
     themeIcon.getAttribute("class") === "icon_white" ? "#000" : "#fff";
   h3.style.setProperty("--checkbox-color", textColor);
@@ -158,17 +160,21 @@ function addTodo(todoText) {
   span.classList.add("checkbox");
   h3.innerHTML = todoText;
   h3.classList.add("checkbox_text");
+  btn.innerHTML = 'X';
+  btn.classList.add("btn_remove");
 
   // add these in label
   label.appendChild(input);
   label.appendChild(span);
   label.appendChild(h3);
+  label.appendChild(btn)
 
   // add label to todo area
   const todoArea = document.getElementById("todos");
   todoArea.appendChild(label);
 
-  checkboxText = document.querySelectorAll(".checkbox_text");
+  checkboxText = document.querySelectorAll(".checkbox_text"); btnRemove = Array.from();
+  console.log(btnRemove);
 }
 
 // create new todo lists
@@ -226,11 +232,7 @@ for (let i = 1; i <= localStorage.length; i++){
 let complete = [];
 let incomplete = [];
 
-checkboxes.forEach(checkbox => {
-  if (!checkbox.checked) {
-    incomplete.push(checkbox)
-  }
-})
+
 
 // Checkbox behaviour
 checkboxes.forEach((checkbox) => {
@@ -254,31 +256,53 @@ checkboxes.forEach((checkbox) => {
   });
 });
 
-console.log(all)
-console.log(complete)
-console.log(incomplete)
+
+// Remove todos
+// btnRemove.forEach(e => {
+
+//   e.addEventListener('click', function (e) {
+//     console.log("SUCCESSFULLY CLICKED");
+//     e.target.parentElement.remove();
+//     console.log(e.target.localStorage);
+//   })
+// })
 
 // Select menu
-const selectOption = document.querySelectorAll("select option");
-selectOption.forEach((opt) => {
-  switch (opt.value) {
-    case "all": {
-      all.forEach(todo => {
-        addTodo(todo)
-      })
-    } break;
-    case 'complete': {
-      complete.forEach(todo => {
-        addTodo(todo)
-      });
-    } break;
-    case 'incomplete': {
-      incomplete.forEach(todo => {
-        addTodo(todo)
-      })
-    }
-  }
-});
+// const selectOption = document.querySelectorAll("select option");
+// selectOption.forEach((opt) => {
+//   switch (opt.value) {
+//     case "all": {
+//       all.forEach(todo => {
+//         addTodo(todo)
+//       })
+//     } break;
+//     case 'complete': {
+//       complete.forEach(todo => {
+//         addTodo(todo)
+//       });
+//     } break;
+//     case 'incomplete': {
+//       incomplete.forEach(todo => {
+//         addTodo(todo)
+//       })
+//     }
+//   }
+// });
+
+
+// Select todos
+select.onchange = function (e) {
+  console.log(e.target.value);
+  
+}
+  
+
+
+
+
+
+
+
 
 // Deepseek dark and light version
 /*

@@ -8,11 +8,12 @@
 
 5. How does work the jsx syntax behind the scene?
 
-6. As we said the vite or parcel bundler is converts a jsx syntax to a react understandable syntax, so based on the theory if we put the react understandable syntax for rendering on the render area will it work?
+6. As we said the vite or parcel bundler is converts a jsx syntax to a react understandable syntax, so based on the theory if we put the react understandable syntax for rendering on the render area, will it work?
 
-7. So how to do this with react way?
+7. So how to do this with react way? after that how to render it? and if we import the React from react app like this:
+    import {React, StrictMode} from 'react', does it work?
 
-8. We know the meaning 'x' in 'jsx' is HTML, but how can we use the JavaScript variable etc. in React?
+8. We know the meaning of 'x' in 'jsx' is HTML, but how can we use the JavaScript variable etc. in React?
 
 9. What called this, and what important to know about this?
 
@@ -29,9 +30,7 @@
         <a herf="https://google.com" target="_blank">click me to visit google</a>,
         so when add the the "Expression" like: 
             const username = 'Masud';
-            (
+            return (
                 <a herf="https://google.com" target="_blank">click me to visit google, poweredby {username}</a>
             )
         that time where added the "Expression" in React understandable syntax?
-
-        

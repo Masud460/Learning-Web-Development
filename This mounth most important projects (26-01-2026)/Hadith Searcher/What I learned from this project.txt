@@ -1,0 +1,26 @@
+Q: How to create an inner border in CSS?
+A: Like this:
+    .container {
+    width: 40%;
+    max-width: 400px;
+    min-width: 350px;
+    height: 90%;
+    max-height: 650px;
+    min-height: 550px;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    bottom: 15px;
+    right: 15px;
+    border: 2px solid #d4af37;
+    border-radius: 15px;
+}

@@ -1,0 +1,171 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+  --gold: #d4af37;
+  --dark-green: #1b5e30;
+  --text-dark: #2c3e50;
+  --text-light: #455a64;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(156, 199, 212);
+}
+
+.container {
+  width: 40%;
+  max-width: 400px;
+  min-width: 350px;
+  height: 90%;
+  max-height: 650px;
+  min-height: 550px;
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  bottom: 15px;
+  right: 15px;
+  border: 2px solid var(--gold);
+  border-radius: 15px;
+}
+
+/* Card Area */
+.container .card-area {
+  display: block;
+}
+
+/* Head Section*/
+.container .head-section {
+  width: 100%;
+  max-width: 400px;
+  height: 25%;
+}
+
+.head-section .bismillah {
+  font-size: 26px;
+  color: var(--dark-green);
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.head-section .main-head {
+  color: var(--dark-green);
+  font-size: 30px;
+  font-weight: 700;
+}
+
+/* Main hadith display section*/
+.container .main-section {
+  width: 100%;
+  padding: 15px;
+  max-width: 400px;
+  height: 50%;
+  font-weight: 600;
+  border-radius: 10px;
+  background-color: #dbdbdb;
+  margin-top: 25px;
+}
+
+.main-section .main-hadith {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 15px;
+}
+
+.main-section .translated-area {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text-light);
+}
+
+/*Footer Section*/
+.container .footer-section {
+  width: 100%;
+  max-width: 400px;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.footer-section .search-hadith {
+  border: none;
+  border-radius: 25px;
+  padding: 15px 25px;
+  background-color: var(--dark-green);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.search-hadith:hover {
+  font-size: 18px;
+}
+
+.footer-section .logo {
+  text-align: center;
+  font-size: 12px;
+}
+
+/* Search Area */
+.search-area {
+  display: none;
+  width: 100%;
+  text-align: center;
+}
+
+.search-area .search-head {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.search-area input {
+  width: 100%;
+  padding: 10px 20px; 
+  border-radius: 25px;
+  outline: none;
+  border: none;
+  background-color: #dbdbdb;
+}
+
+.input-area {
+  position: relative;
+}
+
+.input-area button {
+  border: none;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 900;
+  padding: 10px 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  vertical-align: middle; 
+}

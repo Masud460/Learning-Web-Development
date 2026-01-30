@@ -1,5 +1,4 @@
 // References
-
 const container = document.querySelector(".container");
 const body = document.body;
 
@@ -7,7 +6,7 @@ const body = document.body;
 const head = document.querySelector(".head");
 const searchNote = document.getElementById("search_note");
 const select = document.querySelector("select");
-let btnRemove;
+const todoArea = document.getElementById("todos");
 
 // Add New Note
 const addNote = document.querySelector(".add_btn");
@@ -43,12 +42,17 @@ addNote.addEventListener("click", function () {
 function saveDataInLocal(userDetail) {
   const userNoteValue = userDetail;
 
-  let key = "todo";
-  if (localStorage.length == 0) {
-    localStorage.setItem(`${key} ${1}`, userNoteValue);
-  } else {
-    localStorage.setItem(`${key} ${localStorage.length + 1}`, userNoteValue);
-  }
+  // Best Practice
+  const todo = {
+    id: Date.now(),
+    text: userNoteValue,
+  };
+  localStorage.setItem(todo.id, JSON.stringify(todo));
+  return todo;
+
+  // My version
+  // let key = userDetail;
+  // localStorage.setItem(key, userNoteValue)
 }
 
 // Reseting input field after using it
@@ -59,11 +63,12 @@ function resetInputField() {
 }
 
 // Add items to the todo area
-function addTodo(todoText) {
+function addTodo(todoText, id) {
   const label = document.createElement("label");
   const input = document.createElement("input");
   const span = document.createElement("span");
   const h3 = document.createElement("h3");
+  const removeBtn = document.createElement("button");
   const textColor =
     themeIcon.getAttribute("class") === "icon_white" ? "#000" : "#fff";
   h3.style.setProperty("--checkbox-color", textColor);
@@ -74,18 +79,23 @@ function addTodo(todoText) {
   span.classList.add("checkbox");
   h3.innerHTML = todoText;
   h3.classList.add("checkbox_text");
+  removeBtn.innerText = "x";
+  removeBtn.classList.add("btn_remove");
+  label.dataset.id = id;
 
   // add these in label
   label.appendChild(input);
   label.appendChild(span);
   label.appendChild(h3);
+  label.appendChild(removeBtn);
 
   // add label to todo area
-  const todoArea = document.getElementById("todos");
   todoArea.appendChild(label);
 
   checkboxText = document.querySelectorAll(".checkbox_text");
   let checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+  // Remove todos
 
   // Checkbox behaviour
   checkboxes.forEach((checkbox) => {
@@ -98,7 +108,6 @@ function addTodo(todoText) {
       if (event.target.checked) {
         todo.innerHTML = `<del>${todo.innerHTML}</del>`;
         todo.style.setProperty("--checkbox-color", "grey");
-        
       } else {
         todo.innerHTML = todo.textContent;
         todo.style.setProperty("--checkbox-color", "#000");
@@ -109,8 +118,8 @@ function addTodo(todoText) {
 
 // create new todo lists
 function createNewtodo() {
-  addTodo(userNote.value);
-  saveDataInLocal(userNote.value);
+  let data = saveDataInLocal(userNote.value);
+  addTodo(data.text, data.id);
 }
 
 // Show previous tasks on load
@@ -119,9 +128,18 @@ window.onload = function () {
 };
 
 function showTasks() {
-  for (let i = 1; i <= localStorage.length; i++) {
-    addTodo(localStorage.getItem(`todo ${i}`));
+  // Best Practice
+  for (let i = 0; i < localStorage.length; i++) {
+    let key = localStorage.key(i);
+    let text = JSON.parse(localStorage.getItem(key)).text;
+    addTodo(text);
   }
+
+  // My version
+  // for (let i = 0; i < localStorage.length; i++) {
+  //   let key = localStorage.key(i)
+  //   addTodo(localStorage.getItem(`${key}`));
+  // }
 }
 
 // Apply button works
@@ -153,67 +171,28 @@ cancel.addEventListener("click", function () {
   resetInputField();
 });
 
-
 // select todo storages
 
-
 // Remove todos
+todoArea.addEventListener("click", (e) => {
+  // Best Practice
+  let todoItem = e.target.parentElement;
+  if (e.target.tagName == "BUTTON") {
+    todoItem.remove();
+  }
 
-
-// Select menu
-
-
-
-// Deepseek dark and light version
-/*
-const themeToggle = document.querySelector(".theme-toggle");
-const body = document.body;
-const checkboxes = document.querySelectorAll(".square_checkbox");
-const searchNote = document.querySelector('input[type="search"]');
-
-// Check for saved user preference or use system preference
-const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-const storedTheme = localStorage.getItem('theme');
-const initialTheme = storedTheme || (prefersDark ? 'dark' : 'light');
-
-if (initialTheme === 'dark') {
-  body.classList.add('dark-mode');
-}
-
-themeToggle.addEventListener("click", function() {
-  body.classList.toggle('dark-mode');
-  
-  // Update icon
-  const isDark = body.classList.contains('dark-mode');
-  this.innerHTML = isDark ? moonIcon : sunIcon; // Define these elsewhere
-  
-  // Save preference
-  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  // My version
+  //   let todoItem = e.target.parentElement;
+  //   let todoText = todoItem.querySelector(':nth-child(3)').textContent;
+  //   if (e.target.tagName == "BUTTON") {
+  //     todoItem.remove()
+  //   }
+  //     for (let i = 0; i < localStorage.length; i++) {
+  //       let key = localStorage.key(i);
+  //       let storageItem = localStorage.getItem(key);
+  //       if (todoText == storageItem) {
+  //         localStorage.removeItem(key);
+  //       }
+  //     }
 });
-
-// Corresponding CSS:
-
-body.dark-mode {
-  background-color: #252525;
-  color: #fff;
-}
-
-body.dark-mode .head {
-  color: #fff;
-}
-
-body.dark-mode input[type="search"] {
-  border-color: #fff;
-  background-color: transparent;
-  color: #fff;
-}
-
-body.dark-mode input[type="search"]::placeholder {
-  color: #fff;
-  font-style: italic;
-}
-
-body.dark-mode .square_checkbox {
-  color: #fff;
-}
-*/
+// Select menu

@@ -84,3 +84,66 @@
 //     this.setAttribute("class", "icon_white");
 //   }
 // });
+
+
+
+
+
+
+
+
+
+
+// Deepseek dark and light version
+/*
+const themeToggle = document.querySelector(".theme-toggle");
+const body = document.body;
+const checkboxes = document.querySelectorAll(".square_checkbox");
+const searchNote = document.querySelector('input[type="search"]');
+
+// Check for saved user preference or use system preference
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+const storedTheme = localStorage.getItem('theme');
+const initialTheme = storedTheme || (prefersDark ? 'dark' : 'light');
+
+if (initialTheme === 'dark') {
+  body.classList.add('dark-mode');
+}
+
+themeToggle.addEventListener("click", function() {
+  body.classList.toggle('dark-mode');
+  
+  // Update icon
+  const isDark = body.classList.contains('dark-mode');
+  this.innerHTML = isDark ? moonIcon : sunIcon; // Define these elsewhere
+  
+  // Save preference
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+});
+
+// Corresponding CSS:
+
+body.dark-mode {
+  background-color: #252525;
+  color: #fff;
+}
+
+body.dark-mode .head {
+  color: #fff;
+}
+
+body.dark-mode input[type="search"] {
+  border-color: #fff;
+  background-color: transparent;
+  color: #fff;
+}
+
+body.dark-mode input[type="search"]::placeholder {
+  color: #fff;
+  font-style: italic;
+}
+
+body.dark-mode .square_checkbox {
+  color: #fff;
+}
+*/

@@ -223,16 +223,21 @@ body {
 }
 
 .btn_remove {
-  border: none;
+  border: 1px solid #6b63ff;
+  border-radius: 100px;
+  padding: 4px;
+  color: #6b63ff;
+  width: 30px;
   position: absolute;
   top: 20px;
   right: 10px;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .btn_remove:hover {
-  color: gray;
+  color: #fff;
+  background-color: #6b63ff;
 }
 
 

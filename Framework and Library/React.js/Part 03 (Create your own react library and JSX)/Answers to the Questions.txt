@@ -55,7 +55,7 @@ customRender(reactElement, mainContainer);
             click me to visit google
         </a>.
 
-6. No, it will not work, because you created the syntax based on your theory, and and rendered the syntax in your created rendering method, so you know the parameter and the key, values that you're expecting, so who created the react rendering method he's also expecting some parameter and key, values and he knows the name of those thing, that's why it's not work.
+6. No, it will not work, because you created the syntax based on your theory, and rendered the syntax in your created rendering method, so you know the parameter and the keys and values that you're expecting, so who created the react rendering method he's also expecting some parameter and key, values and he knows the name of those thing, that's why it's not work.
 
 7. Like this:   
     const reactElement = React.createElement(
@@ -66,7 +66,15 @@ customRender(reactElement, mainContainer);
   },
   'Click me to visit google'
 )
-    for this you need to set the line top of the main.jsx file: import React from 'react';
+
+and render it like this:
+createRoot(document.getElementById("root")).render(
+  reactElement // Never render it with any brakets;
+)
+
+and if you import the React like this: 
+  import {React, StrictMode} from 'react', it doesn't work, so you need to import it seperately like this:
+  import React from 'react';
 
 8. By using the qurly brakets, Like this: 
     function App() {

@@ -81,7 +81,6 @@ function addTodo(todoText, id) {
   h3.classList.add("checkbox_text");
   removeBtn.innerText = "x";
   removeBtn.classList.add("btn_remove");
-  label.dataset.id = id;
 
   // add these in label
   label.appendChild(input);
@@ -123,17 +122,38 @@ function createNewtodo() {
 }
 
 // Show previous tasks on load
-window.onload = function () {
+window.onload = function (e) {
   showTasks();
+
+  // set ids to label tag
+  let ids = [];
+  let todoList = document.querySelectorAll(".square_checkbox");
+  for (let i = 0; i < localStorage.length; i++) {
+    let key = localStorage.key(i);
+    ids.push(key);
+    // todoList[i].dataset.id = ids[i];
+    
+  }
+  for (let i = 0; i < localStorage.length; i++){
+    todoList[i].dataset.id = ids.sort()[i];
+  }
+  // todoList.forEach(todo => console.log(todo))
 };
 
 function showTasks() {
   // Best Practice
+  let keys = [];
   for (let i = 0; i < localStorage.length; i++) {
     let key = localStorage.key(i);
+    keys.push(key);
+  }
+  
+  keys
+    .sort()
+    .forEach((key) => {
     let text = JSON.parse(localStorage.getItem(key)).text;
     addTodo(text);
-  }
+  });
 
   // My version
   // for (let i = 0; i < localStorage.length; i++) {
@@ -171,7 +191,7 @@ cancel.addEventListener("click", function () {
   resetInputField();
 });
 
-// select todo storages
+//
 
 // Remove todos
 todoArea.addEventListener("click", (e) => {
@@ -179,6 +199,16 @@ todoArea.addEventListener("click", (e) => {
   let todoItem = e.target.parentElement;
   if (e.target.tagName == "BUTTON") {
     todoItem.remove();
+  }
+
+  // Remove from localStorage
+  let todoId = todoItem.dataset.id;
+  for (let i = 0; i < localStorage.length; i++) {
+    let key = localStorage.key(i);
+    let localId = JSON.parse(localStorage.getItem(key)).id;
+    if (Number(todoId) == Number(localId)) {
+      localStorage.removeItem(key);
+    }
   }
 
   // My version
@@ -195,4 +225,5 @@ todoArea.addEventListener("click", (e) => {
   //       }
   //     }
 });
+
 // Select menu

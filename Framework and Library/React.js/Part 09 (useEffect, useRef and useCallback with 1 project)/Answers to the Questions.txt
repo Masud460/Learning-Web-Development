@@ -7,9 +7,9 @@
 4. Like this: 
     <input type="range" min={100} max={100} value={useValue}/>
 
-5. When any value in the dependency array changes, React creates and returns a new version of the function with the updated values. If the dependencies don’t change, React returns the same cached function to avoid unnecessary re-creations.
+5. When any value in the dependency array changes, React creates and returns a new version of the function with the updated values. If the dependencies don’t change, React returns the same cached function to avoid unnecessary re-creations, it's called memoizetion;
 
-6. Yes, otherwise why do we need the radio?
+6. Yes, otherwise why do we need the range?
 
 7. Here it is:
     <input

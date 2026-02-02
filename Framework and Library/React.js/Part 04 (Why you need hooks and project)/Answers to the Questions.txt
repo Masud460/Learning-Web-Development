@@ -1,14 +1,17 @@
 1. Like this:
     <button onClick={action}>Click</button>
 
-2. Yes, I am creating right now.
+2. No, this is not works, You need to import it like this: import { createRoot } from 'react-dom/client'; // in a qurly bracece
 
-3. Because this time we don't have the control of the page state, the counter variable is increassing behind the scene, but since React started controlling the state, that time we can't do change in the state with this approach.
+3. Yes, I am creating right now.
 
-4. React gives us some functionality for control this, and that functionality called 'hook', there are many hooks in React, one of those called useState (check the doc), we can change the state by using this hook like this:
+4. Because this time we don't have the control of the page state, the counter variable is increassing behind the scene, but since React started controlling the state, that time we can't do change in the state with this approach.
+
+5. React gives us some functionallity for control this, and that functionallity called 'hook', there are many hook in React, one of those called useState (check the doc), we can change the state by using this hook like this:
     let [count, setCount] = useState(0);
 
       function addCount() {
         count = count + 1;
+        
         setCount(count)
       }

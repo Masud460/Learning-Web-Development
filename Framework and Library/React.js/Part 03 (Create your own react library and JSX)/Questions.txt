@@ -10,7 +10,7 @@
 
 6. As we said the vite or parcel bundler is converts a jsx syntax to a react understandable syntax, so based on the theory if we put the react understandable syntax for rendering on the render area, will it work?
 
-7. So how to do this with react way? after that how to render it? and if we import the React from react app like this:
+7. So how to do this with react way? after that how to render it? and if we import the React from react bundler like this:
     import {React, StrictMode} from 'react', does it work?
 
 8. We know the meaning of 'x' in 'jsx' is HTML, but how can we use the JavaScript variable etc. in React?

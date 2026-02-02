@@ -1,7 +1,7 @@
 1. In this situation it will increase by four, because you are using the prefix increase, but when you use postfix it will increase by 3, and when you use like this: counter + 1; it will increase by 1.
 
 2. A:
-Not completely — because although it looks like the counter is increasing four times, that’s not how React really processes it.
+Not completely — although it looks like the counter is increasing four times, that’s not how React really processes it.
 
 In the first case, where you use ++counter multiple times:
 
@@ -21,7 +21,7 @@ setCounter(counter + 1);
 setCounter(counter + 1);
 setCounter(counter + 1);
 
-You're passing the same value (counter + 1) every time, so React just sees “set it to 1” four times and does that. So the final result is only +1.
+You're passing the same value (counter + 1) every time, so React  just sees “set it to 1” four times and does that. So the final result is only +1.
 
 This guarantees React sees and applies each update based on the latest state, even if updates are batched.
 

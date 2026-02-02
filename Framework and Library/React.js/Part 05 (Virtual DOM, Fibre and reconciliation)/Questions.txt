@@ -4,7 +4,7 @@
 
 3. How React solve the problem to fast the process?
 
-4. What the problem for this process?
+4. What's the problem for this process?
 
 5. What we want in this situation?
 
@@ -15,3 +15,5 @@
 8. What is the popular name of Reconciliation?
 
 9. Is it important to update everything immediately in React app?
+
+10. What is the different between React Fibre and Reconciliation?

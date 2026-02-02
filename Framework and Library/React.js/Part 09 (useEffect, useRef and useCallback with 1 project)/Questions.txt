@@ -12,7 +12,7 @@
 
 7. Create a checkbox that defalt value is not number allowed, and when we check the box it should be allow the number.
 
-8. I have a checkbox which default value is false, and I want to change it to true and false every time I check the box, how can I do that?
+8. I have a checkbox that's default value is false, and I want to change it to true and false every time I check and uncheck the box, how can I do that?
 
 9. Why do we need to use the useEffect hook?
 

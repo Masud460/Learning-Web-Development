@@ -63,7 +63,7 @@ function resetInputField() {
 }
 
 // Add items to the todo area
-function addTodo(todoText, id) {
+function addTodo(todoText) {
   const label = document.createElement("label");
   const input = document.createElement("input");
   const span = document.createElement("span");
@@ -94,16 +94,7 @@ function addTodo(todoText, id) {
   checkboxText = document.querySelectorAll(".checkbox_text");
   let checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
-  // set ids to label tag
-  let ids = [];
-  let todoList = document.querySelectorAll(".square_checkbox");
-  for (let i = 0; i < localStorage.length; i++) {
-    let key = localStorage.key(i);
-    ids.push(key);
-  }
-  for (let i = 0; i < localStorage.length; i++) {
-    todoList[i].dataset.id = ids.sort()[i];
-  }
+  setIDsInLabel();
 
   // Checkbox behaviour
   checkboxes.forEach((checkbox) => {
@@ -124,6 +115,23 @@ function addTodo(todoText, id) {
   });
 }
 
+function setIDsInLabel() {
+  // set ids to label tag
+  let todos = [];
+  document
+    .querySelectorAll(".square_checkbox")
+    .forEach((todo) => todos.push(todo));
+  let ids = [];
+  for (let i = 0; i < localStorage.length; i++) {
+    let key = localStorage.key(i);
+    ids.push(key);
+  }
+  for (let i = 0; i < ids.length; i++) {
+    console.log(todos, i, ids.length);
+    todos[i].dataset.id = ids[i];
+  }
+}
+
 // create new todo lists
 function createNewtodo() {
   let data = saveDataInLocal(userNote.value);
@@ -131,7 +139,7 @@ function createNewtodo() {
 }
 
 // Show previous tasks on load
-window.onload = function (e) {
+window.onload = function () {
   showTasks();
 };
 
@@ -142,18 +150,15 @@ function showTasks() {
     let key = localStorage.key(i);
     keys.push(key);
   }
-  
-  keys
-    .sort()
-    .forEach((key) => {
-    let text = JSON.parse(localStorage.getItem(key)).text;
+  keys.sort().forEach((key) => {
+    let text = String(JSON.parse(localStorage.getItem(key)).text);
     addTodo(text);
   });
 
   // My version
   // for (let i = 0; i < localStorage.length; i++) {
   //   let key = localStorage.key(i)
-  //   addTodo(localStorage.getItem(`${key}`));
+  //   addTodo(JSON.parse(localStorage.getItem(`${key}`)).text);
   // }
 }
 
@@ -166,9 +171,13 @@ apply.addEventListener("click", function () {
 
   // !Need to fix
   for (let i = 0; i < localStorage.length; i++) {
-    if (localStorage.getItem(`todo ${i}`) == userNote.value.trim()) {
+    let key = localStorage.key(i);
+    let todoText = JSON.parse(localStorage.getItem(key)).text;
+    if (todoText == userNote.value.trim()) {
       warning.innerHTML = "NOTE: This task is already exist.";
       return;
+    } else {
+      warning.innerHTML = "";
     }
   }
   createNewtodo();
@@ -207,20 +216,6 @@ todoArea.addEventListener("click", (e) => {
       localStorage.removeItem(key);
     }
   }
-
-  // My version
-  //   let todoItem = e.target.parentElement;
-  //   let todoText = todoItem.querySelector(':nth-child(3)').textContent;
-  //   if (e.target.tagName == "BUTTON") {
-  //     todoItem.remove()
-  //   }
-  //     for (let i = 0; i < localStorage.length; i++) {
-  //       let key = localStorage.key(i);
-  //       let storageItem = localStorage.getItem(key);
-  //       if (todoText == storageItem) {
-  //         localStorage.removeItem(key);
-  //       }
-  //     }
 });
 
 // Select menu

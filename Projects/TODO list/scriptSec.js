@@ -147,3 +147,20 @@ body.dark-mode .square_checkbox {
   color: #fff;
 }
 */
+
+
+
+
+// My version for removing todo from the UI
+  //   let todoItem = e.target.parentElement;
+  //   let todoText = todoItem.querySelector(':nth-child(3)').textContent;
+  //   if (e.target.tagName == "BUTTON") {
+  //     todoItem.remove()
+  //   }
+  //     for (let i = 0; i < localStorage.length; i++) {
+  //       let key = localStorage.key(i);
+  //       let storageItem = localStorage.getItem(key);
+  //       if (todoText == storageItem) {
+  //         localStorage.removeItem(key);
+  //       }
+  //     }

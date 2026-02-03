@@ -94,7 +94,16 @@ function addTodo(todoText, id) {
   checkboxText = document.querySelectorAll(".checkbox_text");
   let checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
-  // Remove todos
+  // set ids to label tag
+  let ids = [];
+  let todoList = document.querySelectorAll(".square_checkbox");
+  for (let i = 0; i < localStorage.length; i++) {
+    let key = localStorage.key(i);
+    ids.push(key);
+  }
+  for (let i = 0; i < localStorage.length; i++) {
+    todoList[i].dataset.id = ids.sort()[i];
+  }
 
   // Checkbox behaviour
   checkboxes.forEach((checkbox) => {
@@ -124,20 +133,6 @@ function createNewtodo() {
 // Show previous tasks on load
 window.onload = function (e) {
   showTasks();
-
-  // set ids to label tag
-  let ids = [];
-  let todoList = document.querySelectorAll(".square_checkbox");
-  for (let i = 0; i < localStorage.length; i++) {
-    let key = localStorage.key(i);
-    ids.push(key);
-    // todoList[i].dataset.id = ids[i];
-    
-  }
-  for (let i = 0; i < localStorage.length; i++){
-    todoList[i].dataset.id = ids.sort()[i];
-  }
-  // todoList.forEach(todo => console.log(todo))
 };
 
 function showTasks() {
@@ -168,6 +163,8 @@ apply.addEventListener("click", function () {
     warning.innerHTML = "NOTE: Please give a valid TODO.";
     return;
   }
+
+  // !Need to fix
   for (let i = 0; i < localStorage.length; i++) {
     if (localStorage.getItem(`todo ${i}`) == userNote.value.trim()) {
       warning.innerHTML = "NOTE: This task is already exist.";

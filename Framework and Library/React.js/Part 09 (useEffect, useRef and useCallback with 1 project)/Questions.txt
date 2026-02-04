@@ -18,15 +18,17 @@
 
 10. What is the syntax of useEffect hook?
 
-11. What is the useRef hook?
+11. Why we set the same dependencies in useCallback and useEffect?
+
+12. What is the useRef hook?
 
 !important: we can use the window object directly in core react, but we cannot use it in next.js, because next.js codes render in serverside, and there is not any kind of window object.
 
-12. How to use the useRef hook? explain step by step.
+13. How to use the useRef hook? explain step by step.
 
-13. How to show selection effect when user copy the password?
+14. How to show selection effect when user copy the password?
 
-14. How to set the copy range for user?
+15. How to set the copy range for user?
 
 summary from a commenter:
 watching 2nd time got more clear to the concepts sir ji

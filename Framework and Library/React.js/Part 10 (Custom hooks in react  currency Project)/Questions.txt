@@ -6,9 +6,9 @@
 
 4. Why do we need to pass key for looping elements?
 
-5. What is the best way for export components and hooks if we have lot?
+5. What is the best way for export components and hooks if we have a lot?
 
-6. In the InputBox component we have used a lable for the input, so everytime we use the component the the lable will change and repeat, so how can we optimize it?
+6. In the InputBox component we have used a lable for the input, so everytime we use the component the lable will change and repeat, so how can we optimize it?
 
 7. Which states we need to handle?
 

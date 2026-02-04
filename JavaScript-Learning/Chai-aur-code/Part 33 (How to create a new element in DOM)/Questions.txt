@@ -1,6 +1,6 @@
 1. What's the method to see children of parent element?
 
-2. Can we use for loop for looping an HTML collection?
+2. Can we use forloop for looping an HTML collection?
 
 3. How to select first child of a parent element?
 

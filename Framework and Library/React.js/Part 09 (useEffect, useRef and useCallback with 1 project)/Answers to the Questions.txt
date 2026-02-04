@@ -40,9 +40,12 @@ useEffect lets us:
 10. Here it is:
     useEffect(() => {}, [])
 
-11. The useRef hook used to give reference of selected components in our page so that functions can be performed on referenced values.
+11. We set the dependencies in useEffect hook for if anything chages from dependencies, it should run, and we set the same dependencies in useCallback for optimization since useCallback memoizes the things, so it should be memoize these things also.
 
-12. Using method of useRef:
+
+12. The useRef hook used to give reference of selected components in our page so that functions can be performed on referenced values.
+
+13. Using method of useRef:
     1st:
         create a variable and store the useRef to it, and if you don't need any default value, than put null value to it;
         like this: let passwordRef = useRef(null)
@@ -56,8 +59,8 @@ useEffect lets us:
             passwordRef.current?.select() // for selecting the text.
             passwordRef.current?.setSelectionRange(0, 8) // for set selection range.
 
-13. Like this:
+14. Like this:
     passwordRef.current?.select()
 
-14. Like this:
+15. Like this:
     passwordRef.current?.setSelectionRange()

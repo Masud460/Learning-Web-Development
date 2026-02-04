@@ -27,11 +27,6 @@ body.appendChild(overlay);
 // Show warning
 const warning = document.getElementById("warn");
 
-// Control Dark and White
-let themeIcon = document.querySelector(".icon_white");
-
-// Dark and White
-
 // Add new note
 addNote.addEventListener("click", function () {
   addArea.style.display = "flex";
@@ -69,9 +64,9 @@ function addTodo(todoText) {
   const span = document.createElement("span");
   const h3 = document.createElement("h3");
   const removeBtn = document.createElement("button");
-  const textColor =
-    themeIcon.getAttribute("class") === "icon_white" ? "#000" : "#fff";
-  h3.style.setProperty("--checkbox-color", textColor);
+  // const textColor =
+    // themeIcon.getAttribute("class") === "icon_white" ? "#000" : "#fff";
+  // h3.style.setProperty("--checkbox-color", textColor);
 
   // modification
   label.classList.add("square_checkbox");
@@ -124,11 +119,12 @@ function setIDsInLabel() {
   let ids = [];
   for (let i = 0; i < localStorage.length; i++) {
     let key = localStorage.key(i);
-    ids.push(key);
+    let todoId = JSON.parse(localStorage.getItem(key)).id
+    ids.push(todoId);
   }
   for (let i = 0; i < ids.length; i++) {
     console.log(todos, i, ids.length);
-    todos[i].dataset.id = ids[i];
+    todos[i].dataset.id = ids.sort()[i];
   }
 }
 
@@ -219,3 +215,8 @@ todoArea.addEventListener("click", (e) => {
 });
 
 // Select menu
+
+// Control Dark and White
+const themeChanger = document.querySelector(".theme-changer");
+
+// Dark and White

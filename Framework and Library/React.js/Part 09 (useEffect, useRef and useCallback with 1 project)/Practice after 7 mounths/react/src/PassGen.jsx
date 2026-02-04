@@ -9,8 +9,7 @@ function PassGen() {
   // useRef hook
   const passRef = useRef(null);
   const copyPass = useCallback(() => {
-    passRef.current?.select()
-    passRef.current?.setSelectionRange(0, length);
+    passRef.current?.select();
     window.navigator.clipboard.writeText(pass);
   }, [pass]);
 
@@ -46,19 +45,19 @@ function PassGen() {
         <h1 className="text-3xl text-white">Password Generator</h1>
         <div>
           <input
-            ref={passRef}
             className="w-[420px] bg-white text-black rounded-tl-md rounded-bl-md py-1 px-3"
             type="text"
             disabled
             value={pass}
             placeholder="password"
+            ref={passRef}
           />
           <button
             onClick={copyPass}
             title="copy to clipboard"
-            className="text-white bg-blue-500 rounded-tr-md rounded-br-md py-1 px-3 font-semibold cursor-pointer"
+            className="text-white bg-blue-500 rounded-tr-md rounded-br-md py-1 px-3 font-semibold cursor-pointer active:py-0.5 active:px-2 active:bg-blue-400 hover:py-1.5 hover:px-4 transition-all"
           >
-          copy
+            copy
           </button>
         </div>
         <div

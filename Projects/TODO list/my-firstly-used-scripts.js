@@ -163,4 +163,68 @@ body.dark-mode .square_checkbox {
   //       if (todoText == storageItem) {
   //         localStorage.removeItem(key);
   //       }
-  //     }
+//     }
+  
+
+// I used this codebase for setting id to lable before the awesome technique
+// function setIDsInLabel() {
+//   // set ids to label tag
+//   let todos = [];
+//   document
+//     .querySelectorAll(".square_checkbox")
+//     .forEach((todo) => todos.push(todo));
+//   let ids = [];
+//   for (let i = 0; i < localStorage.length; i++) {
+//     let key = localStorage.key(i);
+//     let todoId = JSON.parse(localStorage.getItem(key)).id;
+//     ids.push(Number(todoId));
+//   }
+//   for (let i = 0; i < ids.length; i++) {
+//     console.log(todos, i, ids.length);
+//     todos[i].dataset.id = ids.sort()[i];
+//   }
+// }
+
+
+// // Saving data on localStorage
+// function saveDataInLocal(userDetail) {
+//   const userNoteValue = userDetail;
+
+//   // Best Practice
+//   const todo = {
+//     id: Date.now(),
+//     text: userNoteValue,
+//   };
+//   localStorage.setItem(todo.id, JSON.stringify(todo));
+//   return todo;
+
+//   // My version
+//   // let key = userDetail;
+//   // localStorage.setItem(key, userNoteValue)
+// }
+
+
+
+
+
+
+
+// function showTasks() {
+//   // Best Practice
+//   let keys = [];
+//   for (let i = 0; i < localStorage.length; i++) {
+//     let key = localStorage.key(i);
+//     keys.push(key);
+//   }
+//   keys.sort().forEach((key) => {
+//     let text = String(JSON.parse(localStorage.getItem(key)).text);
+//     let id = Number(JSON.parse(localStorage.getItem(key)).id);
+//     addTodo(text, id);
+//   });
+
+//   // My version
+//   // for (let i = 0; i < localStorage.length; i++) {
+//   //   let key = localStorage.key(i)
+//   //   addTodo(JSON.parse(localStorage.getItem(`${key}`)).text);
+//   // }
+// }

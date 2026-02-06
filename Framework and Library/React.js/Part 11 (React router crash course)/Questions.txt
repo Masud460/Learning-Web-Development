@@ -1,3 +1,19 @@
 1. Why do we use the Link tag in React-Router-DOM instead of anchor tag?
 
 2. Why do we use the NavLink?
+
+3. As we saw that we can't use our components in react-router-dom like this:
+ <Header/>
+ <Home/>
+ <Footer/>
+ so how can we use theme dynamically?
+
+4. How can we control the path? I mean if I click the Home element from Header, it should go to the Home element.
+
+5. How to easy the previous router syntax?
+
+6. We want to create a component that wouldn't display in Header, but when user type in the URL like this: localhost:5173/user/123, so after the 'user/' text what user types it(user written text with the text before slash also e.g. 'user') should display as a component, so how can we do that?
+
+7. Create a component named Github, it displays an user's followers and avtar.
+
+8. The previous component renders when user click to it, so it takes some time to load, so how can we fast the process?

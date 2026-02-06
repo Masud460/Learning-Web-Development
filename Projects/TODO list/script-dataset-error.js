@@ -19,7 +19,7 @@ const cancel = document.getElementById("cancel_btn");
 // Checkbox
 let checkboxText = document.querySelectorAll(".checkbox_text");
 
-// Display blurring when add area opens
+// Display blurring
 const overlay = document.createElement("div");
 overlay.classList.add("overlay");
 body.appendChild(overlay);
@@ -54,16 +54,14 @@ function resetInputField() {
 }
 
 // Add items to the todo area
-function addTodo(todoText, id) {
+function addTodo(todoText) {
   const label = document.createElement("label");
   const input = document.createElement("input");
   const span = document.createElement("span");
   const h3 = document.createElement("h3");
   const removeBtn = document.createElement("button");
-
   // modification
   label.classList.add("square_checkbox");
-  label.dataset.id = id;
   input.type = "checkbox";
   span.classList.add("checkbox");
   h3.innerHTML = todoText;
@@ -83,10 +81,15 @@ function addTodo(todoText, id) {
   checkboxText = document.querySelectorAll(".checkbox_text");
   let checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
-  // Every todo done effect
+  setIDsInLabel();
+
+  // Checkbox behaviour
   checkboxes.forEach((checkbox) => {
     checkbox.addEventListener("click", function (event) {
       const todo = event.target.parentElement.querySelector(":nth-child(3)");
+
+      // const checkboxColor =
+      //   themeIcon.getAttribute("class") === "icon_white" ? "#000" : "#fff";
 
       if (event.target.checked) {
         todo.innerHTML = `<del>${todo.innerHTML}</del>`;
@@ -99,6 +102,24 @@ function addTodo(todoText, id) {
   });
 }
 
+function setIDsInLabel() {
+  // set ids to label tag
+  let todos = [];
+  document
+    .querySelectorAll(".square_checkbox")
+    .forEach((todo) => todos.push(todo));
+  let ids = [];
+  for (let i = 0; i < localStorage.length; i++) {
+    let key = localStorage.key(i);
+    let todoId = JSON.parse(localStorage.getItem(key)).id;
+    ids.push(todoId);
+  }
+  for (let i = 0; i < ids.length; i++) {
+    console.log(todos, i, ids.length);
+    todos[i].dataset.id = ids.sort()[i];
+  }
+}
+
 // create new todo lists
 function createNewtodo() {
   let data = saveDataInLocal(userNote.value);
@@ -108,8 +129,6 @@ function createNewtodo() {
 // Show previous tasks on load
 window.onload = function () {
   showTasks();
-
-  setIDsInLabel();
 };
 
 function showTasks() {
@@ -121,8 +140,7 @@ function showTasks() {
   }
   keys.sort().forEach((key) => {
     let text = String(JSON.parse(localStorage.getItem(key)).text);
-    let id = Number(JSON.parse(localStorage.getItem(key)).id);
-    addTodo(text, id);
+    addTodo(text);
   });
 }
 
@@ -133,17 +151,17 @@ apply.addEventListener("click", function () {
     return;
   }
 
+  
   for (let i = 0; i < localStorage.length; i++) {
     let key = localStorage.key(i);
-    let todoText = JSON.parse(localStorage.getItem(key)).text.trim();
-    if (todoText == userNote.value.trim()) {
+    let todoText = JSON.parse(localStorage.getItem(key)).text;
+    if (todoText.trim() == userNote.value.trim()) {
       warning.innerHTML = "NOTE: This task is already exist.";
       return;
     } else {
       warning.innerHTML = "";
     }
   }
-
   createNewtodo();
   resetInputField();
 });
@@ -160,8 +178,6 @@ cancel.addEventListener("click", function () {
   warning.innerHTML = "";
   resetInputField();
 });
-
-//
 
 // Remove todos
 todoArea.addEventListener("click", (e) => {
@@ -181,10 +197,3 @@ todoArea.addEventListener("click", (e) => {
     }
   }
 });
-
-// Select menu
-
-// Control Dark and White
-const themeChanger = document.querySelector(".theme-changer");
-
-// Dark and White

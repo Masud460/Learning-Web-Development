@@ -6,6 +6,6 @@ import { Home, About, Contact, Header, Footer } from './components/components';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    
+    <RouteProvider />
   </StrictMode>,
 )

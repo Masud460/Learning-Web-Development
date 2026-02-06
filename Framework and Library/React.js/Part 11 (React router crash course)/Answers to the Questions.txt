@@ -6,3 +6,106 @@
             `{isActive ? "text-orange-700" : "text-gray-700"}`
         }}
     >Home</NavLink>
+
+3. For this create a router(It's a default react method) like this:
+    const router = createBrowserRouter([
+        {
+            path: '/', // this is main path I mean parent path, and it's location is Layout.jsx that we will create after this;
+            element: <Layout /> // this is the main path like Header and Footer;
+            children: [
+                {
+                    path: '',
+                    element: <Home />
+                },
+                {
+                    path: 'about', // this text show in browser URL after the main path slash;
+                    element: <About />
+                }
+            ] // this the nested part, like Home, About, Contact etc.
+        }
+    ])
+after creating the router, invoke RouterProvider on the root, then pass the router to it, like this:
+    <StrictMode>
+        <RouterProvider router={router}/>
+    <StrictMode/>
+
+The Layout is here:
+    import {Outlet} from 'react-router-dom';
+    export default function Layout(){
+        return(
+            <>
+                <Header/>
+                <Outlet /> // this is the dynamically changing area like Home, About etc.
+                <Footer/>
+            </>
+        )
+    }
+
+4. For doing this go to the Header components, then find the NavLink of that element you want to go there, after that write 'to' as a prop in the NavLink, and write the path on that like this:
+<li>
+                <NavLink
+                  to='/about'
+                  className={({isActive}) =>
+                    `${isActive ? "text-orange-500" : "text-gray-700"} block py-2 pr-4 pl-3 duration-200 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
+                  }
+                >
+                  About
+                </NavLink>
+              </li>
+
+5. Like this:
+    const router = createBrowserRouter(
+        createRoutesFromElements(
+            <Route path='/' element={<Layout/>}>
+                <Route path='' element={<Home/>}/> // You can use self-closing also;
+                <Route path='about' element={<About/>}/>
+            <Route/>
+        )
+    )
+
+6. First of all create a new path in the createBrowserRouter like this: 
+<Route path='user/:id' element={<User />} />
+Remember the text after the colon in path, then create the component, and determine where you want to display the text, and use the useParams hook like this:
+    import {useParams} from 'react-router-dom';
+    export default function User(){
+        const {id} = useParams() // The variable name should be same as it is in the route path after colon;
+        return(
+            <>
+                <h1>User Id: {id}<h1/>
+            </>
+        )
+    }
+
+7. Ok its here:
+    import { useState } from "react";
+export default function Github() {
+  const [data, setData] = useState;
+  fetch("https://api.github.com/users/hiteshchouhdhary")
+    .then((response) => response.json())
+    .then((data) => {
+      setData(data);
+    });
+  return (
+    <>
+      <div>
+        <h1>Followers: {data.followers}</h1>
+        <img src={data.avtar_url} alt="github picture" />
+      </div>
+    </>
+  );
+}
+
+8. by using the 'loader' property in that's Route, It (the loader property) lets us fetch API in there, for using this, create an api function that returns your data,(you can create this in a separate file) like this:
+export default const getDataFromAPI = async function (){
+    const response = await fetch('https://api.github.com/users/hiteshchoudhary')
+    return response.json()
+}, then set the loader in perticuler Route like this:
+    import getDataFromAPI from './file'
+    <Route 
+        loader={getDataFromAPI} // It does API call from here;
+        path='github'
+        element={<Github />}
+    />
+    after that go to the file you use the data in and import useLoaderData hook, then use it like this:
+        import {useLoaderData} from 'react-router-dom'
+        const data = useLoaderData(), that's it. 

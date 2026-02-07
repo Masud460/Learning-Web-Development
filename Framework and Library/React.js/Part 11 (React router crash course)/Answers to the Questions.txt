@@ -144,3 +144,7 @@ export const githubInfoLoader = async () => {
 };
 
 Using the loader prop allows us to fetch the data before the component renders, so the component receives the data instantly via useLoaderData. This removes the delay and makes the navigation feel faster.
+
+13. No, the router doesn't follow the path, we need to use the NavLink.
+
+14. It(Router) will follow, but not redirect to the page.

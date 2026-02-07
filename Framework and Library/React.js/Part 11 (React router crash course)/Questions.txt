@@ -22,5 +22,18 @@
 
 12. In the previous Github component we saw a small problem: when we click the Github link in the NavLink, the component loads a little slowly. How can we fix this?
 
+13. If we create a path without the NavLink like this:
+<button
+            to='contact_us'
+            className='bg-blue-500 border-none rounded-lg text-white font-semibold p-4 text-2xl cursor-pointer'
+          >Contact Us</button>
+          <button
+            to="faq"
+            className='bg-blue-500 border-none rounded-lg text-white font-semibold p-4 text-2xl px-14 cursor-pointer'
+          >FAQ</button>
+ does the router follow the path or not?
+
+14. If we don't use the Outlet, does our router follow the path?
+
 Homework:
 Create nested routes in one of these component/route.

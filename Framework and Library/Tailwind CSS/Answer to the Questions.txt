@@ -110,7 +110,7 @@
 
 31. The 'classList.toggle('class')' is majorly use to add or remove a class in js when a button is clicked or an event happens, this is commonly use for dark/light mode and etc.
 
-32. Tailwind CSS is a utility-first framework that generates thousands of CSS classes. However, using it directly in development would result in a massive, unoptimized CSS file (often several MBs).
+32. Tailwind CSS is an utility-first framework that generates thousands of CSS classes. However, using it directly in development would result in a massive, unoptimized CSS file (often several MBs).
 
   Key Reasons for Building Tailwind:
 
@@ -136,7 +136,7 @@
 
   Your tailwind.config.js (colors, fonts, breakpoints) is processed during build.
 
-33. This is so simple, just write the code in your package.json scripts object:
+33. This is so simple, just write the code in your package.json's scripts object:
   "build": "tailwindcss -i input.css -o ./css/styles.css"
 
 34. Just run this command in terminal:

@@ -3,18 +3,32 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-  transition: all 300ms ;
+  transition: all 300ms;
 }
 
 :root {
-  --color: #6c63ff;
-  --hover-color: #fff;
-  --back-color: #fff;
-  --back-hover-color: #6c63ff;
-  --border-color: #6c63ff;
-  --border-hover-color: #fff;
-  --checkbox-color: #000;
-  --warn-color: #000;
+  --bg: #fff;
+  --input-text: #6c63ff;
+  --input-placeholder: #6c63ff;
+  --head-color: #000;
+  --todo-color: #000;
+  --todo-done-color: gray;
+  --cancel-color: #6c63ff;
+  --cancel-hover-color: #fff;
+  --border-color: #6c63ff; 
+  --border-hover-color: #6c63ff;
+}
+
+[data-theme="dark"] {
+    --bg: #212121;
+  --input-text: #fff;
+  --input-placeholder: #fff;
+  --head-color: #fff;
+  --todo-color: #fff;
+  --cancel-color: #6c63ff;
+  --cancel-hover-color: #fff;
+  --border-color: #6c63ff; 
+  --border-hover-color: #6c63ff;
 }
 
 html,
@@ -22,14 +36,13 @@ body {
   width: 100%;
   height: 100%;
   display: flex;
-  /* background-color: #f7f7f7; */
-  background-color: #212121;
+  background-color: var(--bg);
   justify-content: center;
   align-items: center;
 }
 
 ::placeholder {
-  color: #6c63ff;
+  color: var(--input-placeholder);
   opacity: 0.5;
 }
 
@@ -51,7 +64,7 @@ body {
   width: 400px;
   /* background-color: red; */
   max-width: 400px;
-  min-width: 400px; 
+  min-width: 400px;
   position: relative;
   display: flex;
   justify-content: top;
@@ -63,8 +76,8 @@ body {
   margin: 40px 0 20px 0;
   font-size: 26px;
   font-weight: 500;
+  color: var(--head-color);
 }
-
 
 /* Control Area */
 
@@ -73,7 +86,7 @@ body {
   /* background-color: blue; */
   max-width: 360px;
   min-width: 360px;
-  margin: 0 auto; 
+  margin: 0 auto;
   height: 80px;
   display: grid;
   grid-template-rows: 1fr 1fr;
@@ -87,16 +100,13 @@ body {
   border-radius: 5px;
   padding: 8px 25px;
   font-size: 16px;
-  color: #6c63ff;
+  color: var(--input-text);
+  background: transparent;
 }
 
 .grid_area input[type="search"]:focus {
   outline: none;
   box-shadow: 0 0 3px 2px #6b63ffca;
-}
-
-.dark_search::placeholder{
-  color: #fff;
 }
 
 .grid_area > select {
@@ -124,7 +134,7 @@ body {
   color: #6c63ff;
 }
 
-.add_btn  {
+.add_btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -187,11 +197,16 @@ body {
 }
 
 .square_checkbox h3 {
-  color: var(--checkbox-color);
+  color: var(--todo-color);
   display: inline;
   vertical-align: middle;
   font-weight: 600;
   font-size: 19px;
+}
+
+.square_checkbox h3.done {
+  color: var(--todo-done-color);
+  text-decoration: line-through;
 }
 
 .square_checkbox .checkbox {
@@ -226,6 +241,7 @@ body {
 .btn_remove {
   border: 1px solid #6b63ff;
   border-radius: 100px;
+  background-color: transparent;
   padding: 4px;
   color: #6b63ff;
   width: 30px;
@@ -241,16 +257,15 @@ body {
   background-color: #6b63ff;
 }
 
-
 /* Adding Area */
 
 .add_area {
-    box-shadow: 0 0 10px #ffffff88;
+  box-shadow: 0 0 10px #ffffff88;
   position: fixed;
   top: 25%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #F7F7F7;
+  background-color: var(--bg);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -264,11 +279,7 @@ body {
   display: none;
 }
 
-.add_note_dark::placeholder {
-  color: #fff;
-}
-
-.add_head {
+.add_head{
   width: 100%;
 }
 
@@ -285,6 +296,7 @@ body {
   font-size: 24px;
   font-weight: 600;
   margin-bottom: 10px;
+  color: var(--head-color)
 }
 
 .add_area input {
@@ -292,46 +304,46 @@ body {
   border-radius: 5px;
   font-size: 14px;
   font-weight: 500;
-  color: #6c63ff;
+  color: var(--input-text);
+  background-color: transparent;
   padding: 7px 25px;
   width: 100%;
 }
 
 .add_area input:focus {
-    outline: 2px solid #6b63ff8f;
-    background-color: transparent;
+  outline: 2px solid #6b63ff8f;
+  background-color: transparent;
 }
 
 /* warning */
 #warn {
   /* text-shadow: 0 0 2px rgba(0, 0, 0, 0.5); */
-  color: var(--warn-color);
+  color: var(--head-color);
 }
 
-.add_area  button{
-    border: none;
-    border-radius: 5px;
-    padding: 7px 25px;
-    font-weight: 600;
-    font-size: 16px;
-    cursor: pointer;
+.add_area button {
+  border: none;
+  border-radius: 5px;
+  padding: 7px 25px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
 }
 
-.add_area .buttons .cancel_btn{
-  background-color: var(--back-color);
-  border: 1px solid var(--border-color);
-    padding: 7px 20px;
-  color: var(--color);
+.add_area .buttons .cancel_btn {
+  background-color: transparent;
+  border: 1px solid #6c63ff;
+  padding: 7px 20px;
+  color: #6c63ff;
 }
 
-.add_area .buttons .cancel_btn:hover{
-  background-color: var(--back-hover-color);
+.add_area .buttons .cancel_btn:hover {
+  background-color: #6c63ff;
   border-color: var(--border-hover-color);
-  color: var(--hover-color);
+  color: var(--cancel-hover-color);
 }
 
-
-.add_area .buttons :nth-child(2){
+.add_area .buttons :nth-child(2) {
   background-color: #6c63ff;
   color: #fff;
 }
@@ -340,8 +352,7 @@ body {
   background-color: #534cc2;
 }
 
-
-@media screen and (min-width: 550px){
+@media screen and (min-width: 550px) {
   .container {
     width: 100%;
     max-width: 760px;
@@ -352,13 +363,14 @@ body {
     grid-template-columns: repeat(11, 1fr);
     /* margin: 0 0 0 25px; */
   }
-  .grid_area input[type="search"]{
+  .grid_area input[type="search"] {
     grid-column: 1 / 8;
   }
-  .grid_area select{
+  .grid_area select {
     grid-column: 8 / 11;
   }
-  .grid_area .icon_dark, .grid_area .icon_white{
+
+  .grid_area .theme-changer {
     grid-column: 11 / 12;
   }
 
@@ -370,7 +382,7 @@ body {
   .add_btn {
     position: absolute;
     top: auto;
-    bottom: 150px; 
+    bottom: 150px;
     right: 100px;
     width: 50px;
     height: 50px;

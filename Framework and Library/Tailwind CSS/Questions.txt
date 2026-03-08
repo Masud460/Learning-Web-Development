@@ -69,6 +69,6 @@
 
 35. How to minify/compress the size of build css file?
 
-36. How to do the thing in efficiant/optimize/simple way?
+36. How to do the thing in efficiant/optimized/simple way?
 
 37. How to update the css file every time automatically?

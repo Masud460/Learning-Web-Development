@@ -25,3 +25,5 @@
 12. How can we know a checkbox which is checked?
 
 13. How can we delete a particuler element from an array?
+
+14. When we want to use the value that user typing live, how can we use it?

@@ -8,7 +8,7 @@
     }
     outer()
 
-2. The outer function's objects also returns, because is this will not be happend the following code not be return the name value:
+2. The outer function's objects also returns, because is this will not be happend, the following code not be return the name value:
     function makeFunc(){
         const name = 'Masud';
         function displayName(){
@@ -19,7 +19,7 @@
     const myFunc = makeFunc();
     myFunc()
 
-3. For example we got hundreds of color to set by clicking hundreds buttons, in this time we cannot copy paste because this is our core principle 'Don't repeat your self', so in this time we use a function like this:
+3. For example we got hundreds of colors to set by clicking hundreds buttons, in this time we cannot copy paste because this is our core principle 'Don't repeat your self', so in this time we use a function like this:
     function clickHandler(color){
         document.body.style.backgroundColor = color;
     }

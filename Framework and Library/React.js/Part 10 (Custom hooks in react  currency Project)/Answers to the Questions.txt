@@ -3,7 +3,7 @@
         We need an api of currency rate, in my case I will use this: https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${currency}.json;
 
     2nd:
-        Create a function and start it's name with the keyword 'use' (This is a tradition), and since we only take the currency type from the user, take this with parameter like this:
+        Create a function and start it's name with the keyword 'use' (This is a tradition), and since we only take the currency name from the user, take this with parameter like this:
         function useCurrencyInfo(currency){
 
         }

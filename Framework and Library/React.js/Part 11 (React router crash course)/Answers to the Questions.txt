@@ -1,111 +1,150 @@
-1. Because if we use the anchor tag, the browser dom will recreate, and this is not the purpose of using React, That's why we use the Link tag.
+1. We use the Link tag instead of ancor tag in React, because ancor tag refreash the page, but in React we don't want the refreash, that's why we use the Link tag.
 
-2. We use the NavLink tag when we need to change the classNames in a special scenario, like if we have some nav menu, and we want to change the color of the current menu from gray to orange, we can do this like this:
+2. When a user is on a page and needs to identify which page they are currently on, we use NavLink. It not only navigates between pages but also highlights the active page.
+
+3. First of all use the tag:
+    <NavLink></NavLink>
+    then use the className as a callback function like this: <NavLink
+            className={() => }
+        ></NavLink>
+    we always get a callback var in the function named 'isActive', use the var like this:
     <NavLink
-        className={({isActive}) => {
-            `{isActive ? "text-orange-700" : "text-gray-700"}`
-        }}
-    >Home</NavLink>
+            className={({isActive}) => 
+            `${isActive ? 'text-gray-700': 'text-orange-700'}`
+            }
+        ></NavLink>
 
-3. For this create a router(It's a default react method) like this:
+4. Because we are using react router dom, that's why it's not render with the method that you've used, If we want to solve the problem we need to use the RouterProvider component instead of rendering the App.
+
+5. Use the component in the main file, and it needs a prop named 'router', then pass your router as a prop to the RouterProvider component like this:
+    <RouterProvider router={router} />
+
+6. Go to the main page, then create a variable and hold the method in that variable (createBrowserRouter), then call it with parentheses and write an array, then create an Object in that array, you will get three things in the Object, path, element, children, in this case set the path to slash(/), and set the Layout(coming next) method to the element, and in the children create an array, and nest all the component in an Object in that array like this:
     const router = createBrowserRouter([
-        {
-            path: '/', // this is main path I mean parent path, and it's location is Layout.jsx that we will create after this;
-            element: <Layout /> // this is the main path like Header and Footer;
-            children: [
-                {
-                    path: '',
-                    element: <Home />
-                },
-                {
-                    path: 'about', // this text show in browser URL after the main path slash;
-                    element: <About />
-                }
-            ] // this the nested part, like Home, About, Contact etc.
-        }
-    ])
-after creating the router, invoke RouterProvider on the root, then pass the router to it, like this:
-    <StrictMode>
-        <RouterProvider router={router}/>
-    <StrictMode/>
+  {
+    path: '/',
+    element: <Layout />,
+    children: [
+      {
+        path: '',
+        element: <Home />,
+      },
+      {
+        path: '',
+        element: <Contact />
+      },
+      {
+        path: '',
+        element: <About />
+      }
+    ]
+  }
+])
 
-The Layout is here:
-    import {Outlet} from 'react-router-dom';
-    export default function Layout(){
-        return(
-            <>
-                <Header/>
-                <Outlet /> // this is the dynamically changing area like Home, About etc.
-                <Footer/>
-            </>
-        )
+7. For gain the benifite react-router-dom gives us a component named Outlet, to use this, create a new file in the src folder(most of the time people named it to 'Layout'), then create a component and add those headers and footers you need them every page, and set the Outlet component to that place you want to change that every new page like this:
+    import React from "react";
+    import { Outlet } from "react-router-dom";
+    import Header from "./components/Header/Header";
+    import Footer from "./components/Footer/Footer";
+
+    export default function Layout () {
+        <>
+            <Header />
+            <Outlet />
+            <Footer />
+        </>
     }
 
-4. For doing this go to the Header components, then find the NavLink of that element you want to go there, after that write 'to' as a prop in the NavLink, and write the path on that like this:
-<li>
-                <NavLink
-                  to='/about'
-                  className={({isActive}) =>
-                    `${isActive ? "text-orange-500" : "text-gray-700"} block py-2 pr-4 pl-3 duration-200 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
-                  }
-                >
-                  About
-                </NavLink>
-              </li>
+8. First, define the path for each page inside createBrowserRouter. Then, in the NavLink, set the to attribute to the same path name. The to value must exactly match the path you defined. That’s it.
 
-5. Like this:
-    const router = createBrowserRouter(
-        createRoutesFromElements(
-            <Route path='/' element={<Layout/>}>
-                <Route path='' element={<Home/>}/> // You can use self-closing also;
-                <Route path='about' element={<About/>}/>
-            <Route/>
-        )
-    )
+9. First, run the createBrowserRouter, then run createRoutesFromElements inside the createBrowserRouter, then create <Route></Route> tag inside the createRoutesFromElements, then use the path and element as attributes, then nest other child element inside the <Route /> tag like this:
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path='/' element={<Layout />}>
+      <Route path='home' element={<Home />} />
+      <Route path='about' element={<About />} />
+      <Route path='contact' element={<Contact />} />
+  </Route>
+  )
+)
 
-6. First of all create a new path in the createBrowserRouter like this: 
-<Route path='user/:id' element={<User />} />
-Remember the text after the colon in path, then create the component, and determine where you want to display the text, and use the useParams hook like this:
-    import {useParams} from 'react-router-dom';
-    export default function User(){
-        const {id} = useParams() // The variable name should be same as it is in the route path after colon;
-        return(
-            <>
-                <h1>User Id: {id}<h1/>
-            </>
-        )
-    }
+10. 
+1. Create a new component (e.g. User.jsx).
 
-7. Ok its here:
-    import { useState } from "react";
-export default function Github() {
-  const [data, setData] = useState;
-  fetch("https://api.github.com/users/hiteshchouhdhary")
-    .then((response) => response.json())
-    .then((data) => {
-      setData(data);
-    });
+2. In your router, define a path with a route parameter using a colon (:). Example:
+
+<Route path="user/:userId" element={<User />} />
+Here, :userId is the dynamic part of the URL.
+
+3. Inside your component, import and use the useParams hook from react-router-dom.
+
+4. Destructure the param (same name you used after the colon) and use it in your JSX.
+
+Example:
+
+// User.jsx
+import { useParams } from "react-router-dom";
+
+export default function User() {
+  const { userId } = useParams(); // userId matches ":userId" in the route
+
   return (
-    <>
-      <div>
-        <h1>Followers: {data.followers}</h1>
-        <img src={data.avtar_url} alt="github picture" />
-      </div>
-    </>
+    <h1>User: {userId}</h1>
   );
 }
 
-8. by using the 'loader' property in that's Route, It (the loader property) lets us fetch API in there, for using this, create an api function that returns your data,(you can create this in a separate file) like this:
-export default const getDataFromAPI = async function (){
-    const response = await fetch('https://api.github.com/users/hiteshchoudhary')
-    return response.json()
-}, then set the loader in perticuler Route like this:
-    import getDataFromAPI from './file'
-    <Route 
-        loader={getDataFromAPI} // It does API call from here;
-        path='github'
-        element={<Github />}
-    />
-    after that go to the file you use the data in and import useLoaderData hook, then use it like this:
-        import {useLoaderData} from 'react-router-dom'
-        const data = useLoaderData(), that's it. 
+11. Here it is:
+  import { useState } from 'react';
+export default function Github() {
+    const [data, setData] = useState([])
+    fetch('https://api.github.com/users/hiteshchoudhary')
+        .then(res => res.json())
+        .then(data => setData(data))
+    return (
+        <div className='flex flex-col justify-center items-center text-white bg-gray-700  text-3xl m-4 p-4'>
+            <h1 className='block'>Github Followers: {data.followers}</h1>
+            <img className='m-4' width={250} src={data.avatar_url} alt="github img" />
+        </div>
+    )
+}
+
+12. To solve this, we can use the loader prop in the Route component. The loader allows us to fetch the required data before rendering the component. Here’s how to do it:
+
+1. Create a method that fetches data from the API and returns it.
+2. Use the useLoaderData hook inside the component to access that data.
+3. Pass the method to the Route via the loader prop.
+
+Example:
+Route:
+
+<Route
+  path="github"
+  element={<Github />}
+  loader={githubInfoLoader}
+/>
+
+Component:
+import { useLoaderData } from "react-router-dom";
+
+export default function Github() {
+  const data = useLoaderData();
+  return (
+    <div className="flex flex-col justify-center items-center text-white bg-gray-700 text-3xl m-4 p-4">
+      <h1 className="block">Github Followers: {data.followers}</h1>
+      <img className="m-4" width={250} src={data.avatar_url} alt="github img" />
+    </div>
+  );
+}
+
+
+Loader function:
+export const githubInfoLoader = async () => {
+  const res = await fetch("https://api.github.com/users/hiteshchoudhary");
+  return res.json();
+};
+
+Using the loader prop allows us to fetch the data before the component renders, so the component receives the data instantly via useLoaderData. This removes the delay and makes the navigation feel faster.
+
+13. No, the router doesn't follow the path, we need to use the NavLink.
+
+14. It(Router) will follow, but not redirect to the page.

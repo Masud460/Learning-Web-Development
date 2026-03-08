@@ -1,0 +1,369 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  transition: all 300ms ;
+}
+
+:root {
+  --color: #6c63ff;
+  --hover-color: #fff;
+  --back-color: #fff;
+  --back-hover-color: #6c63ff;
+  --border-color: #6c63ff;
+  --border-hover-color: #fff;
+  --checkbox-color: #000;
+  --warn-color: #000;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #f7f7f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+::placeholder {
+  color: #6c63ff;
+  opacity: 0.5;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px);
+  z-index: 998;
+  display: none;
+}
+
+.container {
+  /* padding: 50px; */
+  height: 100%;
+  width: 400px;
+  /* background-color: red; */
+  max-width: 400px;
+  min-width: 400px;
+  position: relative;
+  display: flex;
+  justify-content: top;
+  align-items: center;
+  flex-direction: column;
+}
+
+.head {
+  margin: 40px 0 20px 0;
+  font-size: 26px;
+  font-weight: 500;
+}
+
+
+/* Control Area */
+
+.grid_area {
+  /* width: 100%; */
+  /* background-color: blue; */
+  max-width: 360px;
+  min-width: 360px;
+  margin: 0 auto; 
+  height: 80px;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 10px;
+}
+
+.grid_area input[type="search"] {
+  grid-column: 1 / -1;
+  border: 1px solid #6c63ff;
+  border-radius: 5px;
+  padding: 8px 25px;
+  font-size: 16px;
+  color: #6c63ff;
+}
+
+.grid_area input[type="search"]:focus {
+  outline: none;
+  box-shadow: 0 0 3px 2px #6b63ffca;
+}
+
+.dark_search::placeholder{
+  color: #fff;
+}
+
+.grid_area > select {
+  grid-column: 1 / -2;
+  background-color: #6c63ff;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 10px;
+  outline: none;
+}
+
+.grid_area select:focus {
+  background-color: #534cc2;
+}
+
+.grid_area select:hover {
+  background-color: #534cc2;
+}
+
+.grid_area select > option {
+  background-color: #fff;
+  color: #6c63ff;
+}
+
+.add_btn  {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 5px;
+  width: 360px;
+  margin: 10px 20px 0 20px;
+  color: #fff;
+  background-color: #6c63ff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.add_btn:hover {
+  background-color: #534cc2;
+}
+
+.add_btn span:last-child {
+  font-size: 28px;
+  font-weight: 300;
+  margin-left: 5px;
+}
+
+#theme {
+  width: 35px;
+  height: 35px;
+  background-color: #6c63ff;
+  fill: #f5f5f5;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+#theme:hover {
+  background-color: #534cc2;
+}
+
+/* Check box area */
+.todos {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 360px;
+  min-width: 360px;
+}
+
+/* Custom checkbox */
+.square_checkbox {
+  width: 100%;
+  max-width: 430px;
+  min-width: 400px;
+  border-bottom: 0.5px solid #6b63ff8f;
+  padding: 5px 0;
+}
+
+.square_checkbox input {
+  display: none;
+}
+
+.square_checkbox h3 {
+  color: var(--checkbox-color);
+  display: inline;
+  vertical-align: middle;
+  font-weight: 600;
+  font-size: 19px;
+}
+
+.square_checkbox .checkbox {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  border: 1px solid #6b63ff;
+  margin: 10px 10px 10px 0;
+  vertical-align: middle;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: all 500ms;
+}
+
+.square_checkbox input:checked + .checkbox {
+  background-color: #6c63ff;
+  position: relative;
+}
+
+.square_checkbox input:checked + .checkbox::after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 3px;
+  width: 5px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+
+/* Adding Area */
+
+.add_area {
+    box-shadow: 0 0 10px #ffffff88;
+  position: fixed;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #F7F7F7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 15px;
+  width: 95%;
+  max-width: 450px;
+  height: 40%;
+  padding: 15px 25px;
+  z-index: 999;
+  display: none;
+}
+
+.add_note_dark::placeholder {
+  color: #fff;
+}
+
+.add_head {
+  width: 100%;
+}
+
+.add_area .buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add_area h1 {
+  text-align: center;
+  grid-column: 2 / 3;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.add_area input {
+  border: 1px solid #6c63ff;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6c63ff;
+  padding: 7px 25px;
+  width: 100%;
+}
+
+.add_area input:focus {
+    outline: 2px solid #6b63ff8f;
+    background-color: transparent;
+}
+
+/* warning */
+#warn {
+  /* text-shadow: 0 0 2px rgba(0, 0, 0, 0.5); */
+  color: var(--warn-color);
+}
+
+.add_area  button{
+    border: none;
+    border-radius: 5px;
+    padding: 7px 25px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.add_area .buttons .cancel_btn{
+  background-color: var(--back-color);
+  border: 1px solid var(--border-color);
+    padding: 7px 20px;
+  color: var(--color);
+}
+
+.add_area .buttons .cancel_btn:hover{
+  background-color: var(--back-hover-color);
+  border-color: var(--border-hover-color);
+  color: var(--hover-color);
+}
+
+
+.add_area .buttons :nth-child(2){
+  background-color: #6c63ff;
+  color: #fff;
+}
+
+.add_area .buttons :nth-child(2):hover {
+  background-color: #534cc2;
+}
+
+
+@media screen and (min-width: 550px){
+  .container {
+    width: 100%;
+    max-width: 760px;
+  }
+  .grid_area {
+    width: 760px;
+    max-width: 540px;
+    grid-template-columns: repeat(11, 1fr);
+    /* margin: 0 0 0 25px; */
+  }
+  .grid_area input[type="search"]{
+    grid-column: 1 / 8;
+  }
+  .grid_area select{
+    grid-column: 8 / 11;
+  }
+  .grid_area .icon_dark, .grid_area .icon_white{
+    grid-column: 11 / 12;
+  }
+
+  .todos {
+    max-width: 430px;
+    min-width: 400px;
+    margin: 0 auto;
+  }
+  .add_btn {
+    position: absolute;
+    top: auto;
+    bottom: 150px; 
+    right: 100px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .add_btn span:first-child {
+    display: none;
+    margin: auto;
+  }
+  .add_btn span:last-child {
+    margin: 0.5px 0 0 2px;
+  }
+}

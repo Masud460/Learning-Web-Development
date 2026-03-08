@@ -1,19 +1,39 @@
-1. Why do we use the Link tag in React-Router-DOM instead of anchor tag?
+1. Why do we use the Link tag?
 
 2. Why do we use the NavLink?
 
-3. As we saw that we can't use our components in react-router-dom like this:
- <Header/>
- <Home/>
- <Footer/>
- so how can we use theme dynamically?
+3. How to use the NavLink for identifying a page?
 
-4. How can we control the path? I mean if I click the Home element from Header, it should go to the Home element.
+4. Why the page not works when we trying to load the page by adding components in App and render the App?
 
-5. How to easy the previous router syntax?
+5. How to use the 'RouterProvider' component?
 
-6. We want to create a component that wouldn't display in Header, but when user type in the URL like this: localhost:5173/user/123, so after the 'user/' text what user types it(user written text with the text before slash also e.g. 'user') should display as a component, so how can we do that?
+6. How can we create our router method?
 
-7. Create a component named Github, it displays an user's followers and avtar.
+7. If we want to add the header and footer in every page, and change only the middle section, how can we do that in optimized way?
 
-8. The previous component renders when user click to it, so it takes some time to load, so how can we fast the process?
+8. How do we set the route of a page? For example, if we define routes like home and about in createBrowserRouter, how should we link them in the NavLink so that the navbar navigates correctly?
+
+9. How to create an easy router? the previous way was very complicated.
+
+10. How can we display dynamic text from the URL in a component? For example, if the URL is /user/123, how can we show 123 inside our component?
+
+11. Create a new component it should have to display the hiteshchoudhary github followers and his avatar.
+
+12. In the previous Github component we saw a small problem: when we click the Github link in the NavLink, the component loads a little slowly. How can we fix this?
+
+13. If we create a path without the NavLink like this:
+<button
+            to='contact_us'
+            className='bg-blue-500 border-none rounded-lg text-white font-semibold p-4 text-2xl cursor-pointer'
+          >Contact Us</button>
+          <button
+            to="faq"
+            className='bg-blue-500 border-none rounded-lg text-white font-semibold p-4 text-2xl px-14 cursor-pointer'
+          >FAQ</button>
+ does the router follow the path or not?
+
+14. If we don't use the Outlet, does our router follow the path?
+
+Homework:
+Create nested routes in one of these component/route.

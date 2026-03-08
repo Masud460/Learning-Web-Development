@@ -1,0 +1,83 @@
+! The most important thing in React, you should ask yourself "Is this component/logic/etc reusable?" if "yes" then create it on a separate file.
+
+1. context:
+    - create
+    - set DataProvider and provide the data
+    - Wrap the component you want to drill that with the DataProvider
+    - use the context with useContext hook in that page you want to use the data in.
+
+
+
+2. We get userinput in React like this:
+    const [userinput, setUserinput] = useState('')
+    return(
+        <Input
+          type="email"
+          id="email"
+          place="email"
+          val={userinput}
+          onCng={(e) => setEmail(e.target.value)}
+        />
+    )
+
+3. ✅ We can use <Navigate to="" /> from any route to go to any route.
+<Navigate /> works without condition, but in real projects we use it with condition to control redirect logic.
+For event-based navigation, we should use useNavigate().
+
+🧠 বড় Concept (Future-এ বাঁচাবে তোমাকে)
+❌ Event handler থেকে JSX return করে কিছু render করানো যায় না
+✅ Navigation বা UI পরিবর্তন করতে হলে:
+State ব্যবহার করতে হবে
+অথবা react-router এর useNavigate() ব্যবহার করতে হবে
+
+✔️ সঠিক কথা:
+
+<Navigate /> যেকোনো route component-এর ভেতর কাজ করে
+কিন্তু render tree-এর ভেতরে থাকতে হবে
+function থেকে return করলেই হবে না
+condition এর মধ্যে থাকতে পারে ✔️
+কিন্তু event handler থেকে return করলে কাজ করবে না ❌
+
+
+4. When we need to repeat a single section(like a card item) in UI and the outer things should be same, we can do it like this:
+ 1st: Get the list of different data (some different data's card) as an array.
+ 2nd: Create a component that same for all cards.
+ 3rd: Go to the section in UI and write js in jsx with these brackets "{}", then use map method with the data array in these brackets. and don't forget to use 'key' property like this:
+    {courses.map(course => {
+        return <CourseCard 
+            key={course.id}
+            src={course.src}
+            courseTitle={course.title}
+            courseDescrip={course.courseDiscription}
+            enroll={course.enrolled}
+        />
+    })}
+
+
+
+5. We can import changeable state business logic hook in pages, if something change in hook state the ui re-renders in page and effect in page.
+
+
+
+
+6. Creating Fake loading state in React:
+  const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+    let timer = setTimeout(() => {
+      setLoading(false)
+    }, 1500)
+    return () => clearTimeout(timer)
+  }, [])
+
+  if (loading) {
+    return(
+      <div className="w-full lg:h-[calc(100%-4.5rem)] flex justify-center items-center">
+        <p className="text-xl font-semibold">Loading Courses...</p>
+      </div>  
+    )
+  }
+
+
+
+7. In normal block layout, a child element does not automatically take the full height of its parent; it only grows based on its content. Height in CSS does not inherit by default. When the parent is converted into a flex container, the child becomes a flex item, and flexbox allows space distribution. By applying flex-grow (or flex-1 in Tailwind), the child is instructed to take up the remaining available space. That's why the child fills the entire height only when flexbox is used properly.

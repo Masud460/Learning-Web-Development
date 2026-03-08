@@ -1,0 +1,27 @@
+1. How do I increase checkbox size in HTML? 
+
+2. How do I create custom checkbox in HTML?
+
+3. How to align any tag verticaly?
+
+4. How to create stylish search bar?
+
+5. How can we change placeholder with JS?
+
+6. How can we do this? 
+    We have a popup menu which default value is unvisible, and when the popup appears the outer side should be blurred;
+
+7. We want when we click the enter button a button will be clicked, How can we do this?
+
+8. How can we do this?
+    We have some items in localStorage, and we want to add all of the items value in an array after user add any new todo.
+
+9. We have faced a problem when we were trying to change the text color of checkboxes, and that problem is when we're creating some todos dynamically that time the color of checkboxes is not behaving with the theme color, so what was the problem? and how we've solved that?
+
+10. What does the document.documentElement do?
+
+11. How to select checked checkbox in css/js?
+
+12. How can we know a checkbox which is checked?
+
+13. How can we delete a particuler element from an array?

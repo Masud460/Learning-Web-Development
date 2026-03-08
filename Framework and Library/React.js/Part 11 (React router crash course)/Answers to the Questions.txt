@@ -19,7 +19,7 @@
 5. Use the component in the main file, and it needs a prop named 'router', then pass your router as a prop to the RouterProvider component like this:
     <RouterProvider router={router} />
 
-6. Go to the main page, then create a variable and hold the method in that variable (createBrowserRouter), then call it with parentases and write an array, the create an Object in the array, you will get three things in the Object, path, element, children, in this case set the path to slash(/), and set the Layout(coming next) method to the element, and in the children create an array, and nest all the component in an Object in that array like this:
+6. Go to the main page, then create a variable and hold the method in that variable (createBrowserRouter), then call it with parentheses and write an array, then create an Object in that array, you will get three things in the Object, path, element, children, in this case set the path to slash(/), and set the Layout(coming next) method to the element, and in the children create an array, and nest all the component in an Object in that array like this:
     const router = createBrowserRouter([
   {
     path: '/',
@@ -41,7 +41,7 @@
   }
 ])
 
-7. For gain the benifite react gives to us a component named Outlet, to use this, create a new file in the src folder(most o the time people named to it 'Layout'), then create a component and add those headers and footers you need them every page, and set the Outlet component to that place you want to change that every new page like this:
+7. For gain the benifite react-router-dom gives us a component named Outlet, to use this, create a new file in the src folder(most of the time people named it to 'Layout'), then create a component and add those headers and footers you need them every page, and set the Outlet component to that place you want to change that every new page like this:
     import React from "react";
     import { Outlet } from "react-router-dom";
     import Header from "./components/Header/Header";

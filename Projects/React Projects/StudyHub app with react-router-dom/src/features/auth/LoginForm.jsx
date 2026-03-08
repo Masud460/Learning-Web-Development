@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { Input } from "../../components";
 import { useAuth } from "../../hooks";
-import { Navigate } from "react-router-dom";
 import {saveUserToStorage} from "../../utils/storage";
 
 function LoginForm() {
-  const { login, user } = useAuth();
+  const { login } = useAuth();
   
   const [username, setUsername] = useState(null);
   const [email, setEmail] = useState(null);
@@ -20,12 +19,13 @@ function LoginForm() {
   return (
     <div>
       <form
-        className="w-3/5"
+        className="w-full flex flex-col justify-center items-center"
         onSubmit={SubmitHandler}
       >
+        <div>
         <label
           htmlFor="text"
-          className="text-base lg:text-2xl font-semibold block"
+          className="text-base lg:text-lg font-semibold block"
         >
           Full Name:
         </label>
@@ -35,10 +35,12 @@ function LoginForm() {
           place="full name"
           val={username}
           onCng={(e) => setUsername(e.target.value)}
-        />
+          />
+        </div>
+        <div>
         <label
           htmlFor="email"
-          className="text-base lg:text-2xl font-semibold block"
+          className="text-base lg:text-lg font-semibold block"
         >
           Email:
         </label>
@@ -48,10 +50,12 @@ function LoginForm() {
           place="email"
           val={email}
           onCng={(e) => setEmail(e.target.value)}
-        />
+          />
+        </div>
+        <div>
         <label
           htmlFor="password"
-          className="text-base lg:text-2xl font-semibold block"
+          className="text-base lg:text-lg font-semibold block"
         >
           Password:
         </label>
@@ -61,11 +65,12 @@ function LoginForm() {
           place="password"
           val={pass}
           onCng={(e) => setPass(e.target.value)}
-        />
+          />
+          </div>
         <input
           type="submit"
           value="Login"
-          className="bg-blue-600 mt-2 py-2 lg:py-3 lg:text-[20px] text-white font-semibold rounded-md cursor-pointer w-68 lg:mx-30 lg:mt-6"
+          className="bg-blue-600 mt-2 py-2 lg:text-lg text-white font-semibold rounded-md cursor-pointer w-68 lg:mx-30 lg:mt-3"
           
         />
       </form>

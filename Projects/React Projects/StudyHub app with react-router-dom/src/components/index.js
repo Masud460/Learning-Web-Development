@@ -1,3 +1,6 @@
+// App layout
+import Layout from "./layout/Layout";
+
 // Navbar
 import Header from "./layout/Header";
 
@@ -15,6 +18,7 @@ import DashboardSkeleton from "./loading-skeletons/DashboradSkeleton";
 
 
 export {
+    Layout,
     Header,
     Btn,
     CourseCard,

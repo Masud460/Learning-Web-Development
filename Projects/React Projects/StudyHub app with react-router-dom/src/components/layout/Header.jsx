@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { useAuth } from "../../hooks/useAuth";
+import { useAuth } from "../../hooks/";
 
 function Header() {
   const { user, logout } = useAuth();
@@ -21,7 +21,7 @@ function Header() {
     setMenuClick((prev) => !prev);
   }
   return (
-    <div className="bg-white w-full h-18 flex justify-center lg:justify-evenly items-center text-2xl border-blue-500 border-b-2 relative">
+    <div className="bg-white w-full h-14 flex justify-center lg:justify-evenly items-center text-2xl border-blue-500 border-b-[1.5px] relative">
       <div
         onClick={showMenu}
         className={`${
@@ -30,7 +30,7 @@ function Header() {
       >
         {menuClick ? "×" : "="}
       </div>
-      <h1 className="text-blue-600 font-semibold text-4xl">
+      <h1 className="text-blue-600 font-medium text-3xl">
         Study<span className="text-black">Hub</span>
       </h1>
       <ul
@@ -40,9 +40,8 @@ function Header() {
         flex-col
         lg:flex-row
         gap-6
-        lg:gap-14
-        font-semibold
-        text-[20px]
+        lg:gap-10
+        font-medium
         absolute
         top-0
         left-0
@@ -100,7 +99,7 @@ function Header() {
         <li className={`li ${user ? "block" : "hidden"}`}>
           <button
             onClick={() => logout()}
-            className={`bg-blue-500 text-white rounded-md py-2 px-3 font-semibold cursor-pointer`}
+            className={`bg-blue-500 text-white rounded-md py-1 px-4 font-semibold cursor-pointer`}
           >
             Logout
           </button>

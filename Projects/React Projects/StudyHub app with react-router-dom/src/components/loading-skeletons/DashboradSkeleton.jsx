@@ -1,10 +1,10 @@
 import CourseCardSkeleton from "./CourseCardSkeleton";
 function DashboardSkeleton({ coursesBox }) {
   return (
-    <div className="flex justify-center items-center h-[416px] lg:h-[716.44px] animate-pulse">
-      <div className="w-11/12 lg:w-3/5 h-4/5">
+    <div className="flex-1 flex justify-center items-center animate-pulse">
+      <div className="w-11/12 lg:w-3/5 ">
         {/* Dashboard Title */}
-        <div className="h-[28px] lg:h-[52px] w-40 lg:w-64 bg-gray-300 rounded-md mx-auto"></div>
+        <div className="h-[28px] lg:h-[40px] w-40 lg:w-64 bg-gray-300 rounded-md mx-auto"></div>
 
         {/* Divider */}
         <div className="w-full h-[2px] bg-gray-200 mt-2 mb-3 lg:mt-4 lg:mb-6"></div>

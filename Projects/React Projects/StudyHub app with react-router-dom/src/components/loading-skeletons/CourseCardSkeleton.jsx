@@ -1,10 +1,10 @@
 function CourseCardSkeleton({hasBtn}) {
   return (
     <div
-      className="w-full lg:w-75 p-3 lg:p-6 flex lg:flex-col justify-between items-center gap-8 lg:gap-3 bg-white rounded-md lg:rounded-2xl shadow-2xl shadow-gray animate-pulse"
+      className="w-5/6 lg:w-75 p-3 lg:p-6 flex lg:flex-col justify-between items-center gap-8 lg:gap-3 bg-white rounded-md lg:rounded-2xl shadow-2xl shadow-gray animate-pulse"
     >
-      <div className="flex flex-col justify-center items-center lg:mb-3">
-        <div className="w-20 h-20 lg:w-[130px] lg:h-[130px] bg-gray-300 rounded-md" />
+      <div className="lg:flex lg:flex-col justify-center items-center">
+        <img className="w-30 h-23 lg:w-[130px] lg:h-[130px] bg-gray-300 rounded-md" />
         <div className="h-6 lg:h-8 w-24 lg:w-40 bg-gray-300 rounded-md mt-3" />
         <div className="h-6 lg:h-8 w-24 lg:w-40 bg-gray-300 rounded-md mt-1 lg:hidden" />
       </div>

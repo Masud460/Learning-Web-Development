@@ -1,6 +1,16 @@
-import { createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route
+} from "react-router-dom";
 import App from './App'
-import { Home, Courses, Dashboard, Login, NotFound } from '../Pages'
+import {
+  Home,
+  Courses,
+  Dashboard,
+  Login,
+  NotFound
+} from '../pages'
 import { ProtectedRoute } from "../features";
 
 

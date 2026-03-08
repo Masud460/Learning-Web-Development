@@ -73,3 +73,19 @@ The project follows a modular structure separating UI, logic, and state manageme
 
 
 ## What I have learned from this project
+
+- React Router use case
+- Context API and why is it important, it has three steps:
+    1. create context
+    2. provide context
+    3. use context
+- When to create resuable components
+- Industry level Architecture
+- How to get user input in React - defferent from vanilla JS
+- Separation of concerns - business logic in hook, component only UI
+- React is a declarative library not imparative
+- React don't render the UI until any new change comes here, if we mute any state React won't render it and no change will be shown in the UI.
+- "<Navigate to="" />" does not work in event phase, it only works in render phase.
+- We can't render JSX from event phase
+- How to do repeated tasks in very simple way
+- map method use cases

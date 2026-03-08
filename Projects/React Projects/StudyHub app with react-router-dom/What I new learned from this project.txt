@@ -77,3 +77,7 @@ condition এর মধ্যে থাকতে পারে ✔️
       </div>  
     )
   }
+
+
+
+7. In normal block layout, a child element does not automatically take the full height of its parent; it only grows based on its content. Height in CSS does not inherit by default. When the parent is converted into a flex container, the child becomes a flex item, and flexbox allows space distribution. By applying flex-grow (or flex-1 in Tailwind), the child is instructed to take up the remaining available space. That's why the child fills the entire height only when flexbox is used properly.

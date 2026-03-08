@@ -1,0 +1,7 @@
+1. How do I increase checkbox size in HTML? 
+
+2. How do I create custom checkbox in HTML?
+
+3. How to align any tag verticaly?
+
+4. How to create stylish search bar?

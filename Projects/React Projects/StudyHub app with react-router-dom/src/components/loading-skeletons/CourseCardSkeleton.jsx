@@ -10,7 +10,7 @@ function CourseCardSkeleton({hasBtn}) {
         <div className="h-4 lg:h-8 w-20 lg:w-40 bg-gray-300 rounded-md mt-1 lg:hidden" />
       </div>
 
-      <div className="hidden lg:block w-full h-[1px] bg-gray-200"></div>
+      <div className="hidden lg:block w-full h-px bg-gray-200"></div>
 
       <div className="flex flex-col justify-center items-center gap-1 lg:mt-3">
         <div className="h-4 w-25 bg-gray-300 rounded-md lg:w-full" />

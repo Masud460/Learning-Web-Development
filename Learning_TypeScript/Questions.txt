@@ -1,3 +1,11 @@
 1. Is TS a standalone programming language?
 
 2. Does TS run?
+
+3. Why do I need to learn/use TS?
+
+4. Since the TS file already running well in our enviroment, why do we need to install it?
+
+5. Cause at the end of the day it returns JS, so if there hasen't any JS issue, the file runs also.
+
+16:43

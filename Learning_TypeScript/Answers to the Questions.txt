@@ -1,3 +1,9 @@
 1. No, TS isn't a standalone programming language, it's just an addon JS.
 
-2. No, it never runs, but it's a process. At the end of the day it 
+2. No, it never runs, but it's a process. At the end of the day it returns JS.
+
+3. For the typing consistency.
+
+4. We have to install it because we write configuretions.
+
+5. While we do any type mistake in TS, the file runs also without any error. Why this happens?

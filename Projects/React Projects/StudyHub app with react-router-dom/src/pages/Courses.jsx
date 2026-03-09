@@ -13,7 +13,7 @@ import {
 } from "react-router-dom";
 
 function Courses() {
-  const loading = useLoading(5000);
+  const loading = useLoading(500);
   const { courses, enrollCourse, courseItemsBox } = useCourses();
   
   const { user } = useAuth();

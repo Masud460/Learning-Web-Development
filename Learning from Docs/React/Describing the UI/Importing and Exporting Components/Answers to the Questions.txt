@@ -6,4 +6,5 @@
 
 3. People often use default exports if the file exports only one component, and use named exports if it exports multiple components and values.
 
-4. How to import 'named exports' file from another file?
+4. By using the curly braces like this:
+    import { Profile } from './Gallary.jsx';

@@ -34,8 +34,8 @@ function Dashboard() {
   }
 
   return (
-    <div className="flex-1 flex justify-center items-center">
-      <div className="w-4/5 lg:w-3/5">
+    <div className="flex-1 flex justify-center items-center relative">
+      <div className="w-4/5 lg:w-3/5 absolute top-12 lg:top-8">
         <h1 className="text-center text-2xl lg:text-4xl font-semibold ">
           Dashboard
         </h1>
@@ -58,7 +58,7 @@ function Dashboard() {
                     />
                   );
                 })
-              : <p className="text-2xl font-semibold">No enrolled course yet.</p>}
+              : <p className="text-base lg:text-2xl font-semibold">No enrolled course yet.</p>}
           </div>
 
           <div className="text-base lg:text-lg font-semibold mt-4">✓ Progress</div>

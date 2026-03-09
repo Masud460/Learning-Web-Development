@@ -1,0 +1,3 @@
+1. No, TS isn't a standalone programming language, it's just an addon JS.
+
+2. No, it never runs, but it's a process. At the end of the day it 

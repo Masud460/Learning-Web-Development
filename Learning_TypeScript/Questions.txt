@@ -8,4 +8,16 @@
 
 5. Cause at the end of the day it returns JS, so if there hasen't any JS issue, the file runs also.
 
-16:43
+6. When we write a ts code, how ts compiles it to js?
+
+7. What does the lexer mean?
+
+8. What is AST (Abstract Syntax Tree)?
+
+9. What does the "Parser" do?
+
+10. What does the "Binder" do?
+
+11. What does the "Checker" do?
+
+12. What does the "Emmiter" do?

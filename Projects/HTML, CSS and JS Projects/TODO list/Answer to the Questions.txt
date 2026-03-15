@@ -122,3 +122,5 @@
 13. Like this:
     const removeIndex = complete.indexOf(todo.innerText);
     complete.splice(removeIndex, 1)
+
+14. Use "input" event. 

@@ -1,3 +1,0 @@
-white: #F7F7F7;
-blue: #6C63FF;
-dark: #252525;

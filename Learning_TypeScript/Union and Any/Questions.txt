@@ -1,0 +1,5 @@
+1. What is 'union'?
+
+2. How to define manual-mode/custom-data-type after colon instead of 'string', 'number' etc?
+
+3. What is 'any'?

@@ -1,0 +1,9 @@
+1. 'union' is a theory in TS that allows us to avoid confusion of incomming data-types, let say we have called an API, and the API is returning a value in number, but we are expecting a string value, and the value is like sometime it's a string and sometime it's a number, that time union play the roll like this:
+    let predictAns: string | number = value
+Now we able to save the variable as a string or a number, this technique called union.
+
+2. Like this:
+    let apiRequestStatus: 'pending' | 'success' | 'failed';
+    after defining these modes/custom data-types, we cannot access any other value except these values.
+
+3. The 'any' keyword is allows us to assign a value in any data-type. No data-type has able to mess with the 'any' keyword.

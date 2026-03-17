@@ -1,0 +1,1 @@
+1. If we export a default value from the context, and overwrite it in the wrapping component where values given to the context, what does happen that time?

@@ -1,0 +1,23 @@
+1. Is TS a standalone programming language?
+
+2. Does TS run?
+
+3. Why do I need to learn/use TS?
+
+4. Since the TS file already running well in our enviroment, why do we need to install it?
+
+5. While we do any type mistake in TS, the file runs also without any error. Why this happens?
+
+6. When we write a TS code, how TS compiles it to js?
+
+7. What does the lexer mean?
+
+8. What is AST (Abstract Syntax Tree)?
+
+9. What does the "Parser" do?
+
+10. What does the "Binder" do?
+
+11. What does the "Checker" do?
+
+12. What does the "Emmiter" do?

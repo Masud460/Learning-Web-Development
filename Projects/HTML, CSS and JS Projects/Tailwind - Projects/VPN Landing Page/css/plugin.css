@@ -1,5 +1,0 @@
-@import "tailwindcss";
-
-#drop_menu:hover #drop_list {
-    display: block;
-}

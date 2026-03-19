@@ -26,10 +26,10 @@
       <button class="add_btn"><span class="btn_text">NEW NOTE </span><span>+</span></button>
       </div>
 
+
       <!-- Main Area -->
-
-
-        <label class="square_checkbox">
+       <div id="todos" class="todos">
+        <!-- <label class="square_checkbox">
             <input type="checkbox">
             <span class="checkbox"></span>
             <h3 class="checkbox_text">Do something 1</h3>
@@ -59,16 +59,17 @@
 
 
       <div class="add_area">
-        <h1>New Note</h1>
-        <input type="text" placeholder="Write your task..." />
-        
-          <button class="cancel_btn">Cancel</button>
-          <button class="apply_btn">Apply</button>
-        
+        <div class="add_head">
+        <h1 id="add_note_head">NEW NOTE</h1>
+        <input id="usernote" type="text" placeholder="Write your task..." /></div>
+        <h4 id="warn" class="warn"></h4>
+        <div class="buttons">
+          <button id="cancel_btn" class="cancel_btn">CANCEL</button>
+          <button class="apply_btn">APPLY</button>
+        </div>
       </div>
     </div>
 
-
-    <script src="script.js"></script>
+  <script src="script.js"></script>
   </body>
 </html>

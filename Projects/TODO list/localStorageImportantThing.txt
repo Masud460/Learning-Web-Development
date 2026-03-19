@@ -1,1 +1,0 @@
-LocalStorage is an unordered key-value store. The order of keys retrieved by localStorage.key(index) is implementation-defined and not guaranteed to match the order in which data was saved.

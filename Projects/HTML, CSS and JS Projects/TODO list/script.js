@@ -104,15 +104,13 @@ addNote.addEventListener("click", function () {
 function saveDataInLocal(userDetail) {
   const userNoteValue = userDetail;
 
-
-  const prevTodos = JSON.parse(localStorage.getItem('todos'))
   // Best Practice
   const todo = {
     id: Date.now(),
     text: userNoteValue,
     completed: false,
   };
-  localStorage.setItem('todos', JSON.stringify([...prevTodos, todo]));
+  localStorage.setItem(todo.id, JSON.stringify(todo));
   return todo;
 }
 
@@ -179,11 +177,19 @@ window.onload = function () {
 
 function showTasks() {
   // Best Practice
-  let todos = JSON.parse(localStorage.getItem('todos'));
-  let todoIds = [];
-  for (let todo of todos) {
-    
+  let keys = [];
+  for (let i = 0; i < localStorage.length; i++) {
+    let key = localStorage.key(i);
+    keys.push(key);
   }
+  keys.sort().forEach((key) => {
+    if (key !== "theme" && key !== "theme-icon") {
+      let text = JSON.parse(localStorage.getItem(key)).text;
+      let id = JSON.parse(localStorage.getItem(key)).id;
+      let isComplete = JSON.parse(localStorage.getItem(key)).completed;
+      addTodo(text, id, isComplete);
+    }
+  });
 }
 
 // Apply button works

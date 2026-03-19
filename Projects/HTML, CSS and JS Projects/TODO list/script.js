@@ -229,7 +229,6 @@ cancel.addEventListener("click", function () {
   resetInputField();
 });
 
-//
 
 // Remove todos
 todoArea.addEventListener("click", (e) => {

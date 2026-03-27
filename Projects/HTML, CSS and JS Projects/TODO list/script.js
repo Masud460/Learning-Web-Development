@@ -20,20 +20,23 @@ const cancel = document.getElementById("cancel_btn");
 // Control Dark and White
 const themeChanger = document.querySelector(".theme-changer");
 
+// UI render function
+function renderUI() {
+  let todos = JSON.parse(localStorage.getItem("todos")) || [];
+  todos.forEach((todo) => {
+    addTodo(todo.text, todo.id, todo.completed);
+  });
+}
+
 // Set complete function
 function setCompletiton(parent, condition) {
-  for (let i = 0; i < localStorage.length; i++) {
-    let key = localStorage.key(i);
-
-    if (key !== "theme" && key !== "theme-icon") {
-      let data = JSON.parse(localStorage.getItem(key));
-
-      if (data.id == parent.dataset.id) {
-        data.completed = condition;
-        localStorage.setItem(key, JSON.stringify(data));
-      }
+  let todos = JSON.parse(localStorage.getItem("todos"));
+  todos.forEach((todo) => {
+    if (todo.id == parent.dataset.id) {
+      todo.completed = condition;
+      localStorage.setItem("todos", JSON.stringify(todos));
     }
-  }
+  });
 }
 
 // Checkbox done effect
@@ -44,7 +47,7 @@ function checkboxDoneEffect() {
   checkboxes.forEach((checkbox) => {
     checkbox.addEventListener("click", function (event) {
       const todo = event.target.parentElement.querySelector(
-        "label :nth-child(3)"
+        "label :nth-child(3)",
       );
       const label = event.target.parentElement;
 
@@ -101,17 +104,28 @@ addNote.addEventListener("click", function () {
 });
 
 // Saving data on localStorage
-function saveDataInLocal(userDetail) {
-  const userNoteValue = userDetail;
+function saveDataInLocal() {
+  const userNoteValue = userNote.value;
 
+  const prevTodos = JSON.parse(localStorage.getItem("todos"));
   // Best Practice
   const todo = {
     id: Date.now(),
     text: userNoteValue,
     completed: false,
   };
-  localStorage.setItem(todo.id, JSON.stringify(todo));
-  return todo;
+
+  if (!prevTodos) {
+    localStorage.setItem("todos", JSON.stringify([todo]));
+  } else {
+    prevTodos.forEach((prevTodo) => {
+      if (prevTodo.text == todo.text) {
+        return;
+      } else {
+        localStorage.setItem("todos", JSON.stringify([...prevTodos, todo]));
+      }
+    });
+  }
 }
 
 // Reseting input field after using it
@@ -152,16 +166,10 @@ function addTodo(todoText, id, isChecked) {
   checkboxDoneEffect();
 }
 
-// create new todo lists
-function createNewtodo() {
-  let data = saveDataInLocal(userNote.value);
-  addTodo(data.text, data.id);
-}
-
 // Show previous tasks on load
 window.onload = function () {
   // Display previous tasks
-  showTasks();
+  renderUI();
 
   // Set theme
   // onload theme change
@@ -175,20 +183,10 @@ window.onload = function () {
   themeChanger.innerHTML = savedThemeIcon;
 };
 
-function showTasks() {
-  // Best Practice
-  let keys = [];
-  for (let i = 0; i < localStorage.length; i++) {
-    let key = localStorage.key(i);
-    keys.push(key);
-  }
-  keys.sort().forEach((key) => {
-    if (key !== "theme" && key !== "theme-icon") {
-      let text = JSON.parse(localStorage.getItem(key)).text;
-      let id = JSON.parse(localStorage.getItem(key)).id;
-      let isComplete = JSON.parse(localStorage.getItem(key)).completed;
-      addTodo(text, id, isComplete);
-    }
+function clearUI() {
+  let labels = document.querySelectorAll(".square_checkbox");
+  labels.forEach((label) => {
+    label.remove();
   });
 }
 
@@ -199,20 +197,19 @@ apply.addEventListener("click", function () {
     return;
   }
 
-  for (let i = 0; i < localStorage.length; i++) {
-    let key = localStorage.key(i);
-    if (key !== "theme" && key !== "theme-icon") {
-      let todoText = JSON.parse(localStorage.getItem(key)).text;
-      if (todoText.trim() == userNote.value.trim()) {
-        warning.innerHTML = "NOTE: This task is already exist.";
-        return;
-      } else {
-        warning.innerHTML = "";
-      }
+  let todos = JSON.parse(localStorage.getItem("todos")) || [];
+  for (let todo of todos) {
+    if (todo.text.trim() === userNote.value.trim()) {
+      warning.innerHTML = "NOTE: This task is already exist.";
+      return;
+    } else {
+      warning.innerHTML = "";
     }
   }
 
-  createNewtodo();
+  saveDataInLocal();
+  clearUI();
+  renderUI();
   resetInputField();
 });
 
@@ -229,23 +226,22 @@ cancel.addEventListener("click", function () {
   resetInputField();
 });
 
-
 // Remove todos
 todoArea.addEventListener("click", (e) => {
   // Best Practice
   let todoItem = e.target.parentElement;
   if (e.target.tagName == "BUTTON") {
+    // Remove from UI
     todoItem.remove();
 
     // Remove from localStorage
-    let todoId = todoItem.dataset.id;
-    for (let i = 0; i < localStorage.length; i++) {
-      let key = localStorage.key(i);
-      if (key !== "theme" && key !== "theme-icon") {
-        let localId = JSON.parse(localStorage.getItem(key)).id;
-        if (todoId == localId) {
-          localStorage.removeItem(key);
-        }
+    let todoId = parseInt(todoItem.dataset.id);
+    const todos = JSON.parse(localStorage.getItem("todos"));
+    for (const todo of todos) {
+      if (todo.id === todoId) {
+        const startingPoint = todos.indexOf(todo);
+        todos.splice(startingPoint, 1);
+        localStorage.setItem("todos", JSON.stringify(todos));
       }
     }
   }
@@ -255,43 +251,27 @@ todoArea.addEventListener("click", (e) => {
 const allTodos = document.getElementById("all_todos");
 allTodos.addEventListener("input", function (e) {
   let select = e.target;
-  let labels = document.querySelectorAll(".square_checkbox");
 
   function optionControl(option) {
     if (select.value == option) {
-      labels.forEach((label) => {
-        console.log(label);
-        label.remove();
-      });
-      let ids = [];
-      let database = [];
-      for (let i = 0; i < localStorage.length; i++) {
-        let key = localStorage.key(i);
-        // Saving ids
-        if (key != "theme" && key != "theme-icon") {
-          ids.push(key);
-        }
-      }
-      // Using ids
-      ids.forEach((id) => {
-        let userData = JSON.parse(localStorage.getItem(id));
-        database.push(userData);
-      });
-      database.reverse();
-      database.forEach((data) => {
+      clearUI();
+      let todos = JSON.parse(localStorage.getItem('todos'));
+
+
+      todos.forEach((todo) => {
         switch (option) {
           case "complete":
-            if (data.completed) {
-              addTodo(data.text, data.id, data.completed);
+            if (todo.completed) {
+              addTodo(todo.text, todo.id, todo.completed);
             }
             break;
           case "incomplete":
-            if (!data.completed) {
-              addTodo(data.text, data.id, data.completed);
+            if (!todo.completed) {
+              addTodo(todo.text, todo.id, todo.completed);
             }
             break;
           default:
-            addTodo(data.text, data.id, data.completed);
+            addTodo(todo.text, todo.id, todo.completed);
             break;
         }
       });
@@ -304,19 +284,11 @@ allTodos.addEventListener("input", function (e) {
 searchNote.addEventListener("input", function (e) {
   const userInput = e.target.value.toLowerCase();
   console.log(userInput);
-  let savedTodos = [];
-  for (let i = 0; i < localStorage.length; i++) {
-    let key = localStorage.key(i);
-    if (key !== "theme" && key !== "theme-icon") {
-      let todo = JSON.parse(localStorage.getItem(key));
-      savedTodos.push(todo);
-    }
-  }
+  let savedTodos = JSON.parse(localStorage.getItem("todos")) || [];
+  savedTodos.forEach((todo) => {
+    let todoText = todo.text.split("");
+  });
 
-  savedTodos.forEach(todo => {
-    let todoText = (todo.text).split("")
-  })
-  
   // savedTodos.forEach((todo) => {
   //   // for removing previous todos
   //   let labels = document.querySelectorAll(".square_checkbox");

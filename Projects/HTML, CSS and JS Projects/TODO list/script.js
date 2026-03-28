@@ -283,30 +283,18 @@ allTodos.addEventListener("input", function (e) {
 // Search Notes
 searchNote.addEventListener("input", function (e) {
   const userInput = e.target.value.toLowerCase();
-  console.log(userInput);
   let savedTodos = JSON.parse(localStorage.getItem("todos")) || [];
   savedTodos.forEach((todo) => {
-    let todoText = todo.text.split("");
+    let todoText = todo.text.toLowerCase().split(" ");
+    todoText.forEach(anyWord => {
+      if (userInput === "") { 
+        clearUI()
+        renderUI()
+      }
+      if (userInput === anyWord) {
+        clearUI();
+        addTodo(todo.text, todo.id, todo.completed);
+      }
+    })
   });
-
-  // savedTodos.forEach((todo) => {
-  //   // for removing previous todos
-  //   let labels = document.querySelectorAll(".square_checkbox");
-
-  //   const todoText = (todo.text).toLowerCase();
-  //   const todoWords = todoText.split(" ");
-  //   const userInputWords = userInput.split(" ");
-
-  // for (word of todoWords) {
-  //   for (userWord of userInputWords) {
-  //     if (word == userWord) {
-  //       // for removing previous todos
-  //       labels.forEach((label) => {
-  //         label.remove();
-  //       });
-  //       addTodo(todo.text, todo.id, todo.completed);
-  //     }
-  //   }
-  // }
-  // });
 });

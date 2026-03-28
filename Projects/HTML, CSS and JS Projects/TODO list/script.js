@@ -282,19 +282,20 @@ allTodos.addEventListener("input", function (e) {
 
 // Search Notes
 searchNote.addEventListener("input", function (e) {
-  const userInput = e.target.value.toLowerCase();
+  const userInput = e.target.value.toLowerCase().trim();
+
+  if (userInput === "") {
+    clearUI();
+    renderUI();
+    return;
+  }
+
   let savedTodos = JSON.parse(localStorage.getItem("todos")) || [];
-  savedTodos.forEach((todo) => {
-    let todoText = todo.text.toLowerCase().split(" ");
-    todoText.forEach(anyWord => {
-      if (userInput === "") { 
-        clearUI()
-        renderUI()
-      }
-      if (userInput === anyWord) {
-        clearUI();
-        addTodo(todo.text, todo.id, todo.completed);
-      }
-    })
-  });
+  let filteredTodos = savedTodos.filter(todo => {
+    return todo.text.toLowerCase().includes(userInput)
+  })
+  clearUI();
+  filteredTodos.forEach(todo => {
+    addTodo(todo.text, todo.id, todo.completed);
+  })
 });

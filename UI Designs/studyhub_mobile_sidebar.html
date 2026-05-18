@@ -1,0 +1,263 @@
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font-sans); }
+  .phone-frame {
+    width: 320px;
+    height: 580px;
+    border: 2px solid var(--color-border-primary);
+    border-radius: 32px;
+    overflow: hidden;
+    position: relative;
+    background: var(--color-background-tertiary);
+  }
+  .header {
+    background: var(--color-background-primary);
+    border-bottom: 0.5px solid var(--color-border-tertiary);
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 50;
+  }
+  .hamburger-btn {
+    position: absolute;
+    left: 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: background 0.15s;
+  }
+  .hamburger-btn:hover { background: var(--color-background-secondary); }
+  .logo { font-size: 18px; font-weight: 500; color: #185FA5; }
+  .logo span { color: var(--color-text-primary); }
+
+  .sidebar {
+    position: absolute;
+    top: 0; left: 0;
+    width: 220px;
+    height: 100%;
+    background: var(--color-background-primary);
+    border-right: 0.5px solid var(--color-border-tertiary);
+    z-index: 40;
+    transform: translateX(-100%);
+    transition: transform 0.25s cubic-bezier(0.4,0,0.2,1);
+    display: flex;
+    flex-direction: column;
+    padding-top: 52px;
+  }
+  .sidebar.open { transform: translateX(0); }
+
+  .sidebar-logo-area {
+    padding: 20px 16px 16px;
+    border-bottom: 0.5px solid var(--color-border-tertiary);
+  }
+  .sidebar-logo { font-size: 20px; font-weight: 500; color: #185FA5; }
+  .sidebar-logo span { color: var(--color-text-primary); }
+  .sidebar-tagline { font-size: 11px; color: var(--color-text-tertiary); margin-top: 2px; }
+
+  .nav-section { padding: 12px 8px; flex: 1; }
+  .nav-label { font-size: 10px; color: var(--color-text-tertiary); padding: 0 8px; margin-bottom: 4px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 10px;
+    border-radius: 8px;
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: background 0.12s, color 0.12s;
+    margin-bottom: 2px;
+  }
+  .nav-item:hover { background: var(--color-background-secondary); color: var(--color-text-primary); }
+  .nav-item.active { background: #E6F1FB; color: #185FA5; font-weight: 500; }
+  .nav-icon {
+    width: 16px; height: 16px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .nav-badge {
+    margin-left: auto;
+    background: #185FA5;
+    color: white;
+    font-size: 10px;
+    padding: 1px 6px;
+    border-radius: 999px;
+    font-weight: 500;
+  }
+
+  .sidebar-bottom {
+    padding: 12px 8px;
+    border-top: 0.5px solid var(--color-border-tertiary);
+  }
+  .user-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .user-card:hover { background: var(--color-background-secondary); }
+  .avatar {
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    background: #E6F1FB;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 500; color: #185FA5;
+    flex-shrink: 0;
+  }
+  .user-name { font-size: 13px; font-weight: 500; color: var(--color-text-primary); }
+  .user-role { font-size: 11px; color: var(--color-text-tertiary); }
+  .logout-btn {
+    display: flex; align-items: center; gap: 10px;
+    padding: 9px 10px;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #A32D2D;
+    cursor: pointer;
+    margin-top: 2px;
+    transition: background 0.12s;
+  }
+  .logout-btn:hover { background: #FCEBEB; }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    z-index: 30;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s;
+  }
+  .overlay.visible { opacity: 1; pointer-events: all; }
+
+  .page-content {
+    padding: 20px 16px;
+    padding-top: 72px;
+  }
+  .skeleton { background: var(--color-border-tertiary); border-radius: 6px; margin-bottom: 10px; }
+
+  .toggle-hint {
+    text-align: center;
+    font-size: 12px;
+    color: var(--color-text-tertiary);
+    margin-top: 12px;
+  }
+
+  .demo-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 0 8px;
+  }
+</style>
+
+<div class="demo-wrap">
+  <div class="phone-frame" id="frame">
+    <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+
+    <header class="header">
+      <button class="hamburger-btn" id="menuBtn" onclick="toggleSidebar()">
+        <svg id="menuIcon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <rect x="2" y="4" width="12" height="1.5" rx="1" fill="var(--color-text-secondary)"/>
+          <rect x="2" y="7.25" width="12" height="1.5" rx="1" fill="var(--color-text-secondary)"/>
+          <rect x="2" y="10.5" width="12" height="1.5" rx="1" fill="var(--color-text-secondary)"/>
+        </svg>
+        <svg id="closeIcon" width="16" height="16" viewBox="0 0 16 16" fill="none" style="display:none">
+          <path d="M3 3L13 13M13 3L3 13" stroke="var(--color-text-secondary)" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <div class="logo">Study<span>Hub</span></div>
+    </header>
+
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-logo-area">
+        <div class="sidebar-logo">Study<span>Hub</span></div>
+        <div class="sidebar-tagline">Your learning companion</div>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-label">Menu</div>
+        <div class="nav-item active">
+          <div class="nav-icon">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M2 6.5L8 2L14 6.5V14H10V10H6V14H2V6.5Z" stroke="#185FA5" stroke-width="1.2" fill="none"/>
+            </svg>
+          </div>
+          Home
+        </div>
+        <div class="nav-item">
+          <div class="nav-icon">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <rect x="2" y="3" width="12" height="10" rx="1.5" stroke="var(--color-text-secondary)" stroke-width="1.2"/>
+              <path d="M5 7H11M5 10H9" stroke="var(--color-text-secondary)" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          Courses
+          <span class="nav-badge">12</span>
+        </div>
+        <div class="nav-item">
+          <div class="nav-icon">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <rect x="2" y="2" width="12" height="12" rx="2" stroke="var(--color-text-secondary)" stroke-width="1.2"/>
+              <path d="M5 8H11M5 5.5H11M5 10.5H8" stroke="var(--color-text-secondary)" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          Dashboard
+        </div>
+      </div>
+
+      <div class="sidebar-bottom">
+        <div class="user-card">
+          <div class="avatar">MA</div>
+          <div>
+            <div class="user-name">Masud</div>
+            <div class="user-role">Student</div>
+          </div>
+        </div>
+        <div class="logout-btn">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+            <path d="M6 3H3a1 1 0 00-1 1v8a1 1 0 001 1h3M11 5l3 3-3 3M14 8H6" stroke="#A32D2D" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Logout
+        </div>
+      </div>
+    </nav>
+
+    <div class="page-content">
+      <div class="skeleton" style="height:18px;width:60%;"></div>
+      <div class="skeleton" style="height:12px;width:90%;"></div>
+      <div class="skeleton" style="height:12px;width:75%;"></div>
+      <div class="skeleton" style="height:80px;width:100%;margin-top:16px;"></div>
+      <div class="skeleton" style="height:80px;width:100%;"></div>
+    </div>
+  </div>
+  <p class="toggle-hint">উপরের ☰ button চাপো — sidebar দেখো</p>
+</div>
+
+<script>
+  let open = false;
+  function toggleSidebar() {
+    open = !open;
+    document.getElementById('sidebar').classList.toggle('open', open);
+    document.getElementById('overlay').classList.toggle('visible', open);
+    document.getElementById('menuIcon').style.display = open ? 'none' : 'block';
+    document.getElementById('closeIcon').style.display = open ? 'block' : 'none';
+  }
+  function closeSidebar() {
+    open = false;
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('overlay').classList.remove('visible');
+    document.getElementById('menuIcon').style.display = 'block';
+    document.getElementById('closeIcon').style.display = 'none';
+  }
+</script>

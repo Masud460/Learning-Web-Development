@@ -21,6 +21,6 @@ html, body{
 }
 
 .li {
-    @apply text-base hover:text-blue-500 border-b-1 border-gray-500 lg:border-none pb-2 lg:pb-0
+    @apply text-base hover:text-blue-500 py-3 px-4 lg:py-0 lg:px-0 lg:hover:bg-transparent lg:pb-0 hover:bg-gray-100 rounded-md 
 }
 

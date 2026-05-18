@@ -1,0 +1,29 @@
+1. No, TS isn't a standalone programming language, it's just an addon JS.
+
+2. No, it never runs, but it's a process. At the end of the day it returns JS.
+
+3. For the typing consistency.
+
+4. We have to install it because we write configurations.
+
+5. Cause at the end of the day it returns JS, so if there hasen't any JS issue, the file runs also.
+
+6. First of all it goes to lexer, after that parser then Binder, then Checker, then Emmitter, then the code will be converted to .js, .d.ts or .map etc file extention.
+
+7. The lexer converts things to token, like "const", "let", "function" and "return" etc.
+
+8. AST is a programming thing that makes a tree of a whole codebase and counts the number of variables, symbols functions etc.
+
+9. The Parser in TS does the same thing that AST do.
+
+10. Binder gets the AST/Parser tree, but not only that, it plays many extra roles:
+    1st: 
+        It creates Symbol Tables that allows us to use colon and undefined etc those are in some tables.
+    2nd:
+        It has a Parent Pointer that allows us to locate the upper tree.
+    3rd:
+        It creates Flow Nodes, like conditional rendering etc.
+
+11. The Checker checks every node is there any data-type changed during the process or not. This process called "Short Circuit". Checker also checks the code syntax.
+
+12. Emmiter generates files and stripops it, like the colon and after it we write in TS, Emmiter removes those colons and thier speciallity.

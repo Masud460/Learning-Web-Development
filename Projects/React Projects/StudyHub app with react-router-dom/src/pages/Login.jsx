@@ -3,7 +3,7 @@ import { useLoading } from "../hooks";
 import { LoginSkeleton } from "../components";
 
 function Login() {
-  const loading = useLoading(3000);
+  const loading = useLoading(500);
 
   if (loading) {
     return <LoginSkeleton />;

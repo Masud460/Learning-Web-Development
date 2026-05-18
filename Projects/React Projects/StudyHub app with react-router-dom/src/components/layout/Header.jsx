@@ -1,67 +1,65 @@
 import { NavLink } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { useAuth } from "../../hooks/";
+import { useAuth, useSidebar } from "../../hooks/";
+import hamberger from "../../assets/icon/hamburger.svg";
+import cross from "../../assets/icon/cross.svg";
 
 function Header() {
   const { user, logout } = useAuth();
+  const { isSidebarOpen, setIsSidebarOpen } = useSidebar();
 
-  const [isMobile, setIsMobile] = useState(false);
-  const [menuClick, setMenuClick] = useState(false);
-
-  // Check is the device mobile or not for the sidebar
-  useEffect(() => {
-    if (window.visualViewport.width < 640) {
-      setIsMobile(true);
-    } else {
-      setIsMobile(false);
-    }
-  }, [window.visualViewport.width]);
-
-  function showMenu() {
-    setMenuClick((prev) => !prev);
+  function closeMenu() {
+    setIsSidebarOpen(false);
   }
+
   return (
-    <div className="bg-white w-full h-14 flex justify-center lg:justify-evenly items-center text-2xl border-blue-500 border-b-[1.5px] relative">
-      <div
-        onClick={showMenu}
-        className={`${
-          menuClick ? "left-50" : "left-0"
-        } absolute top-4 left-5 text-gray-500 font-bold cursor-pointer z-10 lg:hidden`}
+    <header className="bg-white w-full h-14 flex justify-center lg:justify-evenly items-center text-2xl border-blue-500 border-b-[1.5px] relative">
+      <button
+        className={`lg:hidden transition-all duration-150 fixed top-5 cursor-pointer z-50 left-8`}
+        onClick={() => setIsSidebarOpen((prev) => !prev)}
       >
-        {menuClick ? "×" : "="}
-      </div>
+        <img
+          className="w-4 h-4"
+          src={isSidebarOpen ? cross : hamberger}
+          alt="icon"
+        />
+      </button>
       <h1 className="text-blue-600 font-medium text-3xl">
         Study<span className="text-black">Hub</span>
       </h1>
       <ul
-        className={` ${isMobile && menuClick ? "flex" : "hidden"}
-        lg:flex
+        className={` 
+        ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"}
+        transition-all
+        duration-150
+        lg:translate-x-0
+        flex
         lg:items-center
         flex-col
         lg:flex-row
-        gap-6
-        lg:gap-10
+        gap-3
+        lg:gap-8
         font-medium
         absolute
         top-0
         left-0
+        mt-14
+        lg:mt-0
         p-6
       bg-gray-300
         lg:bg-transparent
         w-60
         lg:w-fit
         lg:relative
-        h-dvh
-        lg:h-full
-        z-9
+        z-40
       `}
       >
         <li className="li">
           <NavLink
-            to=""
+            to="/"
             className={({ isActive }) =>
               `${isActive ? "text-blue-500" : "text-gray-600"}`
             }
+            onClick={closeMenu}
           >
             Home
           </NavLink>
@@ -72,6 +70,7 @@ function Header() {
             className={({ isActive }) =>
               `${isActive ? "text-blue-500" : "text-gray-600"}`
             }
+            onClick={closeMenu}
           >
             Courses
           </NavLink>
@@ -82,30 +81,36 @@ function Header() {
             className={({ isActive }) =>
               `${isActive ? "text-blue-500" : "text-gray-600"}`
             }
+            onClick={closeMenu}
           >
             Dashboard
           </NavLink>
         </li>
-        <li className={`li ${user ? "hidden" : "block"}`}>
+        <li
+          className={`li ${user ? "hidden" : "block"} ${isSidebarOpen ? "mt-96" : "mt-0"}`}
+        >
           <NavLink
             to="login"
             className={({ isActive }) =>
               `${isActive ? "text-blue-500" : "text-gray-600"}`
             }
+            onClick={closeMenu}
           >
             Login
           </NavLink>
         </li>
-        <li className={`li ${user ? "block" : "hidden"}`}>
+        <li
+          className={`li ${user ? "block" : "hidden"} ${isSidebarOpen ? "mt-79" : "mt-0"}`}
+        >
           <button
-            onClick={() => logout()}
-            className={`bg-blue-500 text-white rounded-md py-1 px-4 font-semibold cursor-pointer`}
+            onClick={logout}
+            className={`bg-blue-500 text-white rounded-md py-1 px-4 font-semibold cursor-pointer `}
           >
             Logout
           </button>
         </li>
       </ul>
-    </div>
+    </header>
   );
 }
 

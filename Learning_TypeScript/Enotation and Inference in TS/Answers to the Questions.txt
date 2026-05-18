@@ -1,5 +1,0 @@
-1. Type-enotation is where we define the data-type manually like this:
-    let username: string = 'masud'
-and Type-inference is where we don't define the data-type manually, TS automatically defines that like this:
-    let username = 'masud'
-    if we hover on the variable name, we will see the TS already defined the data-type.

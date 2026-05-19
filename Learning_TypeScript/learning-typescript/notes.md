@@ -216,7 +216,6 @@ const rokeya: ScholarshipStudent = {
 };
 ```
 
-
 # Day 5
 
 ## Today I've learned this thing.
@@ -228,11 +227,9 @@ const rokeya: ScholarshipStudent = {
 
 - Arrow Function Typing
 
-
 - If there no return statment in function, set the return type to 'void';
 - The Optional Parameter in function must be in the last of required parameters;
 - We cannot use Default parameter in optional parameter;
-
 
 # Day 6
 
@@ -241,14 +238,13 @@ const rokeya: ScholarshipStudent = {
 - Union(or/ | )
 - Intersection(and/ & )
 
-
 - If we use union, typescript doesn't allow us to use method directly rather then checking the type firstly.
 
 # Day 7
 
 ## Today I've done the mini project...
-- Student Result Generator
 
+- Student Result Generator
 
 # Day 8
 
@@ -259,18 +255,17 @@ const rokeya: ScholarshipStudent = {
 - Truthiness Narrowing
 - "in" Operator Narrowing
 
-
 ! Important: if we don't 'return' early in this codebase TS will throw type error:
+
 ```ts
 function checkPerson(person: Student | number) {
   if (person instanceof Student) {
     console.log(person.tellAboutSelf());
-    return // Here is the main game changer
+    return; // Here is the main game changer
   }
   console.log(person * 3);
 }
 ```
-
 
 # Day 9
 
@@ -281,6 +276,7 @@ function checkPerson(person: Student | number) {
 - We can use default generic like the default parameter in function.
 
 - When we call a generic function:
+
 ```ts
 identity<string>("hello");
 // TypeScript replaces T with string.
@@ -292,6 +288,7 @@ identity("hello"); // T is inferred as string
 - T is just a convention — You can write "Type" or "Item" also.
 - We can write T[] or Array<T> for array generic
 - We can use multiple generics like this:
+
 ```ts
 function pair<K, V>(key: K, value: V): [K, V] {
   return [key, value];
@@ -300,16 +297,19 @@ function pair<K, V>(key: K, value: V): [K, V] {
 const result = pair("age", 25); // [string, number]
 ```
 
+# Day 10
+
 - Constraint in generic
 
 <T> is a generic type (a placeholder for any type).
 "extends" is used to add a constraint (rule) to the generic type.
 
 ```ts
-function getLength<T extends { length: number }>(data: T): number{
+function getLength<T extends { length: number }>(data: T): number {
   return data.length;
-} 
+}
 ```
+
 it means:
 → T can be any type, but it must have a length property.
 This is not inheritance, just a requirement for the type.
@@ -318,13 +318,99 @@ This is not inheritance, just a requirement for the type.
 
 ```ts
 const masud388: Student = {
-    name: 'Ataullah Masud',
-    age: 20,
-    id: '_masud388',
-}
+  name: "Ataullah Masud",
+  age: 20,
+  id: "_masud388",
+};
 
-const products: string[] = ['apple', 'lemon', 'orange'];
+const products: string[] = ["apple", "lemon", "orange"];
 
 console.log(masud388.name);
 console.log(products.length); // This is like the object property, can be accessed with dots.
 ```
+
+# Day 11
+
+## Today I've learned the utility types in TS.
+
+- What is Utility Types:
+  When the TS team realize, some type they need to write many times like a type needs to be:
+  - all properties are optional or
+  - all properties are required or
+  - some properties should be cut etc.
+    so they've made some ready made helper for these type of work and these are Utility Types.
+
+- Here is some utility types:
+  1. Partial: it makes all properties optional.
+  2. Required: it makes all properties required.
+  3. Readonly: it doesn't allow user to change anything.
+  4. Pick: it allows us to pick some properties from a type instead of duplicating the same type.
+  5. Omit: it allows us to cut some type from an existing type instead of duplicating the same type. It doesn't work with union.
+  6. Record: it's useful when we need a type it's all properties are same, so instead of typing all properties manually we can use the Record utility to fast forward the work. It's very helpful when working with huge data.
+  7. Exclude: it allows us to excepting some union value. This is the different between Omit and Exclude, because Omit works with annotation on the otherhand Exclude works with union.
+  8. Extract: it allows us to take some type from a long union type. Again this is the different between Pick and Extract, because Pick works with annotation on the otherhand Extract works with union.
+  9. NonNullable: it removes null and undefined from union type;
+  10. ReturnType: it allows us to save any function's return type.
+  11. Parameters: it takes function's args type as an array type. So you can use it only in array.
+  12. Awaited: when we try to get the return type of an async function, we cannot directly access the return type, instead it shows a Promise, that's why we use the Awaited utility to fulfill the Promise and we can get the exact type.
+
+- Where these utilities will be placed?
+  These should be placed in that place you need these utilities there like this:
+  ```ts
+  interface User {
+    name?: string;
+    id?: number;
+    }
+
+  const masud: Required<User> = {
+    name: "Masud",
+    id: 345,
+  }; // I need here 'Required' utility so I have used it here
+
+  const jobaer: User = {
+    name: 'jobaer',
+  } // I don't need here 'Required' utility so I haven't used it here
+  ```
+
+# Day 12
+
+## Today I've learned keyof and typeof in TS.
+
+- keyof:
+  takes the keys of an object and store them as an union
+
+  example:
+
+  ```ts
+  interface User {
+    name: string;
+    id: number;
+    email: string;
+  }
+
+  type Keys = keyof User; // "name" | "id" | "email"
+  ```
+
+  Why:
+  I don't know exactly right now what can it do.
+
+- typeof:
+  Copies the type of an existing object.
+
+  example:
+
+  ```ts
+  const masud = {
+    name: "Masud",
+    id: 234,
+    email: "masud234@gmail.com",
+  }; // Here we haven't declared the type.
+
+  type NewUser = typeof masud; // But here it converts the masud's object type based on the values saves here.
+
+  const jobaer: NewUser = {
+    name: "Jobaer",
+    id: 978,
+    email: "jobaer345@gmail.com",
+  };
+  ```

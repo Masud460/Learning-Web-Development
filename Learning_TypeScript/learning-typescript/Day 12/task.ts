@@ -1,0 +1,1 @@
+// day12.ts বানাও। getProperty<T, K extends keyof T> function লেখো। typeof দিয়ে config object থেকে type extract করো।

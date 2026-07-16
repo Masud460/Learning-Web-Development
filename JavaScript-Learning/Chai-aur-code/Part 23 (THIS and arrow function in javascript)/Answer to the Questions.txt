@@ -1,4 +1,4 @@
-1. The problem is the JS don't know what the context is right now, so we need to tell JS about our current context by using 'this.' before the username variable like this:
+1. The problem is the JS don't know what's the context right now, so we need to tell JS about our current context by using 'this.' before the username variable like this:
     const user = {
     username: 'Masud',
     price: 499,

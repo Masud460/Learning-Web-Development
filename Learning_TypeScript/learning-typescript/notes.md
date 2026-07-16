@@ -356,11 +356,12 @@ console.log(products.length); // This is like the object property, can be access
 
 - Where these utilities will be placed?
   These should be placed in that place you need these utilities there like this:
+
   ```ts
   interface User {
     name?: string;
     id?: number;
-    }
+  }
 
   const masud: Required<User> = {
     name: "Masud",
@@ -368,8 +369,8 @@ console.log(products.length); // This is like the object property, can be access
   }; // I need here 'Required' utility so I have used it here
 
   const jobaer: User = {
-    name: 'jobaer',
-  } // I don't need here 'Required' utility so I haven't used it here
+    name: "jobaer",
+  }; // I don't need here 'Required' utility so I haven't used it here
   ```
 
 # Day 12
@@ -414,3 +415,92 @@ console.log(products.length); // This is like the object property, can be access
     email: "jobaer345@gmail.com",
   };
   ```
+
+# Day 13
+
+## Today I've learned Mapped Type in TS.
+
+- Mapped Type: it takes an extisting type as an argument and makes custom utilities with that type by iterating all keys of the existing type.
+
+- Examples:
+  1. Custom Partial:
+
+  ```ts
+  type OptMaker<T> = {
+    [K in keyof T]?: T[K];
+  }; // The question mark for making optional
+  ```
+
+  2. Custom Readonly:
+
+  ```ts
+  type ReadonlyMaker<T> = {
+    readonly [K in keyof T]: T[K];
+  };
+  ```
+
+  ! Something special I've just learned from the topic. That is:
+
+  ```ts
+  type User = {
+    readonly name: string;
+    readonly email: string;
+    readonly id: number;
+  };
+  // We can use readonly also like this.
+  ```
+
+  3. Custom Required:
+
+  ```ts
+  type RequiredMaker<T> = {
+    [K in keyof T]-?: T[K];
+  };
+  ```
+
+
+# Day 14
+
+## Today I've learned conditional type in TS.
+
+- When we need to check : is a type array or not we can check it like this:
+  ```ts
+  type IsArray<T> = T extends any[] ? "Yes" : "No";
+  ```
+
+
+# Day 15
+## Today I've learned TS Module System
+
+- Type Import
+- Type Export
+
+
+# Day 16
+
+## Today I've tried to build a simple todo with TS.
+
+### What I learned from the project
+
+- When we declare an array all element type like this 
+```ts
+  const todos: string[] = [];
+```
+it means that the all element of the array should be string;
+so when need to set a perticuler type in all element of the array we can do this also like this:
+```ts
+  interface Todo {
+  id: number;
+  title: string;
+  completed: boolean;
+  createdAt: string;
+}
+
+const todos: Todo[] = []; 
+```
+
+
+
+# Day 17
+
+## Today I've learned React + Typescript setup

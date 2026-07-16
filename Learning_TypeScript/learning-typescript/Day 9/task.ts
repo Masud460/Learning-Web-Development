@@ -18,28 +18,25 @@ function wrapInArray<T>(value: T): T[]{
 // console.log(wrapInArray('Masud'));
 
 
-// interface ApiResponse<T> {
-//     data: T;
-//     success: boolean;
-//     message: string;
-// }
+interface ApiResponse<T> {
+    data: T;
+    success: boolean;
+    message: string;
+}
 
-// const numberData: ApiResponse<number> = {
-//     data: 923479237,
-//     success: true,
-//     message: 'Data loaded.',
-// }
+const numberData: ApiResponse<number> = {
+    data: 923479237,
+    success: true,
+    message: 'Data loaded.',
+}
 
-// const stringData: ApiResponse<string[]> = {
-//     data: ['one', 'two', 'three'],
-//     success: false,
-//     message: 'Data not  loaded.'
-// }
+const stringData: ApiResponse<string[]> = {
+    data: ['one', 'two', 'three'],
+    success: false,
+    message: 'Data not  loaded.'
+}
 
 
-/*
-! Under construction
-*/
-// function mergeObjects<T, J> (obj1: T, obj2: J): {} {
-//     return {...obj1, ...obj2}
-// }
+function mergeObjects<T extends {}, K extends {}> (obj1: T, obj2: K): {} {
+    return {...obj1, ...obj2}
+}

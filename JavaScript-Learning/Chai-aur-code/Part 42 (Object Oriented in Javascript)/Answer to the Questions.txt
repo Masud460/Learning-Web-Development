@@ -381,7 +381,7 @@ for example:
     const userTwo = user('Jobaer', 10, false)
     console.log(userOne);
 
-    in this code we haven't log the userTwo to the console, but the userOne function's details are replaced with the userTwo's details, to avoid the problem we can use the new constructor keyword before every copy of function, Like this:
+    in this code we haven't log the userTwo to the console, but the userOne function's details are replaced with the userTwo's details, to avoid the problem we can use the 'new' constructor keyword before every copy of function, Like this:
 
     function user(username, loginCount, isLoggedIn) {
     this.username = username

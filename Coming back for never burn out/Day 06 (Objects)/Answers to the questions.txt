@@ -1,0 +1,18 @@
+1. Object literal is an object that's created by qurly braces.
+
+2. The major issue is, it doesn't act like a blueprint. That means if you need another object with the same structure, you have to copy the first one and paste it in a new one.
+
+3. It tells developers that the function is created for creating objects.
+
+4. When we need to create many objects with the same structure we should use function constructor.
+
+5. Yes, these all be used to create an object.
+
+6. Yes, we can make a shallow copy of the object that's it. like this:
+    const userNew = {
+        name: 'Ataullah',
+        age: 21
+    }
+    const userNewDetails = {...userNew} /// The brackets and the dots play the magic role...
+
+7. No, that's why if we change anything in nested objects in copy version the original one also changes.

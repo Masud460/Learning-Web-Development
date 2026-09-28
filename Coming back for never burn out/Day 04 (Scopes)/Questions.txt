@@ -1,0 +1,18 @@
+1. How should we think about the Scope in JS?
+
+2. Look at the following codebase, there are two variables with the same name x. So in this case, which one gets priority to be printed in the function's console.log and why?
+
+code:
+    var x = 23
+
+    function myFunc() {
+        var x = 10;
+        console.log(`${x} from myFunc dunia`);
+    }
+
+    myFunc()
+    console.log(x);
+
+3. If we don't declare a variable, and assign it like this: x = 10; what does actually happen then?
+
+4. Is it a declaration or assignment: x = 10?

@@ -10,3 +10,5 @@
         The slice method not holds the last index number where the splice method holds the last index also.
     2nd:
         The slice method returns a new array by not changing the original array where the splice method returns the values by changing the original array.
+    3rd:
+        The slice method second parameter means the index number where the splice method second parameter means how much element do you wanna cut after the index.

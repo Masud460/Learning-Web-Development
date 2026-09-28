@@ -1,0 +1,19 @@
+1. The compiler creates a space in the memory and assigns 'undefined' to it.
+
+2. The let and const keywords are different from var. Although the compiler knows them, it doesn't initialize 'undefined' to it.
+
+3. 'Declaration' means the variable without assigning a value to it.
+
+4. When we declare a variable with the keyword var JS compiler allocates a space in the memory for it and assign undefined to it, but when we declare a variable using let or const keyword JS compiler knows them, but they're uninitialized (it means, it doesn't assign 'undefined' to them).
+
+5. The time let and const are declared but not initialized, it's called Temporal Dead Zone(TDZ);
+
+6. We need to think about it like this:
+    var x;
+    var y;
+    x = 1;
+    console.log(x, y);
+    x = 2;
+   That's why we'll get the output "1 undefined". Because in the memory creation phase every var variable values assigned to undefined, but in the execution phase the x is assigned to 1 before it's used, and JS goes line by line that's why the y is still undefined and it assigned after using.
+
+7. JavaScript in strict mode doesn't allow variables to be used if they are not declared.

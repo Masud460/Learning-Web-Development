@@ -21,3 +21,5 @@
 11. How to stop a method from using it in class? for doing this, create a new class and add a method in it called create id, then create a user to test the programm.
 
 12. Create a new class named teacher and extend it with the user class, then try to use the static method with the teacher class is it work or not.
+
+13. How to create private variable in JS?

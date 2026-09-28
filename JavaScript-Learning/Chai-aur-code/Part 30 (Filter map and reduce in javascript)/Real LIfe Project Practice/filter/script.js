@@ -13,17 +13,18 @@ let books = [
 let mainContainer = document.querySelector(".container");
 let buttons = document.querySelectorAll("button");
 
-const main = buttons.forEach((button) => {
-  button.addEventListener("click", function () {
-    let classList = this.classList[0];
-
-    switch (classList) {
+buttons.forEach((button) => {
+  button.addEventListener("click", function (e) {
+    let selectedGenre = e.target.classList.value;
+    switch (selectedGenre) {
       case "fiction":
-        books = books.filter((book) => book.genre == "Fiction");
+        books = books.filter((book) => book.genre === "Fiction");
+        console.log(books);
         break;
 
       case "non-fiction":
-        books = books.filter((book) => book.genre == "Non-Fiction");
+        books = books.filter((book) => book.genre === "Non-Fiction");
+        console.log(books);
         break;
     }
   });
@@ -60,27 +61,6 @@ let bookShop = function () {
   }
 };
 bookShop();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // let indexOfTitle = 0;
 // title.forEach(function (ti) {

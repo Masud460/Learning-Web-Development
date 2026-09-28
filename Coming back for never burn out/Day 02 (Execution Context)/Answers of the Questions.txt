@@ -1,0 +1,45 @@
+1. There are three ways to convert JS code to machine code:
+    1st:
+    Interpreter.
+    2nd: 
+    Compiler.
+    3rd: 
+    Mixture of both and that is "JIT (Just-in-time) Compiler".
+
+2. It looks at the JS code first then converts it into machine code, then does the same thing line by line and so on.
+
+3. It looks at the whole JS code every line of it for the first time, then converts the whole codebase into machine code. 
+
+4. The JIT works as Interpreter and the Compiler works as a Compiler.
+
+5. There are two execution contexts in JS, 1: Global Execution Context. 2: Function Execution Context.
+
+6. Every time we create a new JS file the first thing happens to it that is creation of Global Execution Context. and there are some objects like window, this, variable object and scope chain etc. This is the loading phase of Global Execution Context.
+
+7. When we create a variable it goes to the global execution context and JS allocates it(The variable) by it's name and the value is 'undefined' if the variable created by var keyword. And when we create a function in JS it goes to the global execution context and JS allocates it by its name with its body as a value. The whole process also known as Loading Phase or Creation Phase.
+
+8. After the creation phase, the compiler starts Execution Phase. It looks at the created variables and functions and defines their values.
+
+9. Every time we invoke a function a new Execution Context will be created, it has all things those are in Global Execution Context except the Global Object, cause it stays in the global object. Instead, it has an object called parameter object or argument object. It also has the two phases, 1. Memory Creation Phase and 2. Execution Phase.
+
+10. JS has a stack feature called call stack. It maintances every context up to another.
+
+11. It removes the whole function execution context when sees a return keyword. I think that's why our code doesn't work after the return statement in function.
+
+12. No, they haven't any work in the Loading Phase. The loading phase only allocates memory for variables and function's bodies. In the second phase which is Execution Phase the console.log and function invokes work.
+
+13. Yes, the function execution context also allocates memory for the parameters. But since the parameters value saved in arguments object the execution context sets their value from arguments object in the loading phase instead of undefined, cause the undefined in only one case which is var keyword.
+
+14. Do by yourself.
+
+15. Do by yourself.
+
+16. Do by yourself.
+
+17. No, JavaScript finds the variable in the current scope first. If it finds it there, it stops looking. It's also known as shadowing.
+
+18. A function gets its scope from where it is defined, not where it is called.
+
+19. A variable can hold a function. If that function forms a closure over variables from its outer scope, those variables remain accessible between calls. So the function can continue using and changing the same variables instead of starting with new ones each time.
+
+20. No. The same function uses the same closure on every call. A new closure is created only when a new function is created.

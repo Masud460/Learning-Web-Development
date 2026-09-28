@@ -9,8 +9,8 @@ const nums = [1, 2, [3, 4], 5, [6, [7, 8]], 9];
 const in_one_array = nums.flat(Infinity)
 // console.log(in_one_array)
 
-// console.log(Array.isArray(in_one_array))
-// console.log(Array.from('Ataullah Masud'))
-// console.log(Array.from({username: 'Masud'}))
+console.log(Array.isArray(in_one_array))
+console.log(Array.from('Ataullah Masud'))
+console.log(Array.from({username: 'Masud'}))
 
-console.log(Array.of(1, 3, 6))
+// console.log(Array.of(1, 3, 6))

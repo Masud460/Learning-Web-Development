@@ -1,5 +1,5 @@
 1. The way of creating a class:
-    class user {
+    class User {
         // code
     }
 
@@ -111,3 +111,8 @@
 
     const hitesh = new teacher('Hitesh', 'hitesh@google.com')
     console.log(hitesh.createId());
+
+13. Like this:
+class User {
+    #privateVar = 'This is a private var'
+}

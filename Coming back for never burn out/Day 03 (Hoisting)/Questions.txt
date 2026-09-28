@@ -1,0 +1,16 @@
+1. What does the JS Compiler when we create a variable using var keyword and use it before assing some value or declare the variable?
+
+2. What about the let and const keyword?
+
+3. What is the 'Declaration'?
+
+4. What is the different between var, let and const?
+
+5. What's Temporal Dead Zone?
+
+6. How do we need to think about this type of code?
+    var x = 1;
+    console.log(x, y);
+    var y = 2;
+
+7. What if we use 'use strict'?

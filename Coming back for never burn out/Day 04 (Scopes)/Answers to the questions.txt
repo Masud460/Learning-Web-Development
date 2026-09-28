@@ -1,0 +1,7 @@
+1. Think of it like a Duniya.
+
+2. The inner x gets priority. Because JS first looks in its own scope, if it doesn't find then goes to the outer scope.
+
+3. If we assign a value to an usdeclared variable, non-strinct JavaScript creates a property on the global object. In strict mode, it throws a ReferenceError.
+
+4. It's always an assignment not a declaration. Even if you assign a new variable like this without declaration JS automatically declares it behind it.

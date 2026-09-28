@@ -1,0 +1,13 @@
+1. What is object literal in JS?
+
+2. What is the major issue with object literal?
+
+3. Why developers name function constructor in PascalCase?
+
+4. Why do we need function constructor?
+
+5. Are all of these -object literal, function constructor and class constructor- use as a object?
+
+6. As we know that the object is a non-primitive datatype, that's why it cannot be copied but it shares the same reference. so can we do anything for preventing this?
+
+7. Supose we have an object with some nested objects in that. So if we create a shallow copy of the object do the nested objects also be copied?

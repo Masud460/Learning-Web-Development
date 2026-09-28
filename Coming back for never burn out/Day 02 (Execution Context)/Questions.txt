@@ -1,0 +1,39 @@
+1. How many ways there to convert a JS code into machine code and oposite of it? 
+
+2. How the Interpreter works?
+
+3. How the Compiler works?
+
+4. How does the JIT Compiler work?
+
+5. How many execution context there?
+
+6. What's the first thing happens to the JS execution context?
+
+7. What actually happens when we create some variables or functions in JS.
+
+8. What happens after the Creation Phase?
+
+9. What is the Function Execution Context?
+
+10. As we know, JS has only one thread. So, how these context remains in one single thread when we invoke nested function?
+
+11. What does the function execution context when it sees a "return" in the function?
+
+12. does the console.log and function invokes have any work in Loading/Memory Creation Phase?
+
+13. We know that function has it's own variable which is parameters. So, are they work like normal variable? I mean, does the function execution context allocate memory for these variables too after saving them in arguments object?
+
+14. Explain the hoisting through execution context.
+
+15. Explain the scope through execution context.
+
+16. Explain the closure through execution context.
+
+17. If a function has its own variable, does it look for that variable in the parent or global scope?
+
+18. Where does a function get its scope from: where it is defined or where it is called?
+
+19. When a function is stored in a variable, how can it remember values from previous calls?
+
+20. Does every function call create a new closure?
